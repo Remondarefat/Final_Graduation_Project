@@ -1,0 +1,23 @@
+.leftContainer {
+    background-color: #EFF0F2;
+    height: 600px;
+
+}
+.adminImg {
+    width: 150px;
+    height: 150px;
+}
+.addingRoom {
+    color: #ABDBDE;
+}
+.imageContainer {
+    min-height: 300px; 
+    width: 100%;
+    background-color: #D9D9D9;
+  }
+  
+  .uploadedImage {
+   width: 150px;
+   height: 150px;
+   margin: 5px;
+  }
