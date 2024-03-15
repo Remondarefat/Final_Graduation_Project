@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import HomePage from './Components/HomePage/HomePage';
 import AddHotel from './Components/AddHotel/AddHotel';
 import Layout from './Components/AdminLayout/Layout';
 import AddRoom from './Components/AddRoom/AddRoom';
@@ -16,6 +17,7 @@ function App() {
       { path: '/addroom', element: <AddRoom /> },
       { path: '/allhotel', element: <AllHotels /> },
   ]},
+  { path: '/home', element:<HomePage /> },
     { path: '/checkout', element:<Checkout /> },
     {path:'/editprofile', element:<EditProfile/>},
     { path: '/register', element: <Reigster /> },
