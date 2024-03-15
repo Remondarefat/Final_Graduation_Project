@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->json('meals');
+            $table->date('checkin');
+            $table->date('checkout');
+            $table->integer('total_due');
             $table->boolean('is_accepted')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('hotel_id');

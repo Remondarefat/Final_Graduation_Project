@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('view');
             $table->integer('price');
+            $table->string('status')->default('Available');
             $table->unsignedBigInteger('hotel_id');
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
             $table->timestamps();
