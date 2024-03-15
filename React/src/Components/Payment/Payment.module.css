@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.orderInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+
+.paypalForm {
+    flex: 1; /* Take 50% of the width */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+.centeredLogo {
+    flex: 1; /* Take 50% of the width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.paypalPayment {
+    width: 25%; /* Adjust the width as needed */
+    margin: 15px;
+    
+}
+
+.paypalLogo {
+    width: 60%; /* Adjust the width as needed */
+    margin: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.bookingTable{
+    align-self: center;
+    width: 100%;
+    font-size: 15px;
+}
+.bookingTable h5{
+    position: relative;
+}
+.bookingTable h5::before{
+    content: "";
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 1px;
+    background-color: gray;
+
+}
+
+.paypalButton,
+.paypalButtonDebit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+}
+.paypalButton{
+    background-color: #FFC300;
+}
+.paypalButtonDebit{
+    background-color: black;
+    color: white;
+}
+.paypalButton:hover{
+    background-color: #FFC300;
+    transition: 0.5s;
+}
+.paypalButtonDebit:hover{
+    background-color: rgba(0, 7, 20, 0.879);
+}
+.paypalButton img{
+    width: 55%;
+    height: 90%;
+}
+
