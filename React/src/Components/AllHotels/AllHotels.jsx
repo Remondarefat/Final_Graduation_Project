@@ -1,9 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link } from "react-router-dom";
 
+// Define BookingSystem as a separate functional component
+function BookingSystem() {
+  const [bookingData, setBookingData] = useState(null);
+
+  useEffect(() => {
+    const fetchBookingData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/booking-data');
+        setBookingData(response.data);
+        console.log('Booking data:', response.data);
+      } catch (error) {
+        console.error('Error fetching booking data:', error);
+      }
+    };
+
+    fetchBookingData();
+  }, []);
+
+  return (
+    <div>
+      <h1>Booking System</h1>
+      {bookingData ? (
+        <pre>{JSON.stringify(bookingData, null, 2)}</pre>
+      ) : (
+        <p>Loading booking data...</p>
+      )}
+    </div>
+  );
+}
+
+// AllHotels component
 export default function AllHotels() {
-    return <>
-        <div className=" container mt-5">
+  return (
+    <div>
+      {/* Render BookingSystem component */}
+      <BookingSystem />
+
+      {/* Other content for AllHotels component */}
+      {/* Add your other JSX content here */}
+    </div>
+  );
+}
+
+        {/* <div className=" container mt-5">
                 <h2 className='available-title'>Available Hotels</h2>
             <div className="row mt-4">
                 <div className="col-md-3 mb-5 ">
@@ -286,6 +328,7 @@ export default function AllHotels() {
                 <Link to={''} className='btn btn-dark rounded-3 me-5'>Go To Requests</Link>
             </div>
 
-        </div>
-    </>
-}
+        </div> */}
+//     </>
+// }
+// }

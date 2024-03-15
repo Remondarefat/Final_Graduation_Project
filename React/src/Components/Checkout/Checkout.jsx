@@ -38,21 +38,14 @@ export default function AddRoom() {
             <form method='post'>
               <div className="d-flex">
                 <div className="d-flex flex-column me-3">
-                  <label htmlFor="checkin">Check in :</label>
-                  <input type="text" className='form-control w-75' name="checkin" id="check-in" />
+                  <label htmlFor="checkin">Check In :</label>
+                  <input type="date" className='form-control w-75' name="checkin" id="check-in" />
                 </div>
                 <div className="d-flex flex-column me-3">
-                  <label htmlFor="checkout">Check out :</label>
-                  <input type='text' className='form-control w-75' name="checkout" id="check-out" />
+                  <label htmlFor="checkout">Check Out :</label>
+                  <input type='date' className='form-control w-75' name="checkout" id="check-out" />
                 </div>
-                <div className="d-flex flex-column">
-                  <label htmlFor="duration">Duration:</label>
-                  <input type='text' className='form-control w-75' name="duration" id="duration" />
-                </div>
-              </div>
-              <div className="d-flex flex-column mt-4">
-                <label htmlFor="numofrooms">Number of Rooms:</label>
-                <input type='number' className=" form-control w-25" name="numofrooms" id="numofrooms" />
+
               </div>  
               <div className="d-flex flex-column align-items-end mt-4 pb-5">
                 <p>Total Due:</p>
