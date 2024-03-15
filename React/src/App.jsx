@@ -9,6 +9,7 @@ import Checkout from './Components/Checkout/Checkout';
 import EditProfile from './Components/EditProfile/EditProfile';
 import Reigster from './Components/Reigster/Reigster';
 import AllHotels from './Components/AllHotels/AllHotels';
+import AdminRequest from './Components/AdminRequests/AdminRequest';
 
 function App() {
   let routers = createBrowserRouter([
@@ -16,6 +17,7 @@ function App() {
     { path: '/addhotel', element: <AddHotel /> },
       { path: '/addroom', element: <AddRoom /> },
       { path: '/allhotel', element: <AllHotels /> },
+      { path: '/adminrequest', element: <AdminRequest /> },
   ]},
   { path: '/home', element:<HomePage /> },
     { path: '/checkout', element:<Checkout /> },
