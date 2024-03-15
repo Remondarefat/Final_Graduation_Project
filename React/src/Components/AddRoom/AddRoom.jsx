@@ -3,40 +3,47 @@ import style from './AddRoom.module.css'
 import axios from 'axios';
 
 export default function AddRoom() {
+  const [images, setImages] = useState([]);
   const [formData, setFormData] = useState({
     type:'',
     price:0,
     view:'',
-    image:null
+    image:[],
   });
-  const [images, setImages] = useState([]);
-
-  const handleImageUpload = (event) => {
-    const fileList = event.target.files;
-    const imageUrls = [];
-    for (let i = 0; i < fileList.length; i++) {
-      const imageUrl = URL.createObjectURL(fileList[i]);
-      imageUrls.push(imageUrl);
-    }
-    setImages(imageUrls); 
-    setFormData({ ...formData, image: fileList }); // Save selected files to form data
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    setImages(files.map(file => URL.createObjectURL(file)));
+    setFormData({ ...formData, image: files });
   };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
+  function addRoomData(e) {
+    e.preventDefault();
+    sendData();
+    
+  }
+  async function sendData() {
+    let formDataToSend = new FormData();
+    formDataToSend.append('type', formData.type);
+    formDataToSend.append('price', formData.price);
+    formDataToSend.append('view', formData.view);  
+    formDataToSend.append('hotel_id' , 1);  
+    formData.image.forEach(file => {
+      formDataToSend.append('image[]', file);
+    });
+    console.log(formDataToSend);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/addroom', formData);
-      console.log(response.data);
+     
+      let { data } = await axios.post("http://localhost:8000/api/addroom", formDataToSend);
+      console.log(data);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error(error);
     }
-
-}
+  }
   return (
     <>
    <div className="container pt-5">
@@ -48,7 +55,7 @@ export default function AddRoom() {
         <div className="col col-8">
           <h3 className={style.addingRoom}>Adding Room</h3>
           <h6 className="fw-bold pt-3 pb-3">Hotel: Hilton</h6>
-          <form method='post' onSubmit={handleSubmit}>
+          <form method='post' onSubmit={addRoomData} enctype="multipart/form-data">
             <div className="d-flex">
               <div className="d-flex flex-column me-5">
                 <label htmlFor="room-type" className="mb-3 fw-bold text-muted">Room Type :</label>
@@ -71,7 +78,7 @@ export default function AddRoom() {
                   ))}
               </div>
               <label htmlFor="image" className={`btn mt-3 w-25`} style={{ backgroundColor: '#47BCC2' ,color: '#fff' }}>Upload Images <i class="fa-solid fa-cloud-arrow-up"></i> </label>
-              <input type="file" id="image" name="image" multiple onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }} />
+              <input type="file" id="image" name="image" multiple onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }}  />
             </div>
             <div className="btns d-flex justify-content-end mt-5">
               <button type="button" className="btn text-decoration-none text-dark"><i className="fas fa-times me-2"></i>Cancel</button>

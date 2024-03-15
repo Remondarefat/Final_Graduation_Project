@@ -11,7 +11,10 @@ class Book extends Model
         'user_id',
         'room_id',
         'hotel_id',
-        'meals'
+        'meals',
+        'checkin',
+        'checkout',
+        'total_due'
     ];
     public function user()
     {
