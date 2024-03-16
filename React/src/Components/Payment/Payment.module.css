@@ -58,32 +58,4 @@
 
 }
 
-.paypalButton,
-.paypalButtonDebit{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
-    height: 50px;
-    border: none;
-    border-radius: 5px;
-}
-.paypalButton{
-    background-color: #FFC300;
-}
-.paypalButtonDebit{
-    background-color: black;
-    color: white;
-}
-.paypalButton:hover{
-    background-color: #FFC300;
-    transition: 0.5s;
-}
-.paypalButtonDebit:hover{
-    background-color: rgba(0, 7, 20, 0.879);
-}
-.paypalButton img{
-    width: 55%;
-    height: 90%;
-}
 
