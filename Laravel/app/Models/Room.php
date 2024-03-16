@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     protected $fillable = [
-        'title',
         'price',
         'view',
         'type',
+        'hotel_id',
+        'status'
     ];
     use HasFactory;
     public function hotel(){
         return $this->belongsTo(Room::class);
     }
-    public function roomImages(){
+    public function Images(){
         return $this->hasMany(RoomImage::class);
     }
     public function books()

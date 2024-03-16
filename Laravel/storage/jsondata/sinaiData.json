@@ -1,0 +1,595 @@
+[
+    {
+        "id": 1,
+        "name": "Al Deira Dahab Hotel",
+        "location": "Lighthouse Road Al Deira Dahab Camp, 46617 Dahab, Egypt",
+        "stars": 4,
+        "rate": 9.7,
+        "description": "Boasting a garden, terrace and views of city, Al Deira Dahab Hotel is set in Dahab, 200 metres from Dahab Beach. The hotel also offers free WiFi as well as a paid airport shuttle service. At the hotel, the rooms have a wardrobe. All rooms are complete with a private bathroom and air conditioning, and certain rooms also offer a balcony. At Al Deira Dahab Hotel all rooms include bed linen and towels.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429901024.jpg?k=295a773fb8909ddf3c2ee8978c97b76e85d33bf49c6d8b5e8f825df4c3e334aa&o=&hp=1&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429900400.jpg?k=db238a49a275a0b952a3e70d12efbb2a04ca44e131994bde9d783e274890ec2e&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429901450.jpg?k=15fb75847f7ea11cc52da75112829e31079ce8e6655ee8fce11c38906966b84a&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429903601.jpg?k=c45173090ae3852f3b9c7fdbabb7496124360e847f5f7402d6fbcbee6f282133&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/517965928.jpg?k=68614aabb76dcae4ef40bab21fe81a65a59e9ca60a605ecdcb36a9225de690a5&o=&hp=1"
+        ],
+        "rooms": [
+            {
+                "id": 1,
+                "type": "Single Room",
+                "description": "The single room offers air conditioning, a private entrance, as well as a private bathroom featuring a bath and a shower. The single room features tiled floors and features a wardrobe, heating and garden views. The unit offers 1 bed.",
+                "view": "Mountain View",
+                "price": 900,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429894816.jpg?k=7d18d9b35ffbe38de847ef9c65ee61386f32c1f10f5239e6e3d468ab1d44f818&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429900400.jpg?k=db238a49a275a0b952a3e70d12efbb2a04ca44e131994bde9d783e274890ec2e&o=&hp=1"
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Double or Twin Room with Balcony",
+                "description": "The twin/double room provides air conditioning, a private entrance, a balcony with garden views as well as a private bathroom featuring a bath. The unit offers 1 bed.",
+                "view": "Garden View",
+                "price": 1000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/429906377.jpg?k=5dd0717dc62ae913d15137a19cd1bfc713b2f0578fa3a358296817cf342b0156&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/429903601.jpg?k=76057fb74714f87acff4b34d6c741e047de102a4571e4b4f76bc8c7ed93b607e&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Double Room",
+                "description": "The double room features air conditioning, a private entrance, as well as a private bathroom boasting a bath and a shower. The double room has tiled floors and offers a wardrobe, heating and garden views. The unit has 1 bed.",
+                "view": "Mountain View",
+                "price": 9000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/429910130.jpg?k=3fcc6fdf0be4da6f1cd04978d767cdb40b0289a46d793812408e9b275de8248d&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/429910166.jpg?k=905400ab899ab0f3b15429feba0c9e123267aa29300d99015ee958859ed1401b&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Cleopatra Luxury Resort Sharm",
+        "location": "Sharm El Sheikh, 46911 Sharm El Sheikh, Egypt",
+        "stars": 5,
+        "rate": 9.3,
+        "description": "At the hotel each room comes with air conditioning, a wardrobe, a flat-screen TV, a private bathroom, bed linen, towels and a terrace with pool view. The rooms are fitted with a safety deposit box, while certain rooms include a balcony and others also offer garden views. Guest rooms will provide guests with a minibar.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/483448270.jpg?k=d516c1d294ef1dac8eaf308fd7a1ec5d2147b77e1d76a3a9d072cd2b16f0c021&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/480476222.jpg?k=68f4ea9dc9582e9da20f595ba022b6d2a2924c16fa6fbb6ce731be01ba8659ea&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/409210274.jpg?k=1c87e8fb905547afc569e32c49bb05a9f9a31d231019fff1155842a54e485433&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/457058677.jpg?k=b3d4569e0b2c5c1e61bc73a8fdc6c0e27e1f13448d6772620bc9ddb07457f34c&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/457054164.jpg?k=0a201a57654e56cd2728b8b77ca92ef429420c986f7ed8e4c4a0b1d40da67660&o=&hp=1"
+        ],
+        "rooms": [
+            {
+                "id": 1,
+                "type": "Superior Room",
+                "description": "This spacious, air-conditioned room has either a balcony or a terrace overlooking the swimming pool. It includes a satellite TV, minibar, and tea and coffee making facilities. The beds have Egyptian cotton sheets and the bathroom has a hairdryer and free toiletries.",
+                "view": "Pool View",
+                "price": 1100,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/14635425.jpg?k=eba6cd1714cc5ce677fcd2020e4045da838932483a2aa35714ea6ed5cca6b560&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/232499896.jpg?k=9d3f11533085f5d76b024b5b2d815c0eafdfdfa5ee07f2c5aaca4503872496e1&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/38521447.jpg?k=51c06c726952cd1a395dadfee2ee1be82264c441493157e63bfeb151a55cfc9c&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Superior Room",
+                "description": "This spacious, air-conditioned room has either a balcony or a terrace with views of the Gulf of Aqaba. It includes a satellite TV, minibar, and tea and coffee making facilities.",
+                "view": "Sea View",
+                "price": 1500,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/483436248.jpg?k=7766ceebaa225c981ff814fb431bc50f0ca6473c7ebd21a221a0eede2e959109&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/403200161.jpg?k=3328745e2d5d58c25ed07af8eef73f7e8b218354656b316cbf7df2405f193f73&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Executive Suite",
+                "description": "This spacious suite features a balcony with sea view. There is a seating area with a flat-screen cable TV. The bathroom includes a hairdryer and free toiletries.This room includes: - Fruit Basket - Free WiFi access, - VIP amenities - Late check-out on departure day upon hotel availability",
+                "view": "Sea View",
+                "price": 9000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/483437260.jpg?k=e32d5a195d7d45bb0ca47bb6213c9b440a30df1d879947c2b0390c0d22923032&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/483437265.jpg?k=728ef6b3381774ba6af5f6219cc7a78632430ab51cbd46b2df3c082c134a2e4e&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/403198594.jpg?k=d16863a42e3ad6ef9b8015e47204d1e674d0a0d802871b554b0c722e4d283ccf&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Rixos Golf Villas And Suites Sharm El Sheikh",
+        "location": "El Salam Road, PO Box 232 Egypt, 46619 Sharm El Sheikh, Egypt",
+        "stars": 5,
+        "rate": 9.7,
+        "description": "The hotel will provide guests with air-conditioned rooms with a wardrobe, a coffee machine, a minibar, a safety deposit box, a TV, a terrace and a private bathroom with a shower. Rooms are equipped with a kettle, while some rooms are equipped with a kitchen with an oven, a microwave and a toaster. At Rixos Golf Villas And Suites Sharm El Sheikh each room is equipped with bed linen and towels.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/500149060.jpg?k=4c7ded409db6b10042f1c20362b79d188e40d6b93e37669bd7631abf0d4d027f&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/502042358.jpg?k=4546f47cdd9802d10797eca2ef78a26df6247e7222a401cfe2ba641851138151&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/502042410.jpg?k=be38193f4973333679f367476f764ce0bff18cc26b749371648c8947b9464c34&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/502042397.jpg?k=cb3e08c6b4064bbb26edf7aa5038b9aae0b737eea80427b1a86dc09d269b099b&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/502042372.jpg?k=5436e980956b986b96d568e28c8eebf1087f8bdbe9a6c30d5063bf46b9d6a017&o=&hp=1"
+        ] ,"rooms": [
+            {
+                "id": 1,
+                "type": "Deluxe Room",
+                "description": "This triple room's special feature is the hot tub. The spacious triple room provides air conditioning, soundproof walls, a terrace with garden views as well as a private bathroom featuring a bath. The unit offers 1 bed.",
+                "view": "Garden view",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/500151364.jpg?k=955e9d97457f7c96ee09fedfae64e7ef83bff2b9d52e5a936c7646abcfaff22d&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/500153891.jpg?k=583247e51c189418fe1c5adfb20b85c41d138610f6fce7306560368581c12a35&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Executive Suite",
+                "description": "The hot tub is the standout feature of this suite. Boasting 1 bedroom, this spacious suite has 1 bathroom with a bath, a seating area and terrace where you can relax. The air-conditioned suite features a TV, soundproof walls, a mini-bar, a tea and coffee maker as well as garden views. The unit offers 1 bed.",
+                "view": "Garden View",
+                "price": 7000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/502042359.jpg?k=e9b98f00ce083dc9197640e156c6ca3ad2f4623407262f61b113e94c40f8f30a&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/500154799.jpg?k=40d3a26a496fec4a68d10c30fa1e7f4bc9f46eec52b89916de850a53a35cb2d1&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Presidential Suite",
+                "description": "This suite features a hot tub. This spacious suite features 1 living room, 1 separate bedroom and 1 bathroom with a bath and free toiletries. Boasting a terrace with garden views, this suite also features air conditioning and a TV. The unit has 4 beds.",
+                "view": "Garden View",
+                "price": 20000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/500157848.jpg?k=c3b5c51f2a30cb17798a18c2cc1192615b8fb3f9338b8bde036b46e0e27acfe2&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/502042372.jpg?k=1cf9c20fbd32159cafe0bf357e9fea0b6340c89caa44805e297eaddfb6622f0e&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/500161158.jpg?k=78da906fc2a14ceff84f76e064cb8566ee6a7ff56c80906bdd6337cb5273fb3e&o="
+                ]
+            }
+        ]
+
+    },
+    {
+        "id": 4,
+        "name": "Michael's House",
+        "location": "Tarabeen beach Michael's House, 46617 Nuweiba, Egypt",
+        "stars": 4,
+        "rate": 9.8,
+        "description": "Located in Nuweiba and with Nuweiba Beach reachable within a few steps, Michael's House provides a terrace, non-smoking rooms, free WiFi throughout the property and a bar. Certain rooms at the property include a balcony with a sea view.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/503556412.jpg?k=5b6facca3bfe85e335d6043c1dd363f843dc29d7ccc9174f54b6a42cf72b27ef&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/503556415.jpg?k=8e54b886a9f9e920713b43268073a9e64280fb11c8862255f461398ac2966932&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/503556417.jpg?k=db1371296ddfc95eaf5e2a5e2b28c78c072d000c762c4924f68311d69c2e2d40&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/503556425.jpg?k=273740848d4d945880f98ada405e8ef658dd288c7b7e486ac22e62690635006a&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/503556388.jpg?k=22e7118639da04a3304285d0f4f5f6bf6eaa04993e77edce2a14102bcde0192a&o=&hp=1"
+        ],"rooms": [
+            {
+                "id": 1,
+                "type": "Comfort Triple Room",
+                "description": "The triple room has air conditioning, a private entrance, a tea and coffee maker as well as a terrace with sea views. The unit has 2 beds.",
+                "view": "Sea view",
+                "price": 700,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/503556426.jpg?k=d1d780c413b3c2c53f6625fcce6c5b5568d320e5119f787cb5bc33f5d23a2115&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/503556425.jpg?k=593820c5b62b2f915d6c9a27889f5425dc9fe684a7605085830ff7ba00a9c3aa&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Bungalow with Sea View",
+                "description": "Guests can benefit from a terrace and a balcony. The unit offers 1 bed.",
+                "view": "Sea View",
+                "price": 800,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/503556300.jpg?k=17c6aaa570d4496e34022df4472264012035f85a441c17ff852e18c23ff2e865&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/503774697.jpg?k=a77ad3cc8d2244c46085a8f9d8edc0e9a362a7ee3ed6943a7a5879cd43010612&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Quadruple Room",
+                "description": "The quadruple room offers air conditioning and a terrace. The unit offers 3 beds.",
+                "view": "Garden View",
+                "price": 20000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/504156247.jpg?k=94a5dde2bd3e9e88152ab7f3a5479ace42a1a2caa86663c394b4a2a45aca2b61&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/504156272.jpg?k=87572bb09b93659fe0c6305ed512493f8c38f72ad35ad2758d6bed14a528c4db&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Pyramisa Beach Resort Sharm El Sheikh",
+        "location": "Sharks Bay , 99999 Sharm El Sheikh, Egypt",
+        "stars": 5,
+        "rate": 8.6,
+        "description": "Pyramisa Beach Resort Sharm El Sheikh is located in Sharm El Sheikh and features its own private beach overlooking the Red Sea. The resort has 2 outdoor swimming pools with sun terrace and an indoor swimming pool. The rooms and suites are air-conditioned and feature a balcony. They include a minibar and a seating area with a TV, as well as a safety deposit box.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/359563669.jpg?k=d0e9176071f90558c6213ae3e24bb6d841ae0f9ca4d757494005893094131265&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/359524546.jpg?k=cbe1ebedabe8c9b2761c03df0c92326f4de1ceec2f37da1e2edaa29dfa0c90a0&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/359525280.jpg?k=61287f7b93b0dd6ce9c81ce49de08d9ff2adf493779abd50486520441cfb70a7&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/409003384.jpg?k=193da0ca313b3b539728342bb73acbe08bff77b225821735511a91fb7f33bf29&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/168431268.jpg?k=0d4e1a5719e8558bd5258f9104eafc0233dcb3a0a981d970602df1bbf7860536&o=&hp=1"
+        ],"rooms": [
+            {
+                "id": 1,
+                "type": "Premium Double Room with Sea View",
+                "description": "The spacious double room features air conditioning, a minibar, a terrace with sea views as well as a private bathroom boasting a bath.",
+                "view": "Sea view",
+                "price": 5000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/359561805.jpg?k=59e2ec559f49981388ac8264cc9c37419b69b711ffef657da81071e7d381f30c&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/359560212.jpg?k=b5c09b88e36993b35ee32e73dd0874b46e7b6f3c8502de20165d1a9819dda954&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/359562415.jpg?k=ef22ecf45758973f0159293c5fc8bbaab062673fad40d87c0d84324790c9d50b&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Family Room",
+                "description": "A seating area with a flat-screen TV, a desk, a terrace and a private bathroom are available in this spacious family room. The unit has 2 beds.",
+                "view": "Sea View",
+                "price": 7000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/359559520.jpg?k=75d48c276109bdbd1eadb0ea30bb8fcd5eb87b871216b1a6c2074d1d7f88195d&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/359561237.jpg?k=74bbe4deb1406698b46a2716d4855a66be40050acd2ee206954c9a800715cf12&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Superior Room Garden View",
+                "description": "The spacious double room offers air conditioning, a minibar, a terrace with garden views as well as a private bathroom boasting a bath. The unit has 2 beds.",
+                "view": "Garden View",
+                "price": 3000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/409003016.jpg?k=0d09453ff71262e38b27a2f12d33813e83b5c848d698c46ba958345f362ee1df&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/409002994.jpg?k=3c132ef7aad77c7d39f64d1984cc486727ffc1e6439e80fb477d53d35c86a6b6&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/409003667.jpg?k=91f1c29b966472ff3a5bbe5b15fa55c95ea8dd6460808416a2cffd9a48db93a3&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Sheikh Mousa Bedouin Camp",
+        "location": "South Street El malge st.cathereina, 46616 Saint Catherine, Egypt",
+        "stars": 3,
+        "rate": 8.7,
+        "description": "All units at the hotel are fitted with a seating area. All guest rooms will provide heaters and fan.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/311472425.jpg?k=a517af3275a6aae27160c27344c3bb4af10080e66adae937f3819835f58cd6b1&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/212339914.jpg?k=eb759a589d006a573e50fff1a240afdba1b0407495697ab4cf086d9f378e3951&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/278421506.jpg?k=8d7b3861c345b63ce2f3fd15d148ff3519f290cb0c34c548811c25cda2aaffed&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/190813073.jpg?k=1fe51776a4f9831d3fa371c96a71bb873dd57b9bdd5ba98df3986370fe51653a&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/278421016.jpg?k=4b933d1684a46394d231afe24afa925b5f6344ccb8dbd33690179bebdf254cd2&o=&hp=1"
+        ],"rooms": [
+            {
+                "id": 1,
+                "type": "Double Room",
+                "description": "The spacious double room features air conditioning, a minibar, a terrace with sea views as well as a private bathroom boasting a bath.",
+                "view": "Mountain View",
+                "price": 900,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/213102298.jpg?k=1961163b0f0c4478a93b055d6fc3cc687e07225fff76a8681d9154ffdcaed1d5&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/189372714.jpg?k=6fd5e9a1997c78b1ab711dbdb539700a65d991fb4e02c5f4d503f175caad3dac&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Double Room",
+                "description": "A seating area with a flat-screen TV, a desk, a terrace and a private bathroom are available in this spacious family room. The unit has 2 beds.",
+                "view": "Mountain View",
+                "price": 700,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/189372719.jpg?k=20112ab92648fc2d415438a02cdd92d290b75463b1e9913bea0765f954586c43&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/189372683.jpg?k=a2e12b973da79cee18d2dbe7e4f44f04b6f72c6060a0d1c79108e868593316ab&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Single Room ",
+                "description": "The spacious double room offers air conditioning, a minibar, a terrace with garden views as well as a private bathroom boasting a bath. The unit has 2 beds.",
+                "view": "Garden View",
+                "price": 1000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/278421506.jpg?k=f8656a75fc23eaa92d69778e0975167f78e6f8c331e3e2e6f2ef2867437ee04a&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/213102298.jpg?k=1961163b0f0c4478a93b055d6fc3cc687e07225fff76a8681d9154ffdcaed1d5&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Sama Village",
+        "location": "Sama El Arish, North Sinai Governorate, Arish, Egypt",
+        "stars": 2,
+        "rate": 5,
+        "description": "Villa, Sea Front View features air-conditioned accommodation in Arish. Boasting room service, this property also provides guests with a children's playground. The resort has a terrace and sea views, and guests can enjoy a meal at the restaurant or a drink at the snack bar.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/500351966.jpg?k=38ff7d1d298b2d7e910ff0f1661c8cdefb3907e3d706a8c5cfd3ff4d9f9d2555&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/500352026.jpg?k=6d2eabaec35e6181c854b89e7465b047dde4279e249f2e9945e962d0d7daf672&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/500352007.jpg?k=cae8422bf21ad15a1ab2029e1026d4984514450fbca44134b22460bbf5b0ccfa&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/500352018.jpg?k=10bb43615ac1288d3a89602894bcb0e7d9b056015c8764ddfa4f9bd33b4be161&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/524129942.jpg?k=3f76a3ae0a641e2cba7021bc72d248c703a9080c50be75ee1bbe8b8a08e250ad&o=&hp=1"
+        ],"rooms": [
+            {
+                "id": 1,
+                "type": "Double Room",
+                "description": "The spacious double room features air conditioning, a minibar, a terrace with sea views as well as a private bathroom boasting a bath.",
+                "view": "Mountain View",
+                "price": 900,
+                "images": [
+                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/320075279.jpg?k=30bf1b5a96e95fb3a822b69da8565fe0639a5fbcc6a29e855c85e9e9f752ad1e&o=&hp=1"
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Double Room",
+                "description": "A seating area with a flat-screen TV, a desk, a terrace and a private bathroom are available in this spacious family room. The unit has 2 beds.",
+                "view": "Mountain View",
+                "price": 700,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/320075257.jpg?k=b48dd46df0c0a6770509f1101abae3d602b8e2d99b04a1829b32c5fb566bf8ac&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/320075279.jpg?k=30bf1b5a96e95fb3a822b69da8565fe0639a5fbcc6a29e855c85e9e9f752ad1e&o=&hp=1"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Jaz Sharm Dreams",
+        "location": "Naama Bay, Sharm El Sheikh, Egypt",
+        "stars": 5,
+        "rate": 8.3,
+        "description": "The rooms include modern furnishings and have a private bathroom with a hairdryer. They come equipped with a safety deposit box and minibar. Some rooms have furnished balconies and a seating area with a sofa.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/409004528.jpg?k=faa6a0f4bc93a32c15e292057c245c4abd6bed8a7345af2daac2557ae730c824&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/451909064.jpg?k=add87b982e44d49c7f6cfca5d1362e007153113431209168f6c7d808ec063c3b&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/506539796.jpg?k=a593461956c979553b446f9fe7cb55bdf0e3a406e5e53e108329eba5b1d5156f&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/409004342.jpg?k=ec5acf1b74a1e7c80f747185aa12b7249887298e356b365976e896f4dc6aa10a&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/451908948.jpg?k=9b143b9043e0f06f426de92a720f7db81c95332024f5b246f3d9e6c2820570e5&o=&hp=1"
+        ],
+        "rooms": [
+            {
+                "id": 1,
+                "type": "Junior Queen Suite",
+                "description": "The Junior Queen Suite features air conditioning, a minibar, a private bathroom and a hairdryer. The unit has 1 bed.",
+                "view": "Sea View",
+                "price": 2000,
+                "images": [
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/62489960.jpg?k=c6563330dafce5d0728b0cfe3885cb305deb00b81c96c2ccf1c5c71a89c8a1d4&o=",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506536907.jpg?k=3457033552fb922bfc2c8304f255e939d6bc1628debca7d55de195f47bca281a&o="
+                        ]
+
+            },
+            {
+                "id": 2,
+                "type": "Superior Double Room",
+                "description": "The spacious double room features air conditioning, a minibar, a tea and coffee maker, a safe deposit box, as well as a flat-screen TV. The unit has 1 bed.",
+                "view": "Garden View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506539386.jpg?k=6d818fe0f3a69509cc930570eeff39f63e62108a1864c6745e21f9fcc1ee991a&o=" ,
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/451909316.jpg?k=32e12b53c5f51c0dd063021f0aa8fdcc60d86a08a34fa2c7cac17569e27f3387&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Deluxe Room",
+                "description": "The Deluxe Room features air conditioning, a minibar, a tea and coffee maker, a safe deposit box, as well as a flat-screen TV. The unit has 1 bed.",
+                "view": "Pool View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506539368.jpg?k=ccdb50fa2417b8093f3797946b846d5fdf8a66174ff20270b3a263e61697481f&o=" ,
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/451909411.jpg?k=ef57f256228deab9d25cb72e5e45bf477800cac000fd0e1f0fc37848a2fe81a2&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Steigenberger Hotel & Nelson Village",
+        "location": "Taba - Nuweiba Road, Taba, Egypt",
+        "stars": 5,
+        "rate": 9.3,
+        "description": "All rooms at Steigenberger Hotel & Nelson Village, Taba are fitted with air conditioning and have a minibar. Some rooms have a balcony with views of the garden and the Red Sea.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282458229.jpg?k=9a22a539a19a415d7a9fcdac495ee39ed791f8e107c9d356103b9154893a35e2&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282456223.jpg?k=90f7b46a2130fcd63de557f2265988b21abb40016c64c15e10686338284fe221&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282458940.jpg?k=6951f52e9ce4cdafb77b7f63942cd3488d8e06f4bf5b8321264ae4f42d8e27b2&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282458084.jpg?k=915daa1247b47e1555d3071eb79aeab81248532cf9eb1310e18dd7f51283da33&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/116297645.jpg?k=e5fb7603ecf4948df1d9d16629c726a86e5c3532c17650720e593c732e50cd42&o=&hp=1"
+        ],"rooms": [
+            {
+                "id": 1,
+                "type": "Junior Queen Suite",
+                "description": "The Junior Queen Suite features air conditioning, a minibar, a private bathroom and a hairdryer. The unit has 1 bed.",
+                "view": "Sea View",
+                "price": 2000,
+                "images": [
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/62489960.jpg?k=c6563330dafce5d0728b0cfe3885cb305deb00b81c96c2ccf1c5c71a89c8a1d4&o=",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506536907.jpg?k=3457033552fb922bfc2c8304f255e939d6bc1628debca7d55de195f47bca281a&o="
+                        ]
+
+            },
+            {
+                "id": 2,
+                "type": "Superior Double Room",
+                "description": "The spacious double room features air conditioning, a minibar, a tea and coffee maker, a safe deposit box, as well as a flat-screen TV. The unit has 1 bed.",
+                "view": "Garden View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506539386.jpg?k=6d818fe0f3a69509cc930570eeff39f63e62108a1864c6745e21f9fcc1ee991a&o=" ,
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/451909316.jpg?k=32e12b53c5f51c0dd063021f0aa8fdcc60d86a08a34fa2c7cac17569e27f3387&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Deluxe Room",
+                "description": "The Deluxe Room features air conditioning, a minibar, a tea and coffee maker, a safe deposit box, as well as a flat-screen TV. The unit has 1 bed.",
+                "view": "Pool View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506539368.jpg?k=ccdb50fa2417b8093f3797946b846d5fdf8a66174ff20270b3a263e61697481f&o=" ,
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/451909411.jpg?k=ef57f256228deab9d25cb72e5e45bf477800cac000fd0e1f0fc37848a2fe81a2&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Panorama Lodge Nuweiba",
+        "location": "46618, Nuweiba-Dahab Road, Nuweiba, Egypt",
+        "stars": 3,
+        "rate": 9.5,
+        "description": "At the hotel, rooms include a balcony. Featuring a private bathroom with a bidet and free toiletries, rooms at Panorama Lodge Nuweiba also feature a sea view. At the accommodation, the rooms have air conditioning and a safety deposit box.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/493547260.jpg?k=a6b1d4a96750936aa19729bc2af1de26c65e0cf5016d933eacfeb03567fe4e75&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/491328933.jpg?k=54a29a6f9f810cea7c186ef8006d0be2076f1e84ef16b075482ff031e4137d2a&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/491622943.jpg?k=4b7e68e3260ad4f6fdfecd97d7d0052228eef4791ff327e3a71dce0cec410c74&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/492323117.jpg?k=6746c35cb4cd9d5ef74363cdda52304722d6d52c4235e075a0cabcc0624e8f33&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/491328888.jpg?k=0b771aacf0919c4e92a6c5e9b7dac6f1cbfe405c6488ae2e4dd27358e02ff0c7&o=&hp=1"
+        ] ,"rooms": [
+            {
+                "id": 1,
+                "type": "Double Room",
+                "description": "The double room offers air conditioning, a private entrance, a terrace with sea views as well as a private bathroom featuring a shower. The unit offers 2 beds.",
+                "view": "Sea View",
+                "price": 900,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491328867.jpg?k=739a719267959ca8a1df4b315529fb60d5e19eeffaa0ffa093c0ff198e808e2a&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491328940.jpg?k=4c7a9ea19c602d2ec53dc571ca3be5d2e5700068ef4c1fb2217e5ebe5b7d8cbe&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491328899.jpg?k=c9ca1c8adb2aa4e9b255bf782f639623b82a9762ae693155f62841367f60c743&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Deluxe Family Suite",
+                "description": "The spacious family room features air conditioning, a private entrance, a terrace with sea views as well as a private bathroom boasting a shower.",
+                "view": "Sea View",
+                "price": 1500,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491615094.jpg?k=8d03865dee7aa836e7dc14abf8568740015449ca4e7887ae6b8afa1fbc5432a1&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491614677.jpg?k=9b3afec6f6122db493e9013040ef9fb1eaa1d8f4f2af1d868552ad93d148ce74&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Family Studio",
+                "description": "The family room features air conditioning, a private entrance, a terrace with sea views as well as a private bathroom boasting a shower. The unit has 3 beds.",
+                "view": "Sea View",
+                "price": 1500,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491622943.jpg?k=04b3628d9aa60678631d20fe504d2bb18918b0a24639dab16bc1d733aebc3c65&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491614677.jpg?k=9b3afec6f6122db493e9013040ef9fb1eaa1d8f4f2af1d868552ad93d148ce74&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Green Sudr Resort",
+        "location": "76 KM From Ahmed Hamdy Tunnel, 46612 Ras Sedr, Egypt",
+        "stars": 4,
+        "rate": 7.7,
+        "description": "Offering kite-boarding courses and equipment, Kitesurfing Green Sudr is located in Ra’s Matārimah. The accommodation will provide you with a TV and air conditioning. Featuring a shower, private bathroom also comes with a hairdryer. Extras include a minibar and satellite channels.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/325029860.jpg?k=67b1a34301dbec72eca22a0ccebe7c7f956a8de2db890fe700b0859119941eaf&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/303855179.jpg?k=08744cd7e52ba1497ce400724d51c3e132131609defc4dc8c6aa59bf266204f7&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/325029539.jpg?k=d9a025528342ca0ae9ddf932f5f38b1829fec3a43878e87cb7cc380ceb1714e6&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/144802552.jpg?k=995285fc1066fc1662650bb4d6c0faf4682210debe61b3f3a2dabf6ba45bdd47&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/303856423.jpg?k=41300db6c0f1c5728854718943cf977442008417d1c80ba1fa390d19e5c8ffe7&o=&hp=1"
+        ]  ,"rooms": [
+            {
+                "id": 1,
+                "type": "Single Room",
+                "description": "This single room features a balcony and satellite TV.",
+                "view": "Sea View",
+                "price": 1000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/325029860.jpg?k=ce9358fe15613190b337987cb668cf9d6aa40bfc19093564c609f3235f1a5e27&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/325099906.jpg?k=5eaa9817770063ddd1fc1172e476bee738dbc64d86846869f2647f7b743a2baa&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/325099775.jpg?k=6568eccf8f5d183fb51c0a375ea821a2b0b1129212a7460b031ea35fe2bdfa55&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Standard Twin Room",
+                "description": "This air-conditioned twin room is comprised of a flat-screen TV with satellite channels, a private bathroom as well as a balcony with sea views. The unit has 2 beds.",
+                "view": "Sea View",
+                "price": 1500,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/325099906.jpg?k=5eaa9817770063ddd1fc1172e476bee738dbc64d86846869f2647f7b743a2baa&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/325099909.jpg?k=19cce3e7a6579eb58a8ae89c1ca44aba079fb5f8b99803997187c542014332ae&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Family Room",
+                "description": "The family room features air conditioning, a private entrance, a terrace with sea views as well as a private bathroom boasting a shower. The unit has 3 beds.",
+                "view": "Sea View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max500/400426650.jpg?k=f4d2f1b89a076de2b94761a763eeae61c7dedb191c896c73d1241b4847ba8ae0&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max500/400426613.jpg?k=5496196420975e1228b5acfb14468cd34d4e12b028a8c756017871554d99a57a&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max500/400426647.jpg?k=0468f49f8eff8970a564135934b18e691081a1b8bd242479e79e0e44c22aba43&o="
+                ]
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Sunrise Diamond Beach Resort",
+        "location": "Hadabat Om El Sid, Sharm El Sheikh, Egypt",
+        "stars": 5,
+        "rate": 9.3,
+        "description": "Guests can choose between wide varieties of rooms. A special benefit for families is the Family Suite concept, which offers separate rooms for parents and children. All guest rooms at SUNRISE Diamond Beach Resort -Grand Select- are equipped with satellite TV, an en suite bathroom and a mini-refrigerator.",
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/283315758.jpg?k=9e7a6ceee1bd9db60d7a2b0710bc2552a87098120d973e1d139e38c689a4927e&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/346566508.jpg?k=1cc2c949937e765113b45b6557d928c6dd5d77cdc9241ad5bed3fe6ebbc231ed&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/283319078.jpg?k=43e1cc610524df0a72bd716972bc785bd14a41bf3549465653a47c4ac4681b15&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/283317829.jpg?k=12dba4769acea9b242a11bbabe8cc0d08807b617dfb8dbc66adefd998a7a2bbb&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282543839.jpg?k=8624ac7eb7d762cfab0e1e6328ea61b2ef67a29cae6f2e94cc7f00855a1a832a&o=&hp=1"
+        ] ,"rooms": [
+            {
+                "id": 1,
+                "type": "Family Suite",
+                "description": "The suite features two rooms. The master bedroom features a king size bed, and the second room is a living room with a sleeping area featuring a sofa bed and space for extra beds. The suite also features a bathroom with a shower and a terrace or balcony as well as free bathroom amenities, free WiFi, a satellite LED TV, a safe box, tea and coffee making facilities and a minibar.",
+                "view": "Pool View",
+                "price": 5000,
+                "images": [
+                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345039541.jpg?k=25b84d9284130de5fd5a81f6bf507ec911bf25f056c90ed6d1bea16260e746e8&o=",
+                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345039591.jpg?k=6aba2fd7a5c65392c6ca37a19d57e68b9e1dfd23fa965f946569df419c352e7c&o=",
+                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345039583.jpg?k=7e0058b6ae6fffc4920833d566fa2008159347b751af8d9b6be50784dbaad071&o="
+                ]
+            },
+            {
+                "id": 2,
+                "type": "Royal Villa- Posh Club",
+                "description": "This suite features a private pool. This spacious suite features 1 living room, 1 separate bedroom and 1 bathroom with a shower and free toiletries. The suite's kitchenette is available for cooking and storing food. The air-conditioned suite features a flat-screen TV with cable channels, a minibar, a tea and coffee maker, executive lounge access as well as sea views. The unit has 1 bed.",
+                "view": "Sea View",
+                "price": 10000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345038953.jpg?k=60c0e959c10dd606191b36e970f36d171b742803c690e062982f5062b9ce0914&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345039635.jpg?k=e92764d5eb711e1341a28d0ca3f8b1d5b7cfeb487e44dc1f3789d2b13f0785ea&o=" ,
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345038882.jpg?k=12600310e01868f2eb1c4ed47bc543d89415f255251b602cce6f660dc2bdc37b&o="
+                    ]
+            },
+            {
+                "id": 3,
+                "type": "Special Offer- Family Suite -Egyptian and Residents",
+                "description": "The spacious family room provides air conditioning, a minibar, a terrace with garden views as well as a private bathroom featuring a shower. The unit offers 2 beds.",
+                "view": "Pool View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345039583.jpg?k=7e0058b6ae6fffc4920833d566fa2008159347b751af8d9b6be50784dbaad071&o=",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/345039580.jpg?k=7469bdb6907688a2cf8fef5e46fefbf5cf8326f1aa0c1f151667ac1c96b8b2b0&o="
+                ]
+            }
+        ]
+
+    }
+]

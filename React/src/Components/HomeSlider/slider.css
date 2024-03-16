@@ -1,0 +1,10 @@
+.slider-container{
+        width: 90%;
+        margin: auto;
+
+      
+}
+.slider-container {
+    height: 100%;
+    object-fit: cover; /* Adjust according to your needs */
+  }

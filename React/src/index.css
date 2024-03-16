@@ -54,11 +54,31 @@ code {
   color: #a19e9e;
 }
 .btn-addroom{
-  bottom: 10px;
-  right: 10px;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(0, 0, 0 ,.5);
+  display: none;
+}
+
+.hotel-img,.btn-addroom{
+  height: 250px;
+
+}
+.hotel-img:hover + .btn-addroom,
+.btn-addroom:hover{
+  display: flex;
+  
 }
 .room-icon{
   width: 20px;
   height: 20px;
   margin-right: 5px;
+}
+
+
+.hotel-name-height{
+  height: 50px;
+}
+.btn-back:hover{
+  background-color: var(--logo-background);
 }

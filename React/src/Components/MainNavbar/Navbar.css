@@ -1,0 +1,73 @@
+.mainnav {
+  background-color: #eff0f252;
+  position: fixed; /* Fixes navbar to the top */
+  top: 0; /* Aligns it at the top of the viewport */
+  width: 100%; /* Ensures it spans the full width */
+  z-index: 1000; /* Keeps it above other content */
+}
+
+.nav-side {
+  position: relative; /* Context for absolute positioning of children */
+  width: 80px;
+  height: 40px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Positions below the nav-side */
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1005; /* Ensures dropdown is above most other content */
+}
+
+.dropdown-menu.show {
+  display: block; /* Shows the dropdown menu */
+}
+
+/* Additional styles for alignment and presentation */
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-50 {
+  height: 50px; /* Adjust as needed */
+}
+
+.clickable {
+  cursor: pointer; /* Indicates an interactive element */
+}
+
+/* Rounded image and icon container */
+.nav-side .rounded-circle {
+  border-radius: 50%;
+}
+
+/* Dropdown menu item style */
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #eaeaea; /* Highlight on hover */
+}
