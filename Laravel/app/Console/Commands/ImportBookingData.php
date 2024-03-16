@@ -27,13 +27,13 @@ class ImportBookingData extends Command
                 'rate' => $item['rate'],
                 'description' => $item['description'],
             ]);
-            foreach ($item['images'] as $imageUrl) {
-                // HotelImage::create([
-                //     'hotel_id' => $item->id,
-                //     'image' => $imageUrl
-                // ]);
+        //     foreach ($item['images'] as $imageUrl) {
+        //         // HotelImage::create([
+        //         //     'hotel_id' => $item->id,
+        //         //     'image' => $imageUrl
+        //         // ]);
 
-        }
+        // }
     }
 
         $this->info('Booking data imported successfully.');

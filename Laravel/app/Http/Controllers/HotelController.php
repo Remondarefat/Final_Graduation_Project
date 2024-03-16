@@ -11,15 +11,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $followings = Auth::user()->followings;
-        $posts = Post::whereIn('user_id', $followings->pluck('id'))
-        ->latest()
-        ->get();
-        $comments=Comment::all();
-        $commentlike=CommentLike::all();
-        $userid = Auth::user()->id;
-        $like = Like::where('user_id', Auth::user()->id)->get();
-        return view('posts.home', ['commentlike'=>$commentlike,'posts' => $posts, 'like' => $like, 'userid' => $userid,'comments'=>$comments]);
+
     }
 
     public function store(Request $request)

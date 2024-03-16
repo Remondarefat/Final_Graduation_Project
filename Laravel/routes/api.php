@@ -7,5 +7,6 @@ use App\Http\Controllers\RoomController;
 Route::post('/hotels', [ApiHotelController::class, 'store']);
 
 Route::post('/addroom' , [RoomController::class, 'store']);
+Route::get('/hotels' , [ApiHotelController::class, 'index']);
 
 Route::get('/booking-data', 'App\Http\Controllers\ApiController@getBookingData');
