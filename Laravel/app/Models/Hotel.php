@@ -15,7 +15,7 @@ class Hotel extends Model
         'numberofrooms'
     ];
     use HasFactory;
-    public function room(){
+    public function rooms(){
         return $this->hasMany(Room::class);
     }
     public function reviews()
@@ -34,6 +34,10 @@ class Hotel extends Model
     public function bills()
     {
         return $this->hasMany(Payment::class);
+    }
+    public function images()
+    {
+        return $this->hasMany(HotelImage::class);
     }
 
 }

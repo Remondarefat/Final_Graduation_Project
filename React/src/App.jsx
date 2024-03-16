@@ -11,6 +11,10 @@ import Reigster from './Components/Reigster/Reigster';
 import AllHotels from './Components/AllHotels/AllHotels';
 import Payment from './Components/Payment/Payment';
 import AdminRequest from './Components/AdminRequests/AdminRequest';
+import Login from './Components/Login/Login';
+import HotelRooms from './Components/HotelRooms/HotelRooms';
+import RoomDesc from './Components/RoomDesc/RoomDesc';
+
 
 function App() {
   let routers = createBrowserRouter([
@@ -27,6 +31,9 @@ function App() {
     { path: '/editprofile', element: <EditProfile /> },
     { path: '/register', element: <Reigster /> },
     { path: '/payment', element: <Payment /> },
+    { path: '/login', element: <Login /> },
+    { path: '/hotelrooms', element: <HotelRooms /> },
+    { path: '/roomdesc', element: <RoomDesc /> },
 
 
   ]);
