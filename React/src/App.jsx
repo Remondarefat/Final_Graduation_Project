@@ -11,6 +11,7 @@ import Reigster from './Components/Reigster/Reigster';
 import AllHotels from './Components/AllHotels/AllHotels';
 import Payment from './Components/Payment/Payment';
 import AdminRequest from './Components/AdminRequests/AdminRequest';
+import NotFound from './Components/NotFound/NotFound';
 import Login from './Components/Login/Login';
 import HotelRooms from './Components/HotelRooms/HotelRooms';
 import RoomDesc from './Components/RoomDesc/RoomDesc';
@@ -28,8 +29,9 @@ function App() {
     },
   { path: '/home', element:<HomePage /> },
     { path: '/checkout', element: <Checkout /> },
-    { path: '/editprofile', element: <EditProfile /> },
+    { path: '/editprofile/:id', element: <EditProfile /> },
     { path: '/register', element: <Reigster /> },
+    { path: '*', element: <NotFound/> },
     { path: '/payment', element: <Payment /> },
     { path: '/login', element: <Login /> },
     { path: '/hotelrooms', element: <HotelRooms /> },
