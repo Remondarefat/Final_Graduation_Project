@@ -10,6 +10,7 @@ import EditProfile from './Components/EditProfile/EditProfile';
 import Reigster from './Components/Reigster/Reigster';
 import AllHotels from './Components/AllHotels/AllHotels';
 import AdminRequest from './Components/AdminRequests/AdminRequest';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   let routers = createBrowserRouter([
@@ -21,8 +22,9 @@ function App() {
   ]},
   { path: '/home', element:<HomePage /> },
     { path: '/checkout', element:<Checkout /> },
-    {path:'/editprofile', element:<EditProfile/>},
+    {path:'/editprofile/:id', element:<EditProfile/>},
     { path: '/register', element: <Reigster /> },
+    { path: '*', element: <NotFound/> },
 
 
   ]);

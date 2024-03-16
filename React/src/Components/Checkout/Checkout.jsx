@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState , useEffect} from 'react'
 import style from './Checkout.module.css'
 import ReactStars from 'react-stars'
 
@@ -7,7 +7,8 @@ export default function AddRoom() {
     checkin:'',
     checkout:'',
     duration:'',
-    numofrooms:0,
+    total_due:0,
+    rating:0
 
   });
   const [rating, setRating] = useState(0);
@@ -18,6 +19,38 @@ export default function AddRoom() {
   const saveRating = () => {
     console.log('Rating:', rating);
   };
+
+  const handleCheckInChange = (event) => {
+    const { value } = event.target;
+    setFormData({ ...formData, checkin: value });
+  };
+
+  const handleCheckOutChange = (event) => {
+    const { value } = event.target;
+    setFormData({ ...formData, checkout: value });
+  };
+
+  const calculateDuration = () => {
+    const checkinDate = new Date(formData.checkin);
+    const checkoutDate = new Date(formData.checkout);
+    const timeDifference = checkoutDate.getTime() - checkinDate.getTime();
+    const durationDays = Math.ceil(timeDifference / (1000 * 3600 * 24)); // Convert milliseconds to days
+    setFormData({ ...formData, duration: durationDays });
+  };
+  
+  // Call calculateDuration whenever check-in or check-out dates change
+  useEffect(() => {
+    calculateDuration();
+  }, [formData.checkin, formData.checkout]);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Validate the check-in and check-out dates
+    const currentDate = new Date();
+    const checkinDate = new Date(formData.checkin);
+    const checkoutDate = new Date(formData.checkout);
+  }
+
+ 
   return (
       <>
         <div className="container pt-5">
@@ -26,7 +59,7 @@ export default function AddRoom() {
             <img className={`${style.hotelImg} mt-4 rounded-circle`} src='https://i0.wp.com/travelradar.aero/wp-content/uploads/2022/11/209646075.jpg' alt='room image'/>
             <h5 className='mt-3'>Hilton Alexandria </h5>
             <div className="stars">
-            <ReactStars count={5} onChange={ratingChanged} size={40} color2={'#ffd700'} />
+            <ReactStars count={5} half={false} onChange={ratingChanged} size={40} color2={'#ffd700'} />
             </div>
             <p className='mt-3 mb-5 pb-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
           </div>
@@ -35,15 +68,15 @@ export default function AddRoom() {
             <h3>Single Room</h3>
             <p className='text-muted'>Joined in 2021</p>
             </div>
-            <form method='post'>
+            <form method='post' onSubmit={handleSubmit}>
               <div className="d-flex">
                 <div className="d-flex flex-column me-3">
                   <label htmlFor="checkin">Check In :</label>
-                  <input type="date" className='form-control w-75' name="checkin" id="check-in" />
+                  <input type="date" className='form-control w-75' name="checkin" id="check-in" onChange={handleCheckInChange}  min={new Date().toISOString().split('T')[0]} />
                 </div>
                 <div className="d-flex flex-column me-3">
                   <label htmlFor="checkout">Check Out :</label>
-                  <input type='date' className='form-control w-75' name="checkout" id="check-out" />
+                  <input type='date' className='form-control w-75' name="checkout" id="check-out" onChange={handleCheckOutChange}  min={new Date().toISOString().split('T')[0]} />
                 </div>
 
               </div>  
