@@ -1,37 +1,89 @@
 import React, { useState } from 'react';
+import Style from './Login.module.css';
+import { Formik, useFormik } from 'formik';
 import Picture from '../../assets/login.png';
 import Logo from '../../assets/Nyla-Logo.png';
 import axios from 'axios';
-import Style from './Login.module.css';
+import * as Yup from  'yup';
+import { Link, useNavigate } from 'react-router-dom';
+import { BallTriangle } from 'react-loader-spinner'
 
 export default function Login(){
-    
+    let navigate = useNavigate();
+    const [error,seterror]=useState(null);
+    const[isLoading ,setisLoading] =useState(false);
 
+    async function loginSubmite(values){
+        // destracting data from response obj
+        setisLoading(true);
+    try {
+        const { data } = await axios.post('http://127.0.0.1:8000/api/login', values);
+        if (data.success_msg) {
+            if (data.is_admin === false) {
+                navigate('/allhotel'); // Redirect admin to dashboard
+            } else {
+                navigate('/home'); // Redirect regular user to home
+            }
+        }
+    } catch (err) {
+        setisLoading(false);
+        seterror(err.response.data.error_msg);
+        console.log(err);
+    }
+    }
+    let validationSchema =Yup.object({
+        email:Yup.string().email('email is invalid').required('email is rquired'),
+        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/, 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character').required('password is required'),
+        
+    })
+    let formik = useFormik({
+        initialValues:{
+            email:'',
+            password:'',
 
+        },validationSchema,
 
+        onSubmit:loginSubmite
+    })
 
     return   (
         <div className={Style.loginDiv}>
-            <img src={Picture} className={Style.loginImage}  alt="" />
-            <img src={Logo} className={Style.logoSvg} alt="" />
+            <img src={Picture} className={Style.loginImage}  alt="Login Background" />
+            <img src={Logo} className={Style.logoSvg} alt="Login logo"/>
             <div className='text-center p-5 mx-auto w-50 '>
                 <h2 className={Style.loginTitle}>Login</h2>
-                <form className={Style.loginForm} >        
+                <form className={Style.loginForm} onSubmit={formik.handleSubmit} >        
                     <div className="row mb-3">
+                        {error?<div className='alert alert-danger'>{error}</div>:''}
+                        
                         <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
                         <div className="col-sm-9">
-                            <input  type="email" className="form-control" id="email" name='email' />
-                            {/* {errors.email && <div className='text-danger'>{errors.email}</div>} */}
+                            <input onBlur={formik.handleBlur} id='email' onChange={formik.handleChange} type="email" value={formik.values.email} className="form-control" name='email'/>
+                            {formik.errors.email && formik.touched.email?<div className="alert alert-danger p-2 mt-2">{formik.errors.email}</div>:''}
                         </div>
                     </div>
                     <div className="row mb-3">
                         <label htmlFor="pass" className="col-sm-3 col-form-label">Password:</label>
                         <div className="col-sm-9">
-                            <input  type="password" className="form-control" id="pass" name='password' />
-                            {/* {errors.password && <div className='text-danger'>Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.</div>} */}
+                            <input onBlur={formik.handleBlur} id='pass' onChange={formik.handleChange} type='password' value={formik.values.password} className="form-control" name='password'/>
+                            {formik.errors.password && formik.touched.password?<div className="alert alert-danger p-2 mt-2">{formik.errors.password}</div>:''}
+            
                         </div>
                     </div>
-                    <button type="submit" className={Style.loginBtn}>Login</button>
+                    {isLoading? <button type='button' className={Style.loginBtn}>
+                    <BallTriangle
+                        height={20}
+                        width={100}
+                        radius={5}
+                        color="#fff"
+                        ariaLabel="ball-triangle-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                        />
+                    </button>:<>
+                    <button type="submit" disabled={!(formik.isValid && formik.dirty)} className={Style.loginBtn}>Login</button> <Link className='d-block mt-5' to={'/register'}>You Dont have accont ?</Link>
+                    </>}
                 </form>
             </div>
         </div>

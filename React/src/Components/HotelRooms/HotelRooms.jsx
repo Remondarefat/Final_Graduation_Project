@@ -3,12 +3,21 @@ import Picture3 from '../../assets/hilton 1.png';
 import Doubleroom from '../../assets/doubleroom.jpg';
 import Singleroom from '../../assets/singleroom.jpg';
 import { Link } from 'react-router-dom';
+import ReactStars from 'react-stars'
+import {React, useState} from 'react'
 
 
 
 
 export default function HotelRooms(){
+        const [rating, setRating] = useState(0);
 
+        const ratingChanged = (newRating) => {
+        console.log(newRating)
+        }
+        const saveRating = () => {
+        console.log('Rating:', rating);
+        };
     return <>
                     <div id="carouselExampleInterval" className="carousel slide w-100"  data-bs-ride="carousel">
                         <div className="carousel-inner">
@@ -219,13 +228,8 @@ export default function HotelRooms(){
                                 <input type="text" placeholder='Your Feedback' className='w-100 border-0 rounded-4  ms-5 p-1 my-3' />
                                 <div className='d-flex align-items-center mb-3'>
                                     <p className='ms-5 mb-0'>Your Rate :</p>
-                                        <div className="rate ms-2 ">
-                                            <i class="fa-solid fa-star text-warning"></i>
-                                            <i class="fa-solid fa-star text-warning"></i>
-                                            <i class="fa-solid fa-star text-warning"></i>
-                                            <i class="fa-solid fa-star text-warning"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
+                                    <ReactStars count={5} onChange={ratingChanged} size={40} color2={'#ffd700'} />
+
                                 </div> 
                             </div>
                         </div>

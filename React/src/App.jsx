@@ -10,9 +10,9 @@ import EditProfile from './Components/EditProfile/EditProfile';
 import Reigster from './Components/Reigster/Reigster';
 import AllHotels from './Components/AllHotels/AllHotels';
 import AdminRequest from './Components/AdminRequests/AdminRequest';
-import Login from './Components/Login/Login';
 import HotelRooms from './Components/HotelRooms/HotelRooms';
 import RoomDesc from './Components/RoomDesc/RoomDesc';
+import Login from './Components/Login/Login';
 
 
 function App() {
