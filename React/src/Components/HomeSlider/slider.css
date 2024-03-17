@@ -1,10 +1,29 @@
 .slider-container{
-        width: 90%;
+        width: 100%;
         margin: auto;
-
-      
 }
 .slider-container {
     height: 100%;
     object-fit: cover; /* Adjust according to your needs */
   }
+
+  /* Slider background color */
+.awssld {
+        --slider-height-percentage: 45%; /* Adjust this value to change the slider height */
+        --organic-arrow-color: #ffffff; /* Optional: Adjust arrow color */
+        background-color: #ffffff00; /* For white background */
+        background-color: transparent; 
+      }
+      
+      /* Adjust slide image height */
+      .awssld__content > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px; /* Adjust based on your requirement */
+      }
+      
+      .slider-item img {
+        max-height: 100%; /* Ensure image height does not exceed the slider height */
+        object-fit: cover; /* Adjust as per your requirement */
+      }
