@@ -46,18 +46,18 @@ export default function AddRoom() {
   }
   return (
     <>
-   <div className="container pt-5">
-      <div className="row">
-        <div className={`col col-3 d-flex flex-column align-items-center rounded-3 pt-3 me-4 ${style.leftContainer}`}>
-          <img className={`mt-4 rounded-circle ${style.adminImg}`} src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="room image" />
+   <div className="container pt-5 d-flex flex-wrap">
+      <div className="row d-flex flex-wrap">
+        <div className={`col col-3 d-flex flex-column flex-wrap align-items-center rounded-3 pt-3 me-4 ${style.leftContainer}`}>
+          <img className={`mt-4 rounded-circle d-flex  ${style.adminImg}`} src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="room image" />
           <h6 className="mt-5 mb-5 pb-5">Salma El Marhoumi</h6>
         </div>
         <div className="col col-8">
-          <h3 className={style.addingRoom}>Adding Room</h3>
+          <h3 className={style.addingRoom}>Adding Room</h3> 
           <h6 className="fw-bold pt-3 pb-3">Hotel: Hilton</h6>
           <form method='post' onSubmit={addRoomData} enctype="multipart/form-data">
-            <div className="d-flex">
-              <div className="d-flex flex-column me-5">
+            <div className="d-flex flex-wrap">
+              <div className="d-flex flex-column flex-wrap me-5">
                 <label htmlFor="room-type" className="mb-3 fw-bold text-muted">Room Type :</label>
                 <input type="text" className="form-control w-75" onChange={handleInputChange} name="type" id="room-type" />
               </div>

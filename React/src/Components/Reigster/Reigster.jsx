@@ -75,7 +75,7 @@ export default function Register() {
             lname: Joi.string().required(),
             email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
             password: Joi.string()
-                .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$'))
+                .pattern(new RegExp('^(?=.*[^\w\s]).{8,}$'))
                 .min(8)
                 .required(),
             confirmPassword: Joi.ref('password'),
@@ -120,7 +120,7 @@ export default function Register() {
                         <label htmlFor="pass" className="col-sm-3 col-form-label">Password:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="password" className="form-control" id="pass" name='password' />
-                            {errors.password && <div className='text-danger'>Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.</div>}
+                            {errors.password && <div className='text-danger'>Password must be at least 8 characters long and containa at least one special character.</div>}
                         </div>
                     </div>
                     <div className="row mb-3">

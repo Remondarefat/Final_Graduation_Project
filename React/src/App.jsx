@@ -9,7 +9,9 @@ import Checkout from './Components/Checkout/Checkout';
 import EditProfile from './Components/EditProfile/EditProfile';
 import Reigster from './Components/Reigster/Reigster';
 import AllHotels from './Components/AllHotels/AllHotels';
+import Payment from './Components/Payment/Payment';
 import AdminRequest from './Components/AdminRequests/AdminRequest';
+import NotFound from './Components/NotFound/NotFound';
 import HotelRooms from './Components/HotelRooms/HotelRooms';
 import RoomDesc from './Components/RoomDesc/RoomDesc';
 import Login from './Components/Login/Login';
@@ -17,16 +19,20 @@ import Login from './Components/Login/Login';
 
 function App() {
   let routers = createBrowserRouter([
-    {path:'/' , element:<Layout/>  , children:[
-    { path: '/addhotel', element: <AddHotel /> },
-      { path: '/addroom', element: <AddRoom /> },
-      { path: '/allhotel', element: <AllHotels /> },
-      { path: '/adminrequest', element: <AdminRequest /> },
-  ]},
+    {
+      path: '/', element: <Layout />, children: [
+        { path: '/addhotel', element: <AddHotel /> },
+        { path: '/addroom', element: <AddRoom /> },
+        { path: '/allhotel', element: <AllHotels /> },
+          { path: '/adminrequest', element: <AdminRequest /> },
+  ]
+    },
   { path: '/home', element:<HomePage /> },
-    { path: '/checkout', element:<Checkout /> },
-    {path:'/editprofile', element:<EditProfile/>},
+    { path: '/checkout', element: <Checkout /> },
+    { path: '/editprofile/:id', element: <EditProfile /> },
     { path: '/register', element: <Reigster /> },
+    { path: '*', element: <NotFound/> },
+    { path: '/payment', element: <Payment /> },
     { path: '/login', element: <Login /> },
     { path: '/hotelrooms', element: <HotelRooms /> },
     { path: '/roomdesc', element: <RoomDesc /> },

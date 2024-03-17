@@ -7,13 +7,15 @@ use App\Http\Controllers\ApiHotelController;
 use App\Http\Controllers\RoomController;use App\Http\Controllers\ApiHotelDescController;
 use App\Http\Controllers\ApiHotelRoomController;
 
+use App\Http\Controllers\UserController;
 Route::post('/hotels', [ApiHotelController::class, 'store']);
 
 Route::post('/addroom' , [RoomController::class, 'store']);
 Route::get('/hotels' , [ApiHotelController::class, 'index']);
 
 Route::get('/booking-data', 'App\Http\Controllers\ApiController@getBookingData');
-// !------ HotelDesc & Login -Logout---------
+Route::get('/userdata/{id}', [UserController::class, 'show']); 
+Route::put('/editprofile/{id}', [UserController::class, 'update']);// !------ HotelDesc & Login -Logout---------
 Route::get('/hoteldesc', [ApiHotelDescController::class, 'show']);
 Route::get('/hotelroom', [ApiHotelRoomController::class, 'show']);
 
