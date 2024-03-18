@@ -15,7 +15,8 @@ Route::get('/hotels' , [ApiHotelController::class, 'index']);
 
 Route::get('/booking-data', 'App\Http\Controllers\ApiController@getBookingData');
 Route::get('/userdata/{id}', [UserController::class, 'show']); 
-Route::put('/editprofile/{id}', [UserController::class, 'update']);// !------ HotelDesc & Login -Logout---------
+Route::put('/editprofile/{id}', [UserController::class, 'update']);
+// !------ HotelDesc & Login -Logout---------
 Route::get('/hoteldesc', [ApiHotelDescController::class, 'show']);
 Route::get('/hotelroom', [ApiHotelRoomController::class, 'show']);
 
@@ -23,4 +24,5 @@ Route::get('/hotelroom', [ApiHotelRoomController::class, 'show']);
 Route::group(['middleware' => ['api-auth']], function () {
     Route::post('/logout', [ApiAuthController::class, 'logout']);
 });
+
 Route::post('/login', [ApiAuthController::class, 'login']);

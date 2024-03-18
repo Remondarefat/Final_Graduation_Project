@@ -11,36 +11,40 @@ class ApiAuthController extends Controller
 {
 
     public function login(Request $request)
-{
-    $data = $request->validate([
-        'email' => 'required|email|max:255',
-        'password' => 'required|string|min:5|max:30|',
-    ]);
-
-    if (!$token = JWTAuth::attempt($data)) {
-        return response()->json(['error_msg' => 'Invalid credentials'], 401);
-    }
-
-    $user = auth()->user();
-
-    if ($user->email === 'Admin@1234.com' && $user->password === bcrypt('Admin@1234')) {
-        // Admin login
-        return response()->json([
-            'access_token' => $token,
-            'success_msg' => 'Logged in successfully as admin!',
-            'is_admin' => true,
+    {
+        $data = $request->validate([
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:5|max:30|',
         ]);
-    }
-
-    // Regular user login
-    return response()->json([
-        'access_token' => $token,
-        'success_msg' => 'Logged in successfully!',
-        'is_admin' => false,
-    ]);
-}
     
+        if (!$token = JWTAuth::attempt($data)) {
+            return response()->json(['error_msg' => 'Invalid credentials'], 401);
+        }
+        $user = auth()->user();
 
+        // Fetch additional user data like first name and last name
+        $fname = $user->fname; 
+        $lname = $user->lname; 
+    
+        // Check if the email and password match the fixed admin credentials
+        if ($data['email'] === 'Admin@1234.com' && $data['password'] === 'Admin@1234') {
+            return response()->json([
+                'access_token' => $token,
+                'success_msg' => 'Logged in successfully as admin!',
+                'is_admin' => true,
+                
+            ]);
+        } else {
+            return response()->json([
+                'access_token' => $token,
+                'success_msg' => 'Logged in successfully!',
+                'is_admin' => false,
+                'fname' => $fname,
+                'lname' => $lname,
+            ]);
+        }
+    }
+    
     public function logout(Request $request){
         $accessToken= $request->header('Access-Token');
         User::where('access_token' ,$accessToken)->first()->update([

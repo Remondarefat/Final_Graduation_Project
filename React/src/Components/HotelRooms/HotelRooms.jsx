@@ -4,12 +4,20 @@ import Doubleroom from '../../assets/doubleroom.jpg';
 import Singleroom from '../../assets/singleroom.jpg';
 import { Link } from 'react-router-dom';
 import ReactStars from 'react-stars'
-import {React, useState} from 'react'
-
-
-
+import {React, useEffect, useState} from 'react'
+import axios from 'axios';
 
 export default function HotelRooms(){
+    
+    const [hotelDesc,setHotelDesc]=useState([]);
+    async function getHotelDesc(){
+        let {data}=await axios.get('endpoint');
+        setHotelDesc(data.results);
+    }
+    useEffect(()=>{
+        // getHotelDesc();
+    },[]);
+
         const [rating, setRating] = useState(0);
 
         const ratingChanged = (newRating) => {

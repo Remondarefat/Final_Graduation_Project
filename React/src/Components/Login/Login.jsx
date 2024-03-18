@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Style from './Login.module.css';
 import { Formik, useFormik } from 'formik';
 import Picture from '../../assets/login.png';
@@ -7,8 +7,10 @@ import axios from 'axios';
 import * as Yup from  'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { BallTriangle } from 'react-loader-spinner'
+import { UserContext } from '../../Context/UserContext';
 
 export default function Login(){
+    let {setUserToken} = useContext(UserContext);
     let navigate = useNavigate();
     const [error,seterror]=useState(null);
     const[isLoading ,setisLoading] =useState(false);
@@ -19,9 +21,17 @@ export default function Login(){
     try {
         const { data } = await axios.post('http://127.0.0.1:8000/api/login', values);
         if (data.success_msg) {
-            if (data.is_admin === false) {
+            if (data.is_admin === true) {
+                localStorage.setItem('userToken',data.access_token);
+                localStorage.setItem('isAdmin', data.is_admin);
+                setUserToken(data.access_token);
                 navigate('/allhotel'); // Redirect admin to dashboard
             } else {
+                // console.log(data.access_token);
+                localStorage.setItem('userToken',data.access_token);
+                localStorage.setItem('fname', data.fname); 
+                localStorage.setItem('lname', data.lname);
+                setUserToken(data.access_token);
                 navigate('/home'); // Redirect regular user to home
             }
         }
@@ -54,7 +64,6 @@ export default function Login(){
                 <h2 className={Style.loginTitle}>Login</h2>
                 <form className={Style.loginForm} onSubmit={formik.handleSubmit} >        
                     <div className="row mb-3">
-                        {error?<div className='alert alert-danger'>{error}</div>:''}
                         
                         <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
                         <div className="col-sm-9">
@@ -68,6 +77,7 @@ export default function Login(){
                             <input onBlur={formik.handleBlur} id='pass' onChange={formik.handleChange} type='password' value={formik.values.password} className="form-control" name='password'/>
                             {formik.errors.password && formik.touched.password?<div className="alert alert-danger p-2 mt-2">{formik.errors.password}</div>:''}
             
+                        {error?<div className='alert alert-danger p-2'>{error}</div>:''}
                         </div>
                     </div>
                     {isLoading? <button type='button' className={Style.loginBtn}>
