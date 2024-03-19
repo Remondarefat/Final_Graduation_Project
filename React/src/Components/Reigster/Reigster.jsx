@@ -41,6 +41,9 @@ export default function Register() {
             setUser(prevUser => ({ ...prevUser, dob: newDate }));
         } else {
             setUser(prevUser => ({ ...prevUser, [name]: value }));
+            if (name === 'fname' || name === 'lname' ) {
+                localStorage.setItem(name, value);
+            }
         }
     }
 
@@ -142,7 +145,7 @@ export default function Register() {
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <label htmlFor="phone" className="col-sm-3 col-form-label">Phone:</label>
+                        <label htmlFor="phone" className="col-sm-3 col-form-label" maxLength={11}>Phone:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="tel" className="form-control" id="phone" name='phone' />
                             {errors.phone && <div className='text-danger'>{errors.phone}</div>}

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->json('meals');
+            $table->json('meals')->nullable();
             $table->date('checkin');
             $table->date('checkout');
             $table->integer('total_due');

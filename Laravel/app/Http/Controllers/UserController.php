@@ -68,12 +68,6 @@ class UserController extends Controller
         try {
             $user = User::findOrFail($id);
             
-            if ($request->hasFile('profile')) {
-                $profileImage = $request->file('profile');
-                $filename = time() . '_' . $profileImage->getClientOriginalName();
-                $profileImage->move('storage/profile_images', $filename);
-                $user->profile_image = $filename;
-            }
             $user->fname = $request->fname;
             $user->lname = $request->lname;
             $user->email = $request->email;
@@ -96,5 +90,4 @@ class UserController extends Controller
     {
         //
     }
-    
-}
+ }

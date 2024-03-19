@@ -36,7 +36,7 @@ function App() {
   ]
     },
   { path: '/home', element:<ProtectedRoute><HomePage /> </ProtectedRoute>},
-    { path: '/checkout', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
+    { path: '/checkout/:hotelId/:roomId', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
     { path: '/editprofile/:id', element: <ProtectedRoute><EditProfile /></ProtectedRoute> },
     { path: '/register', element: <Reigster /> },
     { path: '*', element: <NotFound/> },

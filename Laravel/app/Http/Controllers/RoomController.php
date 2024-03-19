@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Models\Hotel;
 use App\Models\RoomImage;
 class RoomController extends Controller
 {
@@ -58,10 +59,12 @@ class RoomController extends Controller
     }
     /**
      * Display the specified resource.
-     */
-    public function show(string $id)
+    */
+    public function show(string $hotel_id , string $room_id)
     {
-        //
+        $room=Room::where('hotel_id' , $hotel_id)->where('id' , $room_id)->first();
+        // $room->images = RoomImage::where('room_id' , $room_id)->get();
+        return response()->json($room);
     }
 
     /**
