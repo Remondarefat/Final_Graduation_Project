@@ -8,7 +8,8 @@
     height: 150px;
 }
 .addingRoom {
-    color: #ABDBDE;
+    color: #47BCC2;
+    font-weight: bold;
 }
 .imageContainer {
     min-height: 300px; 

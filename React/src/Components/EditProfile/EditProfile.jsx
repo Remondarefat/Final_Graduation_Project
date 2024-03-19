@@ -2,7 +2,8 @@ import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import style from './EditProfile.module.css';
-
+import Navbar from '../MainNavbar/Navbar';
+import Footer from '../MainFooter/Footer';
 export default function EditProfile() {
   const [editData, setEditData] = useState({
     fname: '',
@@ -12,7 +13,6 @@ export default function EditProfile() {
     confirmPassword: '',
     phone : '',
     dob : '',
-    profile:null
   });
 
   const inputChange = (event) => {
@@ -22,13 +22,7 @@ export default function EditProfile() {
 
   const [passwordMismatch, setPasswordMismatch] = useState(false);
   const { id } = useParams();
-
   const [loading, setLoading] = useState(false);
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setEditData({ ...editData, profile: file });
-  };
   useEffect(() => {
     if (id) {
       fetchUserData(id);
@@ -45,7 +39,6 @@ export default function EditProfile() {
         email: userData.email,
         phone : userData.phone,
         dob : userData.dob,
-        profile: userData.profile,
         password: '', 
         confirmPassword: ''
       });
@@ -70,21 +63,26 @@ export default function EditProfile() {
       console.error('Error submitting form:', error);
     }
   };
+  const avatars = (firstName, lastName) => {
+    const firstLetter = firstName.charAt(0).toUpperCase();
+    const lastLetter = lastName.charAt(0).toUpperCase();
+    return firstLetter + lastLetter;
+  };
   setTimeout(() => {
     setLoading(false);
   }, 2000);
 
   return (
     <>
-      <div className="container-fluid pt-5 d-flex flex-wrap justify-content-center">
+    <Navbar />
+      <div className="container-fluid mt-5 pt-5 d-flex flex-wrap justify-content-center">
         <div className="row">
           <div className={`col col-3 d-flex flex-column justify-content-center align-items-center rounded-3 me-4 ${style.leftContainer} `}>
-          <img  className={` mt-4 rounded-circle ${style.userImg}`} src={editData.profile ? URL.createObjectURL(editData.profile) : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt='room image' />
-            <label htmlFor='profile' className='mt-5 mb-5 pb-5 text-center'>Upload a photo</label>
+            <div className='d-flex justify-content-center align-items-center rounded-circle fw-bold fs-1 text-muted' style={{ width: '150px', height: '150px', backgroundColor: '#D9D9D9' }} >{avatars(editData.fname, editData.lname)}</div>
+            <label htmlFor='profile' className='mt-5 mb-5 pb-5 text-center fw-bold text-muted'>{editData.fname + ' ' + editData.lname + ''}</label>
           </div>
           <div className="col col-8 d-flex align-items-center ms-5">
             <form onSubmit={handleSubmit} enctype="multipart/form-data">
-            <input type='file' id='profile' name='profile' style={{ display: 'none' }}  onChange={handleImageChange} />
               <div className='d-flex mb-3'>
                 <label htmlFor="fname">First Name:</label>
                 <input type="text" className='form-control w-100' name="fname" id="fname" value={editData.fname} onChange={inputChange} />
@@ -108,7 +106,7 @@ export default function EditProfile() {
               {passwordMismatch && <div className="text-danger">Passwords do not match</div>}
               <div className='d-flex mb-3'>
                 <label htmlFor="phone">Phone:</label>
-                <input type="text" className='form-control w-100' value={editData.phone} name="phone" id="phone" onChange={inputChange}  />
+                <input type="text" className='form-control w-100' value={editData.phone} name="phone" id="phone" onChange={inputChange} maxLength={11} />
               </div>
               <div className='d-flex mb-3'>
                 <label htmlFor="dob">Date of Birth:</label>
@@ -123,6 +121,7 @@ export default function EditProfile() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

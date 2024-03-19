@@ -21,7 +21,7 @@ function App() {
       { path: '/adminrequest', element: <AdminRequest /> },
   ]},
   { path: '/home', element:<HomePage /> },
-    { path: '/checkout', element:<Checkout /> },
+    { path: '/checkout/:hotelId/:roomId', element:<Checkout /> },
     {path:'/editprofile/:id', element:<EditProfile/>},
     { path: '/register', element: <Reigster /> },
     { path: '*', element: <NotFound/> },
