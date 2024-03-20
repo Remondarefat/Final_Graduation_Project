@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './RegionInHome.css';
 import logo from '../NylaLogo/Nyla_Logo.svg';
 
-const App = () => {
+const RegionInHome = () => {
+  const navigate = useNavigate(); // Hook for navigation
   const destinations = [
-    { name: 'North Coast', imagePath: 'northcoast.png', bottomImage: 'North_Coast_Div.png' },
-    { name: 'Cairo', imagePath: 'cairo.png', bottomImage: 'CairoDiv.png' },
-    { name: 'Sinai', imagePath: 'sinai.png', bottomImage: 'SinaiDiv.png' },
-    { name: 'Oasis', imagePath: 'oasis.png', bottomImage: 'oasisDiv.png' },
-    { name: 'Upper Egypt', imagePath: 'upper.png', bottomImage: 'UEgyDiv.png' },
-    { name: 'Red Sea', imagePath: 'redsea.png', bottomImage: 'Red_Sea_Div.png' },
+    { name: 'North Coast', imagePath: 'northcoast.png', bottomImage: 'North_Coast_Div.png', path: 'northcoast' },
+    { name: 'Cairo', imagePath: 'cairo.png', bottomImage: 'CairoDiv.png', path: 'cairo' },
+    { name: 'Sinai', imagePath: 'sinai.png', bottomImage: 'SinaiDiv.png', path: 'sinai' },
+    { name: 'Oasis', imagePath: 'oasis.png', bottomImage: 'oasisDiv.png', path: 'oasis' },
+    { name: 'Upper Egypt', imagePath: 'upper.png', bottomImage: 'UEgyDiv.png', path: 'upperegypt' },
+    { name: 'Red Sea', imagePath: 'redsea.png', bottomImage: 'Red_Sea_Div.png', path: 'redsea' },
   ];
 
   const [selectedDestination, setSelectedDestination] = useState(null);
@@ -23,8 +25,8 @@ const App = () => {
     if (!selectedDestination) {
       alert("Please choose a destination first!");
     } else {
-      // Proceed with the explore functionality if a destination is selected
-      document.querySelector(".bottom-div").scrollIntoView({ behavior: "smooth" });
+      // Use the navigate function to go to the selected destination's page
+      navigate(`/region/${selectedDestination.path}`);
     }
   };
 
@@ -65,4 +67,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default RegionInHome;

@@ -7,7 +7,7 @@ import RegionsInHome from '../RegionsInHome/RegionsInHome'
 import { Outlet } from 'react-router-dom'
 
 export default function HomePage() {
-    return <>
+    return <>     
         <Navbar />
         <Slider />
         <RegionsInHome />
