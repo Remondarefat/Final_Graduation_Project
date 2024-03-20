@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
+import Profile from './Components/Profile/Profile';
 import AddHotel from './Components/AddHotel/AddHotel';
 import Layout from './Components/AdminLayout/Layout';
 import AddRoom from './Components/AddRoom/AddRoom';
@@ -19,6 +20,7 @@ import UserContextProvider, { UserContext } from './Context/UserContext';
 import { useContext, useEffect } from 'react';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import ProtectedAdminRoute from './Components/ProtectedAdminRoute/ProtectedAdminRoute';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 
@@ -29,14 +31,16 @@ function App() {
     {
       path: '/', element: <Layout />, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
-        { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom', element: <AddRoom /> },
+        // { path: '/addhotel', element: <AddHotel /> },
+        { path: '/addroom/:hotelId/:hotelName', element: <AddRoom /> },
+
         { path: '/allhotel', element: <AllHotels /> },
           { path: '/adminrequest', element: <AdminRequest /> },
   ]
     },
   { path: '/home', element:<ProtectedRoute><HomePage /> </ProtectedRoute>},
-    { path: '/checkout', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
+  { path: '/profile/:id', element:<Profile /> },
+    { path: '/checkout/:hotelId/:roomId', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
     { path: '/editprofile/:id', element: <ProtectedRoute><EditProfile /></ProtectedRoute> },
     { path: '/register', element: <Reigster /> },
     { path: '*', element: <NotFound/> },
