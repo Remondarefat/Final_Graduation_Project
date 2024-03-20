@@ -22,7 +22,7 @@ export default function HotelItem({ item }) {
 
                 <div className='position-absolute justify-content-center align-items-center  w-100 btn-addroom'>
                         <button className='btn btn-upload btn-back me-2'>
-                        <Link to={`/addroom/${item.id}`} style={{textDecoration:'none' , color:'black'}}>Add Room</Link>
+                        <Link to={`/addroom/${item.id}/${item.name}`} style={{textDecoration:'none' , color:'black'}}>Add Room</Link>
                         </button>
                         <button className='btn btn-upload btn-back'>Edit Room</button>
                 </div>

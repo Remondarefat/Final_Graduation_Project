@@ -32,7 +32,7 @@ function App() {
       path: '/', element: <Layout />, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
         // { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom/:hotelId', element: <AddRoom /> },
+        { path: '/addroom/:hotelId/:hotelName', element: <AddRoom /> },
 
         { path: '/allhotel', element: <AllHotels /> },
           { path: '/adminrequest', element: <AdminRequest /> },
