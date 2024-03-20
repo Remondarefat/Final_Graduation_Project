@@ -25,7 +25,7 @@ export default function AddHotel() {
     description: "",
     stars: rating,
     // numberofrooms: "",
-    image:[]
+    'image[]':[]
     
   });
   
@@ -34,9 +34,8 @@ export default function AddHotel() {
   // Function to handle file input change
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-    const imageUrls = files.map(file => URL.createObjectURL(file));
     setHotel({ ...hotel, image: files });
-    setSelectedImage(prevImages => [...imageUrls]);
+    setSelectedImage(files.map(file => URL.createObjectURL(file)));
     
   };
 
@@ -46,14 +45,22 @@ export default function AddHotel() {
     
   }
   async function sendData() {
-    // let { data } = await axios.post("http://localhost:8000/api/hotels", hotel);
-    let img = [];
-    for (let i = 0; i < hotel.image.length; i++) {
-      img.push(hotel.image[i].name);
-    }
-    setHotel({ ...hotel, image: img });
-    console.log(img);
+    let formData = new FormData();
+      formData.append('name', hotel.name);
+      formData.append('location', hotel.location);
+      formData.append('description', hotel.description);
+      formData.append('stars', hotel.stars);
+      hotel.image.forEach(file => {
+        formData.append('image[]', file);
+      });
     
+    console.log(formData);
+      try {
+        let { data } = await axios.post("http://localhost:8000/api/hotels", formData);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
   }
   
   return (
@@ -66,7 +73,7 @@ export default function AddHotel() {
           </div>
 
           <div className="col-md-8 ms-4  side-nav">
-          <form onSubmit={addHotelData}>
+          <form onSubmit={addHotelData} enctype="multipart/form-data">
 
               <h2>Adding Hotel</h2>
               <div className="row">
@@ -98,13 +105,13 @@ export default function AddHotel() {
                 </div>
                 <div className="row">
                 <div className=" col-md-4">
-                  {/* <iframe className="tex-center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16819228.534361046!2d18.693281982702832!3d23.523179168466793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14368976c35c36e9%3A0x2c45a00925c4c444!2sEgypt!5e0!3m2!1sen!2seg!4v1710337274387!5m2!1sen!2seg"
+                  <iframe className="tex-center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16819228.534361046!2d18.693281982702832!3d23.523179168466793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14368976c35c36e9%3A0x2c45a00925c4c444!2sEgypt!5e0!3m2!1sen!2seg!4v1710337274387!5m2!1sen!2seg"
                     width="100%"
                     height="400px"
                     allowFullScreen=""
                     loading="lazy"
                     title="Responsive Google Maps"
-                    referrerPolicy="no-referrer-when-downgrade"></iframe> */}
+                    referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div className="col-md-8">
                   <div className="row">

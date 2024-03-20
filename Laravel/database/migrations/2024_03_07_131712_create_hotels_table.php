@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('location');
-            $table->string('description');
+            $table->longText('description');
             $table->integer('stars');
             $table->integer('numberofrooms')->default(0);
             $table->timestamps();
