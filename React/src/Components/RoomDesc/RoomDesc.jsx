@@ -3,8 +3,24 @@ import Picture3 from '../../assets/hilton 1.png';
 import Doubleroom from '../../assets/doubleroom.jpg';
 import Singleroom from '../../assets/singleroom.jpg';
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function RoomDesc(){
+    const [room, setRoom] = useState(null);
+    useEffect(() => {
+        const fetchRoomData = async () => {
+          try {
+            const roomId = match.params.roomId;
+            const response = await axios.get(`http://127.0.0.1:8000/api/room/1`);
+            setRoom(response.data);
+          } catch (error) {
+            console.error('Error fetching room data:', error);
+          }
+        };
+    
+        fetchRoomData();
+      }, [match.params.roomId]);
 
     return <>
         <div className="container">
@@ -14,14 +30,14 @@ export default function RoomDesc(){
                         <div className=''>
                             <img src={Singleroom}  className='w-100 rounded-3'/>
                         </div>
-                        {/* <div className={Style.layer }>
+                        <div className={Style.layer }>
                                 <img src={Picture3} className={Style.hotelImg}/>
                                     <div className='ms-3'> 
                                         <span>Listed by :</span>
                                             <p className='fw-bold m-0'>Hilton Alex</p>
                                                 <span>For:$1000/neight</span>
                                     </div>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-6">

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
-use App\Http\Resources\RoomResource;
 
 class ApiHotelRoomController extends Controller
 {
-    public function show(){
-
-        return new RoomResource();
-
+    public function show($roomId)
+    {
+        $room = Room::findOrFail($roomId);
+        return response()->json(['room' => $room]);
     }
 }
+

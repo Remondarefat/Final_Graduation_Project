@@ -21,3 +21,8 @@
     position: absolute;
     font-size: 13px;
 }
+.Slider{
+    height:400px !important ;
+    object-fit: cover;
+    
+}
