@@ -20,6 +20,7 @@ import UserContextProvider, { UserContext } from './Context/UserContext';
 import { useContext, useEffect } from 'react';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import ProtectedAdminRoute from './Components/ProtectedAdminRoute/ProtectedAdminRoute';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 
@@ -30,8 +31,9 @@ function App() {
     {
       path: '/', element: <Layout />, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
-        { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom', element: <AddRoom /> },
+        // { path: '/addhotel', element: <AddHotel /> },
+        { path: '/addroom/:hotelId', element: <AddRoom /> },
+
         { path: '/allhotel', element: <AllHotels /> },
           { path: '/adminrequest', element: <AdminRequest /> },
   ]

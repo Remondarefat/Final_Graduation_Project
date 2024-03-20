@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import HotelItem from '../HotelItem/HotelItem';
 
+
 export default function AllHotels() {
     let [hotel,setHotel] = useState([]);
     async function getHotel() {

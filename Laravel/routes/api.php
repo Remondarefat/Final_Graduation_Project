@@ -14,8 +14,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\BookController;
 Route::post('/hotels', [ApiHotelController::class, 'store']);
-
+//add room routes
 Route::post('/addroom' , [RoomController::class, 'store']);
+Route::get('/hotels/{hotelId}' ,'App\Http\Controllers\HotelController@getHotelNames');
 Route::get('/hotels' , [ApiHotelController::class, 'index']);
 
 Route::get('/booking-data', 'App\Http\Controllers\ApiController@getBookingData');
