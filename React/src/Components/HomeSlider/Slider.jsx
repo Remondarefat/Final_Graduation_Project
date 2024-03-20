@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css'; // Import styles for AwesomeSlider
+import 'react-awesome-slider/dist/styles.css'; 
+import './slider.css';
 
 const images = [
   'Nyla-Logo.png',
@@ -12,7 +13,7 @@ export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrevSlide = () => {
-    const newIndex = (activeIndex - 1 + images.length) % images.length; // Handles looping
+    const newIndex = (activeIndex - 1 + images.length) % images.length; 
     setActiveIndex(newIndex);
   };
 
@@ -26,9 +27,10 @@ export default function Slider() {
     <div className="slider-container mb-5">
       <AwesomeSlider
         fillParent={false}
-        delay={500} // Delay between transitions (optional)
-        transitionDuration={1000} // Transition duration in milliseconds
-        currentIndex={activeIndex} // Set initial active index
+        delay={500} 
+        transitionDuration={1000} 
+        currentIndex={activeIndex}
+        
       >
         {images.map((image) => (
           <div key={image} className="slider-item">

@@ -29,8 +29,9 @@ export default function EditHotel() {
   };
 
   async function getHotelDetails() {
-    let { data } = await axios.get(`http://localhost:8000/api/hotels/${allparams.id}`);
-    let hotelData=data.data;
+    let id=allparams.id;
+    let { data } = await axios.get(`http://localhost:8000/api/hotels/${id}`);
+    let hotelData = data;
     sethoteldetails(hotelData);
     setHotel(hotelData);
     // console.log(hotelData);

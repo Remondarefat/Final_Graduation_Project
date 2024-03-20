@@ -41,10 +41,14 @@ export default function Register() {
             setUser(prevUser => ({ ...prevUser, dob: newDate }));
         } else {
             setUser(prevUser => ({ ...prevUser, [name]: value }));
+            if (name === 'fname' || name === 'lname' ) {
+                localStorage.setItem(name, value);
+            }
         }
     }
 
     async function submitData() {
+        console.log('hello');
         const { data } = await axios.post('http://127.0.0.1:8000/register', user);
         console.log(data);
         if (data.message === 'User created successfully') {
@@ -75,7 +79,7 @@ export default function Register() {
             lname: Joi.string().required(),
             email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
             password: Joi.string()
-                .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$'))
+                .pattern(new RegExp('^(?=.*[^\w\s]).{8,}$'))
                 .min(8)
                 .required(),
             confirmPassword: Joi.ref('password'),
@@ -120,7 +124,7 @@ export default function Register() {
                         <label htmlFor="pass" className="col-sm-3 col-form-label">Password:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="password" className="form-control" id="pass" name='password' />
-                            {errors.password && <div className='text-danger'>Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.</div>}
+                            {errors.password && <div className='text-danger'>Password must be at least 8 characters long and containa at least one special character.</div>}
                         </div>
                     </div>
                     <div className="row mb-3">
@@ -142,9 +146,9 @@ export default function Register() {
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <label htmlFor="phone" className="col-sm-3 col-form-label">Phone:</label>
+                        <label htmlFor="phone" className="col-sm-3 col-form-label" maxLength={11}>Phone:</label>
                         <div className="col-sm-9">
-                            <input onChange={handleChange} type="tel" className="form-control" id="phone" name='phone' />
+                            <input onChange={handleChange} type="tel" className="form-control" id="phone" name='phone' maxLength={11} />
                             {errors.phone && <div className='text-danger'>{errors.phone}</div>}
                         </div>
                     </div>

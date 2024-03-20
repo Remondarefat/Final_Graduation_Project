@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Database\QueryException;
-
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     /**
@@ -48,7 +48,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return response()->json($user);
     }
 
     /**
@@ -56,7 +57,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
     }
 
     /**
@@ -64,8 +65,33 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $filename = '';
+            if ($request->hasFile('profile')) {
+                $filename = $request->file('profile')->getClientOriginalName();
+                $request->file('profile')->move('storage/images', $filename);
+            }
+            $data = $request->validate([
+                'fname' => 'string',
+                'lname' => 'string',
+                'email' => 'string|email',
+                'phone' => 'string',
+                'password' => 'string',
+                'dob' => 'date',
+            ]);
+    
+            // Assign $filename to 'profile' key in $data
+            $data['profile'] = $filename;
+    
+            $user = User::findOrFail($id);
+            $user->update($data);
+    
+            return response()->json(['message' => 'Profile updated successfully'], 200);
+        } catch (QueryException $e) {
+            return response()->json(['message' => 'Failed to update profile', 'error' => $e->getMessage()], 500);
+        }
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -74,4 +100,4 @@ class UserController extends Controller
     {
         //
     }
-}
+ }

@@ -22,7 +22,9 @@ export default function HotelItem({ item }) {
                 <img src={item.image[currentImageIndex].image} className='w-100 hotel-img' alt="" />
 
                 <div className='position-absolute justify-content-center align-items-center  w-100 btn-addroom'>
-                        <Link to={'/addroom'} className='btn btn-upload btn-back me-2'>Add Room</Link>
+                        <button className='btn btn-upload btn-back me-2'>
+                        <Link to={`/addroom/${item.id}/${item.name}`} style={{textDecoration:'none' , color:'black'}}>Add Room</Link>
+                        </button>
                         <Link to={`/edithotel/${item.id}`} className='btn btn-upload btn-back'>Edit Hotel</Link>
                 </div>
                 </div>
@@ -52,6 +54,8 @@ export default function HotelItem({ item }) {
                     
                 </div>
             </div>
+
         </div>
+
     </>
 }
