@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
+
 class UserController extends Controller
 {
     /**
@@ -31,6 +32,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
+            // Validate request data
+            $request->validate([
+                'fname' => 'required',
+                'lname' => 'required',
+                'email' => 'required|email|unique:users',
+                'password' => 'required',
+                'dob' => 'required',
+                'phone' => 'required',
+            ]);
             $hashedPassword = Hash::make($request->password);
             $request->merge(['password' => $hashedPassword]);
             $user = User::create($request->all());
@@ -57,7 +67,6 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        
     }
 
     /**
@@ -67,7 +76,7 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
-            
+
             $user->fname = $request->fname;
             $user->lname = $request->lname;
             $user->email = $request->email;
@@ -75,13 +84,13 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
             $user->dob = $request->dob;
             $user->save();
-    
+
             return response()->json(['message' => 'Profile updated successfully'], 200);
         } catch (QueryException $e) {
             return response()->json(['message' => 'Failed to update profile', 'error' => $e->getMessage()], 500);
         }
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -90,4 +99,4 @@ class UserController extends Controller
     {
         //
     }
- }
+}
