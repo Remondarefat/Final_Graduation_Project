@@ -48,8 +48,8 @@ function App() {
     { path: '*', element: <NotFound/> },
     { path: '/payment', element: <ProtectedRoute><Payment /></ProtectedRoute> },
     { path: '/login', element: <Login /> },
-    { path: '/hotelrooms', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
-    { path: '/roomdesc', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
+    { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
+    { path: '/roomdesc/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
 
   ]);
   let{setUserToken}=useContext(UserContext);

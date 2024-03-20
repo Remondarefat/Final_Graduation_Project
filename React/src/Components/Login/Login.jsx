@@ -50,7 +50,6 @@ export default function Login(){
         initialValues:{
             email:'',
             password:'',
-
         },validationSchema,
 
         onSubmit:loginSubmite
