@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
+import Profile from './Components/Profile/Profile';
 import AddHotel from './Components/AddHotel/AddHotel';
 import Layout from './Components/AdminLayout/Layout';
 import AddRoom from './Components/AddRoom/AddRoom';
@@ -20,6 +21,7 @@ function App() {
       { path: '/adminrequest', element: <AdminRequest /> },
   ]},
   { path: '/home', element:<HomePage /> },
+  { path: '/profile/:id', element:<Profile /> },
     { path: '/checkout', element:<Checkout /> },
     {path:'/editprofile', element:<EditProfile/>},
     { path: '/register', element: <Reigster /> },
