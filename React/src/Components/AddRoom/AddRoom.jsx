@@ -1,8 +1,11 @@
 import {React, useState , useEffect} from 'react'
 import style from './AddRoom.module.css'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { log } from 'async';
 
 export default function AddRoom() {
+  const { hotelId , hotelName} = useParams();
   const [userFullName, setUserFullName] = useState('');
   const [images, setImages] = useState([]);
   const [formData, setFormData] = useState({
@@ -31,7 +34,7 @@ export default function AddRoom() {
     formDataToSend.append('type', formData.type);
     formDataToSend.append('price', formData.price);
     formDataToSend.append('view', formData.view);  
-    formDataToSend.append('hotel_id' , 1);  
+    formDataToSend.append('hotel_id', hotelId);
     formData.image.forEach(file => {
       formDataToSend.append('image[]', file);
     });
@@ -61,7 +64,7 @@ export default function AddRoom() {
         </div>
         <div className="col col-8">
           <h3 className={style.addingRoom}>Adding Room</h3> 
-          <h6 className="fw-bold pt-3 pb-3">Hotel: Hilton</h6>
+          <h6 className="fw-bold pt-3 pb-3">{hotelName}</h6>
           <form method='post' onSubmit={addRoomData} enctype="multipart/form-data">
             <div className="d-flex flex-wrap">
               <div className="d-flex flex-column flex-wrap me-5">

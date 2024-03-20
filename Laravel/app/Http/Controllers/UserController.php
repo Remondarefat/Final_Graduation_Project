@@ -75,6 +75,23 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         try {
+            $filename = '';
+            if ($request->hasFile('profile')) {
+                $filename = $request->file('profile')->getClientOriginalName();
+                $request->file('profile')->move('storage/images', $filename);
+            }
+            $data = $request->validate([
+                'fname' => 'string',
+                'lname' => 'string',
+                'email' => 'string|email',
+                'phone' => 'string',
+                'password' => 'string',
+                'dob' => 'date',
+            ]);
+
+            // Assign $filename to 'profile' key in $data
+            $data['profile'] = $filename;
+
             $user = User::findOrFail($id);
 
             $user->fname = $request->fname;
