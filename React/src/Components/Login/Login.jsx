@@ -50,7 +50,6 @@ export default function Login() {
         initialValues: {
             email: '',
             password: '',
-
         }, validationSchema,
 
         onSubmit: loginSubmite
@@ -92,7 +91,7 @@ export default function Login() {
                             visible={true}
                         />
                     </button> : <>
-                        <button type="submit" disabled={!(formik.isValid && formik.dirty)} className={Style.loginBtn}>Login</button> <Link className='d-block mt-5' to={'/register'}>You Dont have accont ?</Link>
+                    <button type="submit" disabled={!(formik.isValid && formik.dirty)} className={Style.loginBtn}>Login</button> <Link className='d-block mt-5' to={'/register'}>You Dont have accont ?</Link>
                     </>}
                 </form>
             </div>

@@ -117,6 +117,14 @@ class UserController extends Controller
         } catch (QueryException $e) {
             return response()->json(['message' => 'Failed to update profile', 'error' => $e->getMessage()], 500);
         }
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request->password);
+        $user->dob = $request->dob;
+        $user->save();
+        $user->update($data);
     }
 
 
