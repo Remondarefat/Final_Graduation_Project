@@ -28,7 +28,7 @@ code {
   height: 40px;
 }
 .side-nav{
-  height: 75vh;
+  height: 65vh;
 }
 .tab-color{
   background-color: var(--link-background)
@@ -80,5 +80,12 @@ code {
   height: 50px;
 }
 .btn-back:hover{
+  background-color: var(--logo-background);
+}
+.rate{
+  position: relative;
+  top: -25px;
+}
+.btn-update{
   background-color: var(--logo-background);
 }

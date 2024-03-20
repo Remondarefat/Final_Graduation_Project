@@ -57,7 +57,7 @@ export default function AddHotel() {
     console.log(formData);
       try {
         let { data } = await axios.post("http://localhost:8000/api/hotels", formData);
-        console.log(data);
+        console.log(data.image);
       } catch (error) {
         console.error(error);
       }
@@ -107,7 +107,7 @@ export default function AddHotel() {
                 <div className=" col-md-4">
                   <iframe className="tex-center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16819228.534361046!2d18.693281982702832!3d23.523179168466793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14368976c35c36e9%3A0x2c45a00925c4c444!2sEgypt!5e0!3m2!1sen!2seg!4v1710337274387!5m2!1sen!2seg"
                     width="100%"
-                    height="400px"
+                    height="350px"
                     allowFullScreen=""
                     loading="lazy"
                     title="Responsive Google Maps"

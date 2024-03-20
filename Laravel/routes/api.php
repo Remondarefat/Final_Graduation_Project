@@ -10,3 +10,6 @@ Route::post('/addroom' , [RoomController::class, 'store']);
 Route::get('/hotels' , [ApiHotelController::class, 'index']);
 
 Route::get('/booking-data', 'App\Http\Controllers\ApiController@getBookingData');
+
+Route::get('hotels/{id}', [ApiHotelController::class, "show"]);
+Route::put('hotels/{id}', [ApiHotelController::class, "update"]);
