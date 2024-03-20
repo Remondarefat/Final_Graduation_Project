@@ -3,7 +3,7 @@
         margin: auto;
 }
 .slider-container {
-    height: 100%;
+    height: 80%;
     object-fit: cover; /* Adjust according to your needs */
   }
 

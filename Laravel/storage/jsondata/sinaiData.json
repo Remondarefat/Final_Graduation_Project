@@ -12,7 +12,7 @@
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429901450.jpg?k=15fb75847f7ea11cc52da75112829e31079ce8e6655ee8fce11c38906966b84a&o=&hp=1",
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429903601.jpg?k=c45173090ae3852f3b9c7fdbabb7496124360e847f5f7402d6fbcbee6f282133&o=&hp=1",
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/517965928.jpg?k=68614aabb76dcae4ef40bab21fe81a65a59e9ca60a605ecdcb36a9225de690a5&o=&hp=1"
-        ], 
+        ],
         "rooms": [
             {
                 "id": 1,
@@ -62,7 +62,7 @@
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/409210274.jpg?k=1c87e8fb905547afc569e32c49bb05a9f9a31d231019fff1155842a54e485433&o=&hp=1",
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/457058677.jpg?k=b3d4569e0b2c5c1e61bc73a8fdc6c0e27e1f13448d6772620bc9ddb07457f34c&o=&hp=1",
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/457054164.jpg?k=0a201a57654e56cd2728b8b77ca92ef429420c986f7ed8e4c4a0b1d40da67660&o=&hp=1"
-        ], 
+        ],
         "rooms": [
             {
                 "id": 1,
@@ -402,6 +402,41 @@
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282458940.jpg?k=6951f52e9ce4cdafb77b7f63942cd3488d8e06f4bf5b8321264ae4f42d8e27b2&o=&hp=1",
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282458084.jpg?k=915daa1247b47e1555d3071eb79aeab81248532cf9eb1310e18dd7f51283da33&o=&hp=1",
             "https://cf.bstatic.com/xdata/images/hotel/max1280x900/116297645.jpg?k=e5fb7603ecf4948df1d9d16629c726a86e5c3532c17650720e593c732e50cd42&o=&hp=1"
+        ],"rooms": [
+            {
+                "id": 1,
+                "type": "Junior Queen Suite",
+                "description": "The Junior Queen Suite features air conditioning, a minibar, a private bathroom and a hairdryer. The unit has 1 bed.",
+                "view": "Sea View",
+                "price": 2000,
+                "images": [
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/62489960.jpg?k=c6563330dafce5d0728b0cfe3885cb305deb00b81c96c2ccf1c5c71a89c8a1d4&o=",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506536907.jpg?k=3457033552fb922bfc2c8304f255e939d6bc1628debca7d55de195f47bca281a&o="
+                        ]
+
+            },
+            {
+                "id": 2,
+                "type": "Superior Double Room",
+                "description": "The spacious double room features air conditioning, a minibar, a tea and coffee maker, a safe deposit box, as well as a flat-screen TV. The unit has 1 bed.",
+                "view": "Garden View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506539386.jpg?k=6d818fe0f3a69509cc930570eeff39f63e62108a1864c6745e21f9fcc1ee991a&o=" ,
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/451909316.jpg?k=32e12b53c5f51c0dd063021f0aa8fdcc60d86a08a34fa2c7cac17569e27f3387&o="
+                ]
+            },
+            {
+                "id": 3,
+                "type": "Deluxe Room",
+                "description": "The Deluxe Room features air conditioning, a minibar, a tea and coffee maker, a safe deposit box, as well as a flat-screen TV. The unit has 1 bed.",
+                "view": "Pool View",
+                "price": 2000,
+                "images": [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506539368.jpg?k=ccdb50fa2417b8093f3797946b846d5fdf8a66174ff20270b3a263e61697481f&o=" ,
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/451909411.jpg?k=ef57f256228deab9d25cb72e5e45bf477800cac000fd0e1f0fc37848a2fe81a2&o="
+                ]
+            }
         ]
     },
     {
@@ -555,6 +590,6 @@
                 ]
             }
         ]
-        
+
     }
 ]

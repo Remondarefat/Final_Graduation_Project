@@ -13,23 +13,41 @@ class ApiController extends Controller
     public function getBookingData()
     {
         $jsonData = file_get_contents(storage_path('jsondata/sinaiData.json'));
-        $data = json_decode($jsonData, true); 
+        $data = json_decode($jsonData, true);
         foreach ($data as $item) {
-            Hotel::create([
+            $hotel=Hotel::create([
                 'name' => $item['name'],
                 'location' => $item['location'],
                 'stars' => $item['stars'],
                 'rate' => $item['rate'],
                 'description' => $item['description'],
+        ]);
+        foreach ($item['images'] as $imageUrl) {
+            HotelImage::create([
+                'hotel_id' => $hotel->id,
+                'image' => $imageUrl
             ]);
-            foreach ($item['images'] as $imageUrl) {
-                HotelImage::create([
-                    'hotel_id' => $item->id,
+
+        }
+        foreach ($item['rooms'] as $room) {
+            $roomData=Room::create([
+                'hotel_id' => $hotel->id,
+                'view' => $room['view'],
+                'type' => $room['type'],
+                'price' => $room['price'],
+            ]);
+            foreach ($room['images'] as $imageUrl) {
+                RoomImage::create([
+                    'room_id' => $roomData->id,
                     'image' => $imageUrl
                 ]);
-           
-    }
-}
+
+            }
+
+
+        }
+        }
+
         return response()->json($jsonData);
     }
 }

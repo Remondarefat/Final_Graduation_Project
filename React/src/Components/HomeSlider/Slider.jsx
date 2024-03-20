@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css'; 
 import './slider.css';
+import 'react-awesome-slider/dist/styles.css'; 
+import './slider.css';
 
 const images = [
   'hs1.png',
@@ -20,7 +22,7 @@ export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrevSlide = () => {
-    const newIndex = (activeIndex - 1 + images.length) % images.length; // Handles looping
+    const newIndex = (activeIndex - 1 + images.length) % images.length; 
     setActiveIndex(newIndex);
   };
 
