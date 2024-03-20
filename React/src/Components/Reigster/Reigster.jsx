@@ -3,7 +3,7 @@ import Picture from '../../assets/registerImage.jpeg';
 import axios from 'axios';
 import { ReactComponent as Logo } from '../../assets/Nyla_Logo.svg';
 import Style from './Reigster.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Joi from 'joi';
 
 export default function Register() {
@@ -29,36 +29,47 @@ export default function Register() {
         dob: ''
     });
 
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     const navigate = useNavigate(); // Using useNavigate hook
 
     function handleChange(e) {
         const { name, value } = e.target;
-
-        // Handle date conversion for the 'dob' field
-        if (name === 'dob') {
-            const parts = value.split('-');
-            const newDate = parts[0] + '-' + parts[1] + '-' + parts[2];
-            setUser(prevUser => ({ ...prevUser, dob: newDate }));
-        } else {
-            setUser(prevUser => ({ ...prevUser, [name]: value }));
-            if (name === 'fname' || name === 'lname' ) {
-                localStorage.setItem(name, value);
-            }
+        setUser(prevUser => ({ ...prevUser, [name]: value }));
+        if (name === 'fname' || name === 'lname') {
+            localStorage.setItem(name, value);
         }
     }
 
     async function submitData() {
-        const { data } = await axios.post('http://127.0.0.1:8000/register', user);
-        console.log(data);
-        if (data.message === 'User created successfully') {
-            navigate('/login'); // Using the navigate function to navigate
-        } else {
-            alert('Failed to create user');
+        try {
+            const { data } = await axios.post('http://127.0.0.1:8000/register', user);
+            console.log(data);
+            if (data.message === 'User created successfully') {
+                navigate('/login'); // Using the navigate function to navigate
+            } else {
+                alert('Failed to create user');
+            }
+        } catch (error) {
+            // Check if the error is a 422 status code (Unprocessable Entity)
+            if (error.response && error.response.status === 422) {
+                // Display the error message received from the backend
+                const errorMessage = error.response.data.errors.email[0]; // Assuming the error message is nested under 'email'
+                setErrors(prevErrors => ({
+                    ...prevErrors,
+                    email: errorMessage
+                }));
+            } else {
+                // Handle other types of errors
+                console.error('An error occurred:', error);
+                alert('Failed to create user');
+            }
         }
     }
 
     function handleSubmit(e) {
         e.preventDefault(); // Prevent default form submission
+        setIsSubmitted(true);
         let validation = validateRegisterForm();
         if (validation.error) {
             const newErrors = {};
@@ -123,7 +134,7 @@ export default function Register() {
                         <label htmlFor="pass" className="col-sm-3 col-form-label">Password:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="password" className="form-control" id="pass" name='password' />
-                            {errors.password && <div className='text-danger'>Password must be at least 8 characters long and containa at least one special character.</div>}
+                            {errors.password && <div className='text-danger'>Password must be at least 8 characters long and contain at least one special character.</div>}
                         </div>
                     </div>
                     <div className="row mb-3">
@@ -159,8 +170,9 @@ export default function Register() {
                         </div>
                     </div>
                     <button type="submit" className={Style.signUpBtn}>Sign Up</button>
+                    <p className="text-center mt-2">Already have an account? <Link to="/login">Login</Link></p>
                 </form>
             </div>
         </div>
     );
-}
+}   

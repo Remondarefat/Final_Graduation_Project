@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -40,18 +41,28 @@ class UserController extends Controller
                 'password' => 'required',
                 'dob' => 'required',
                 'phone' => 'required',
+            ], [
+                'email.required' => 'Email cannot be empty.',
+                'email.email' => 'Please provide a valid email address.',
+                'email.unique' => 'This email address is already in use.',
             ]);
+
+            // Create user
             $hashedPassword = Hash::make($request->password);
             $request->merge(['password' => $hashedPassword]);
             $user = User::create($request->all());
 
-            // Return success response if user is created successfully
             return response()->json(['message' => 'User created successfully'], 201);
+        } catch (ValidationException $e) {
+            // Return validation error response
+            return response()->json(['errors' => $e->errors()], 422);
         } catch (QueryException $e) {
             // Return error response if an exception occurs during user creation
             return response()->json(['message' => 'Failed to create user', 'error' => $e->getMessage()], 500);
         }
     }
+
+
 
     /**
      * Display the specified resource.
