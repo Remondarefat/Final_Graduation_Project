@@ -97,4 +97,10 @@ class HotelController extends Controller
     {
         //
     }
+    public function getHotelNames(string $hotelId) {
+        $hotel = Hotel::findOrFail($hotelId);
+        $hotel->images = HotelImage::where('hotel_id', $hotelId)->get();
+        return response()->json($hotel);
+
+    }
 }
