@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\User;
+use App\Models\Room;
+use App\Models\Hotel;
 class BookController extends Controller
 {
     /**
@@ -11,7 +14,15 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        //load the related data from the User, Hotel, and Room models
+        $books = Book::with(['user', 'hotel', 'room'])->get();
+        foreach ($books as $book) {
+            $book->username = $book->user->name;  
+            $book->hotel_name = $book->hotel->name;  
+            $book->room_type = $book->room->type;  
+        }
+    
+        return response()->json($books);
     }
 
     /**

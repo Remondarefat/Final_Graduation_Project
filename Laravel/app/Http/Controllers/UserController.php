@@ -65,6 +65,8 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $user = User::findOrFail($id);
+
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->email = $request->email;
@@ -72,7 +74,9 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->dob = $request->dob;
         $user->save();
-        $user->update($data);
+       
+
+        return response()->json(['message' => 'Profile updated successfully'], 200);
     }
 
 
