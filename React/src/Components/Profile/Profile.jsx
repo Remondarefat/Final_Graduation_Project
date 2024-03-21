@@ -38,18 +38,26 @@ async function getprofiledata(){
         setLoading(false);
     }
 }
+
+const avatars = (firstName, lastName) => {
+    const firstLetter = firstName.charAt(0).toUpperCase();
+    const lastLetter = lastName.charAt(0).toUpperCase();
+    return firstLetter + lastLetter;
+  };
+  
     return (
         <div>
             <Navbar />
             <div className="profile-container">
                 <div className="profile-card">
-                    <div className="profile-picture">
-                        {profileData && profileData.profileImage && <img src={profileData.profileImage} alt="Profile Image" />}
+                    <div className="profile-picture  d-flex align-items-center justify-content-center">
+                            
+                        <h1 className='profile-na'>{avatars(profileData.fname, profileData.lname)}</h1>
                     </div>
                     <div className="user-info">
                         <h4>{profileData.name}</h4>
                     </div>
-                    <Link to="/editprofile" className="edit-button">
+                    <Link to={`/editprofile/${id}`} className="edit-button">
                         Edit Profile
                     </Link>
                 </div>
@@ -69,5 +77,4 @@ async function getprofiledata(){
             <Footer />
         </div>
     );
-}
-
+}   
