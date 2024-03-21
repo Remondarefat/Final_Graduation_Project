@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
+
 class UserController extends Controller
 {
     /**
@@ -31,17 +33,36 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
+            // Validate request data
+            $request->validate([
+                'fname' => 'required',
+                'lname' => 'required',
+                'email' => 'required|email|unique:users',
+                'password' => 'required',
+                'dob' => 'required',
+                'phone' => 'required',
+            ], [
+                'email.required' => 'Email cannot be empty.',
+                'email.email' => 'Please provide a valid email address.',
+                'email.unique' => 'This email address is already in use.',
+            ]);
+
+            // Create user
             $hashedPassword = Hash::make($request->password);
             $request->merge(['password' => $hashedPassword]);
             $user = User::create($request->all());
 
-            // Return success response if user is created successfully
             return response()->json(['message' => 'User created successfully'], 201);
+        } catch (ValidationException $e) {
+            // Return validation error response
+            return response()->json(['errors' => $e->errors()], 422);
         } catch (QueryException $e) {
             // Return error response if an exception occurs during user creation
             return response()->json(['message' => 'Failed to create user', 'error' => $e->getMessage()], 500);
         }
     }
+
+
 
     /**
      * Display the specified resource.
@@ -57,7 +78,6 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-
     }
 
     /**
@@ -65,6 +85,8 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $user = User::findOrFail($id);
+
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->email = $request->email;
@@ -72,7 +94,9 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->dob = $request->dob;
         $user->save();
-        $user->update($data);
+       
+
+        return response()->json(['message' => 'Profile updated successfully'], 200);
     }
 
 
@@ -83,4 +107,4 @@ class UserController extends Controller
     {
         //
     }
- }
+}

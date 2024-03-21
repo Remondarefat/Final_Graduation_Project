@@ -13,7 +13,6 @@
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     object-fit: cover; /* Ensure the image covers the entire space */
-    transition: width 0.5s ease; /* Add transition for smooth width change */
 }
 
 .logoSvg {
@@ -56,4 +55,3 @@
     border: none;
     font-weight: bold;
 }
-

@@ -12,6 +12,7 @@ class Room extends Model
         'view',
         'type',
         'hotel_id',
+        'description',
         'status'
     ];
     use HasFactory;
