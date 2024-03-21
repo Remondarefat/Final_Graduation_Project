@@ -7,20 +7,20 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function RoomDesc(){
-    const [room, setRoom] = useState(null);
-    useEffect(() => {
-        const fetchRoomData = async () => {
-          try {
-            const roomId = match.params.roomId;
-            const response = await axios.get(`http://127.0.0.1:8000/api/room/1`);
-            setRoom(response.data);
-          } catch (error) {
-            console.error('Error fetching room data:', error);
-          }
-        };
+    // const [room, setRoom] = useState(null);
+    // useEffect(() => {
+    //     const fetchRoomData = async () => {
+    //       try {
+    //         const roomId = match.params.roomId;
+    //         const response = await axios.get(`http://127.0.0.1:8000/api/room/1`);
+    //         setRoom(response.data);
+    //       } catch (error) {
+    //         console.error('Error fetching room data:', error);
+    //       }
+    //     };
     
-        fetchRoomData();
-      }, [match.params.roomId]);
+    //     fetchRoomData();
+    //   }, [match.params.roomId]);
 
     return <>
         <div className="container">

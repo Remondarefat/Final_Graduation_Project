@@ -28,6 +28,8 @@ Route::put('/editprofile/{id}', [UserController::class, 'update']);
 //checkout api
 Route::get('hotels/{hotelId}/details/{roomId}', [HotelController::class, 'show']);
 Route::post('/checkout', [BookController::class, 'create']);
+// admin request
+Route::get('/request' , [BookController::class, 'index']);
 // !------ HotelDesc & Login -Logout---------
 Route::get('/hoteldesc/{id}', [ApiHotelDescController::class, 'show']);
 Route::get('/room/{roomId}', [ApiHotelRoomController::class, 'show']);

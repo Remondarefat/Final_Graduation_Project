@@ -1,0 +1,10 @@
+.background-opacity {
+    background-color: rgba(255, 255, 255, 0.5); 
+    padding: 20px; 
+    border-radius: 10px; 
+}    
+
+.available-title {
+    color: #151515;
+    opacity: 1;
+}

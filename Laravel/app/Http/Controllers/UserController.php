@@ -85,38 +85,8 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        try {
-            $filename = '';
-            if ($request->hasFile('profile')) {
-                $filename = $request->file('profile')->getClientOriginalName();
-                $request->file('profile')->move('storage/images', $filename);
-            }
-            $data = $request->validate([
-                'fname' => 'string',
-                'lname' => 'string',
-                'email' => 'string|email',
-                'phone' => 'string',
-                'password' => 'string',
-                'dob' => 'date',
-            ]);
+        $user = User::findOrFail($id);
 
-            // Assign $filename to 'profile' key in $data
-            $data['profile'] = $filename;
-
-            $user = User::findOrFail($id);
-
-            $user->fname = $request->fname;
-            $user->lname = $request->lname;
-            $user->email = $request->email;
-            $user->phone = $request->phone;
-            $user->password = Hash::make($request->password);
-            $user->dob = $request->dob;
-            $user->save();
-
-            return response()->json(['message' => 'Profile updated successfully'], 200);
-        } catch (QueryException $e) {
-            return response()->json(['message' => 'Failed to update profile', 'error' => $e->getMessage()], 500);
-        }
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->email = $request->email;
@@ -124,7 +94,9 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->dob = $request->dob;
         $user->save();
-        $user->update($data);
+       
+
+        return response()->json(['message' => 'Profile updated successfully'], 200);
     }
 
 

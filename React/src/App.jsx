@@ -1,14 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
-import Profile from './Components/Profile/Profile';
-import AddHotel from './Components/AddHotel/AddHotel';
+import RegionHotels from './Components/RegionHotels/RegionHotels';
 import Layout from './Components/AdminLayout/Layout';
+// Import other necessary components
+import logo from './logo.svg';
+import './App.css';
+import Profile from './Components/Profile/Profile';
+import Register from './Components/Register/Register';
+import AddHotel from './Components/AddHotel/AddHotel';
 import AddRoom from './Components/AddRoom/AddRoom';
 import Checkout from './Components/Checkout/Checkout';
 import EditProfile from './Components/EditProfile/EditProfile';
-import Reigster from './Components/Reigster/Reigster';
 import AllHotels from './Components/AllHotels/AllHotels';
 import Payment from './Components/Payment/Payment';
 import AdminRequest from './Components/AdminRequests/AdminRequest';
@@ -44,13 +47,13 @@ function App() {
   { path: '/profile/:id', element:<Profile /> },
     { path: '/checkout/:hotelId/:roomId', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
     { path: '/editprofile/:id', element: <ProtectedRoute><EditProfile /></ProtectedRoute> },
-    { path: '/register', element: <Reigster /> },
+    { path: '/register', element: <Register /> },
     { path: '*', element: <NotFound/> },
     { path: '/payment', element: <ProtectedRoute><Payment /></ProtectedRoute> },
     { path: '/login', element: <Login /> },
     { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
     { path: '/roomdesc/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
-
+ 
   ]);
   let{setUserToken}=useContext(UserContext);
   useEffect(()=>{

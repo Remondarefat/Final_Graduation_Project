@@ -1,0 +1,26 @@
+.title-color{
+    color: #47BCC2;
+}
+.card {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px; /* Add some space between the cards */
+  }
+  
+  .card img {
+    width: 100%; /* Make sure the image covers the card */
+    height: auto; /* Keep the image's aspect ratio */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 50%; /* Center vertically in the .card */
+    left: 50%; /* Center horizontally in the .card */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* Text color */
+    padding: 10px; /* Some padding around the text */
+    width: 100%; /* Width based on content size */
+    height: auto; /* Height based on content size */
+  }
+  
