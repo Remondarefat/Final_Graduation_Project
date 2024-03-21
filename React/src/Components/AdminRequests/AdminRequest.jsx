@@ -1,9 +1,24 @@
-import React from 'react';
+import {React , useState , useEffect} from 'react';
 import AdminNavbar from '../AdminNavbar/AdminNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 export default function Layout() {
+    const [requests, setRequests] = useState([]);
+
+useEffect(() => {
+    const fetchdata = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/request');
+        setRequests(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchdata();
+  }, []);
+  console.log(requests);
     return (
         <>
             <div className="container mt-5">
@@ -23,21 +38,22 @@ export default function Layout() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {/* Repeat this tr for each request */}
+                                    {requests.map((request) => (
                                         <tr>
                                             <td>
-                                                <div className="font-weight-bold">John Doe</div>
-                                                <div>Hilton Alex, Single Room</div>
+                                                <div className="font-weight-bold">{request.user.fname} {request.user.lname}</div>
+                                                <div>{request.hotel.name}</div>
+                                                <div>{request.room.type}</div>
                                             </td>
                                             <td>
-                                                12 Mar 2021 - 15 Mar 2021
+                                               {request.checkin} - {request.checkout}
                                             </td>
                                             <td className="text-center">
                                                 <FontAwesomeIcon icon={faCheckCircle} style={{ color: 'green' }} className="mr-2 cursor-pointer me-3" />
                                                 <FontAwesomeIcon icon={faTimesCircle} style={{ color: 'red' }} className="cursor-pointer" />
                                             </td>
                                         </tr>
-                                        {/* End repeat */}
+                                    ))}     
                                     </tbody>
                                 </table>
                             </div>
