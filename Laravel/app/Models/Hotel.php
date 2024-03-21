@@ -10,10 +10,10 @@ class Hotel extends Model
     protected $fillable = [
         'name',
         'location',
+        'region',
         'description',
         'stars',
-        'region',
-        'numberofrooms'
+        'numberofrooms',
     ];
     use HasFactory;
     public function rooms(){

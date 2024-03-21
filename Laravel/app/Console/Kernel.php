@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('rooms:update')->daily();
     }
 
     /**
@@ -26,5 +26,6 @@ class Kernel extends ConsoleKernel
     }
     protected $commands = [
         \App\Console\Commands\ImportBookingData::class,
+        Commands\UpdateRoomStatus::class,
     ];
 }

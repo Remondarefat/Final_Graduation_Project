@@ -23,8 +23,8 @@ class ImportBookingData extends Command
                 'id' => $item['id'],
                 'name' => $item['name'],
                 'location' => $item['location'],
-                'region' => $item['region'],
                 'stars' => $item['stars'],
+                'region' => $item['region'],
                 'description' => $item['description'],
             ]);
         //     foreach ($item['images'] as $imageUrl) {

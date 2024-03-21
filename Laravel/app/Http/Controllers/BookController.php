@@ -17,11 +17,11 @@ class BookController extends Controller
         //load the related data from the User, Hotel, and Room models
         $books = Book::with(['user', 'hotel', 'room'])->get();
         foreach ($books as $book) {
-            $book->username = $book->user->name;  
-            $book->hotel_name = $book->hotel->name;  
-            $book->room_type = $book->room->type;  
+            $book->username = $book->user->name;
+            $book->hotel_name = $book->hotel->name;
+            $book->room_type = $book->room->type;
         }
-    
+
         return response()->json($books);
     }
 
@@ -34,12 +34,13 @@ class BookController extends Controller
             'checkin' => 'required|date',
             'checkout' => 'required|date',
             'total_due' => 'required|numeric',
-            'room_id' => 'required',    
+            'room_id' => 'required',
             'user_id' => 'required',
             'hotel_id' => 'required',
             'meals' => 'nullable',
         ]);
         $book = Book::create($data);
+        Room::find($data['room_id'])->update(['status' => 'booked']);
         return response()->json(['message' => 'Book saved successfully']);
     }
 

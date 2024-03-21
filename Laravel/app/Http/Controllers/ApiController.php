@@ -17,6 +17,7 @@ class ApiController extends Controller
         foreach ($data as $item) {
             $hotel=Hotel::create([
                 'name' => $item['name'],
+                'region' => $item['region'],
                 'location' => $item['location'],
                 'region' => $item['region'],
                 'stars' => $item['stars'],

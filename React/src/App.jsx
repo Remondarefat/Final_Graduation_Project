@@ -53,8 +53,7 @@ function App() {
     { path: '/login', element: <Login /> },
     { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
     { path: '/roomdesc/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
-    { path: '/region/:regionName', element: <ProtectedRoute><RegionHotels /></ProtectedRoute> },
-
+ 
   ]);
   let{setUserToken}=useContext(UserContext);
   useEffect(()=>{
