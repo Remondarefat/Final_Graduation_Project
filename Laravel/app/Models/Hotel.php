@@ -12,6 +12,7 @@ class Hotel extends Model
         'location',
         'description',
         'stars',
+        'region',
         'numberofrooms'
     ];
     use HasFactory;

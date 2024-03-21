@@ -23,9 +23,11 @@ import UserContextProvider, { UserContext } from './Context/UserContext';
 import { useContext, useEffect } from 'react';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import ProtectedAdminRoute from './Components/ProtectedAdminRoute/ProtectedAdminRoute';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 
+import EditHotel from './Components/EditHotel/EditHotel';
 
 function App() {
 
@@ -34,9 +36,11 @@ function App() {
       path: '/', element: <Layout />, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
         { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom', element: <AddRoom /> },
+        { path: '/addroom/:hotelId/:hotelName', element: <AddRoom /> },
+
         { path: '/allhotel', element: <AllHotels /> },
           { path: '/adminrequest', element: <AdminRequest /> },
+      { path: '/edithotel/:id', element: <EditHotel /> },
   ]
     },
   { path: '/home', element:<ProtectedRoute><HomePage /> </ProtectedRoute>},
@@ -47,8 +51,8 @@ function App() {
     { path: '*', element: <NotFound/> },
     { path: '/payment', element: <ProtectedRoute><Payment /></ProtectedRoute> },
     { path: '/login', element: <Login /> },
-    { path: '/hotelrooms', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
-    { path: '/roomdesc', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
+    { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
+    { path: '/roomdesc/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
     { path: '/region/:regionName', element: <ProtectedRoute><RegionHotels /></ProtectedRoute> },
 
   ]);
