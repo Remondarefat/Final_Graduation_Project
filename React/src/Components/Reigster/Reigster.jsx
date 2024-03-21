@@ -29,7 +29,7 @@ export default function Register() {
         dob: ''
     });
 
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [ذ, setIsSubmitted] = useState(false);
 
     const navigate = useNavigate(); // Using useNavigate hook
 
