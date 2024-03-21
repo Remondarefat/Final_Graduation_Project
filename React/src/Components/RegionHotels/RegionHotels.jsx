@@ -5,6 +5,7 @@ import Footer from '../MainFooter/Footer';
 import HotelSlider from '../HotelSlider/HotelSlider';
 import SearchBar from '../SearchBar/SearchBar';
 import './RegionHotels.css';
+import HotelsDisplay from '../HotelsDisplay/HotelsDisplay';
 
 // Define your backgrounds somewhere
 const backgrounds = {
@@ -27,6 +28,7 @@ export default function RegionHotels() {
           <Navbar />
           <HotelSlider />
           <SearchBar />
+          <HotelsDisplay />
 
           <h1>content</h1>
           <h1>content</h1>
