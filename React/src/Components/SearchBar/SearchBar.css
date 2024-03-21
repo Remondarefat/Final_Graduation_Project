@@ -1,0 +1,11 @@
+.circularButton {
+    border-radius: 50%; /* Makes the button round */
+    color: #FFFFFF; /* Text color */
+    background-color: #47BCC2; /* Button background color */
+    border: none; /* Removes the default border */
+    width: 100px; /* Width of the button */
+    height: 40px; /* Height of the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

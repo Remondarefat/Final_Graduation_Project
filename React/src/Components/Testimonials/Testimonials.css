@@ -1,3 +1,7 @@
+.title{
+  color: #47BCC2;
+  text-align: center;
+}
 .testimonials-container {
   display: flex;
   flex-wrap: wrap;
