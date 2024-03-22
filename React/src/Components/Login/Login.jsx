@@ -43,7 +43,7 @@ export default function Login(){
     }
     let validationSchema =Yup.object({
         email:Yup.string().email('email is invalid').required('email is rquired'),
-        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/, 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character').required('password is required'),
+        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/).required('password is required'),
         
     })
     let formik = useFormik({

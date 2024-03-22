@@ -82,3 +82,7 @@ code {
 .btn-back:hover{
   background-color: var(--logo-background);
 }
+
+.arrow{
+  cursor: pointer;
+}

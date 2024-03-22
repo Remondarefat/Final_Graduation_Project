@@ -29,13 +29,13 @@ function App() {
 
   let routers = createBrowserRouter([
     {
-      path: '/', element: <Layout />, children: [
+      path: '/', element: <ProtectedAdminRoute><Layout /></ProtectedAdminRoute>, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
         // { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom/:hotelId/:hotelName', element: <AddRoom /> },
+        { path: '/addroom/:hotelId/:hotelName', element:<ProtectedAdminRoute><AddRoom /></ProtectedAdminRoute>  },
 
-        { path: '/allhotel', element: <AllHotels /> },
-          { path: '/adminrequest', element: <AdminRequest /> },
+        { path: '/allhotel', element:<ProtectedAdminRoute><AllHotels /></ProtectedAdminRoute>  },
+          { path: '/adminrequest', element:<ProtectedAdminRoute><AdminRequest /> </ProtectedAdminRoute> },
   ]
     },
   { path: '/home', element:<ProtectedRoute><HomePage /> </ProtectedRoute>},

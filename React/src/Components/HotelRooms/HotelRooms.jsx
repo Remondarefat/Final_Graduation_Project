@@ -6,8 +6,11 @@ import { Link, useParams } from 'react-router-dom';
 import ReactStars from 'react-stars'
 import {React, useEffect, useState} from 'react'
 import axios from 'axios';
+import { Formik, useFormik } from 'formik';
+
 
 export default function HotelRooms() {
+    const params = useParams(2);
     const [hotelDetails, setHotelDetails] = useState(null);
     const [feedbackValue, setFeedbackValue] = useState('');
     const [rating, setRating] = useState(0);
@@ -22,6 +25,7 @@ export default function HotelRooms() {
     useEffect(() => {
         fetchHotelDetails();
     }, []);
+    
 
     // TODO:------------Fetch ReviewData-----------------
     async function fetchReviews() {
@@ -41,20 +45,35 @@ export default function HotelRooms() {
     const ratingChanged = (newRating) => {
         setRating(newRating);
     };
-    const saveRating = async () => {
+    const saveRating = async (values) => {
+        console.log(values);
+
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/reviews', {
-                feedback: feedbackValue,
-                rating: rating,
-                hotel_id: hotelDetails.data.id,
-            });
+            const response = await axios.post(
+                'http://127.0.0.1:8000/api/reviews',
+                values,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+                    },
+                }
+            );
             console.log('Review submitted successfully:', response.data);
-            // Optionally, you can reset the rating state and show a success message
+            formik.resetForm();
         } catch (error) {
             console.error('Error submitting review:', error);
-            // Handle error
         }
+    
     };
+    let formik = useFormik({
+        initialValues:{
+            feedback:'',
+            rating:'',
+            hotel_id:2,
+        },
+        onSubmit:saveRating
+    })
+    
     // ToDo-----------------------------------------------------------------------------------------------------------------------
     return <>
                     {hotelDetails?
@@ -133,29 +152,37 @@ export default function HotelRooms() {
 
 
                         {/* ----------------- Display Customer Feedback------------------------------ */}
-                        <div className="my-5">
+                        <div className="my-5 py-5">
             <div id="carouselExample" className="carousel slide">
-                <div className="carousel-inner">
-                    {reviews.map((review, index) => (
-                        <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                            <div className="row d-flex justify-content-center gx-3">
-                                <div className="col-md-4 bg-secondary bg-opacity-25 border rounded-2">
-                                    <div className="d-flex align-items-center justify-content-between p-2">
-                                    <p className="card-title fw-bold m-0">{review.user.name}</p>
-                                        <div className="rate">
-                                            {[...Array(review.rating)].map((_, index) => (
-                                                <i key={index} className="fa-solid fa-star text-warning"></i>
-                                            ))}
-                                            {[...Array(5 - review.rating)].map((_, index) => (
-                                                <i key={index + review.rating} className="fa-solid fa-star"></i>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <p>{review.feedback}</p>
-                                </div>
+            <div className="carousel-inner">
+    {reviews.reduce((rows, review, index) => {
+        if (index % 2 === 0) {
+            rows.push([]);
+        }
+        rows[rows.length - 1].push(review);
+        return rows;
+    }, []).map((row, rowIndex) => (
+        <div key={rowIndex} className={`carousel-item ${rowIndex === 0 ? 'active' : ''}`}>
+            <div className="row d-flex justify-content-center gx-3 ">
+                {row.map((review, colIndex) => (
+                    <div key={colIndex} className="col-md-4 bg-secondary ms-3 bg-opacity-25 border rounded-2">
+                        <div className="d-flex align-items-center justify-content-between p-2">
+                            <p className="card-title fw-bold m-0">{review.user.name}</p>
+                            <div className="rate">
+                                {[...Array(review.rating)].map((_, index) => (
+                                    <i key={index} className="fa-solid fa-star text-warning"></i>
+                                ))}
+                                {[...Array(5 - review.rating)].map((_, index) => (
+                                    <i key={index + review.rating} className="fa-solid fa-star"></i>
+                                ))}
                             </div>
                         </div>
-                    ))}
+                        <p>{review.feedback}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    ))}
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon bg-dark bg-opacity-25" aria-hidden="true"></span>
@@ -172,25 +199,37 @@ export default function HotelRooms() {
                     {/* -----------------------------Send Feedback------------------ */}
                     <div className='bg-secondary bg-opacity-25 mt-5 '>
                         <div className='container d-flex align-items-center'>
-                            <img src={Picture3} className={Style.hotelImg} />
+                            <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} />
                             <p className='mt-2 fw-bold ms-2 mb-0'>{hotelDetails.data.name}</p>
                             <div className=' ms-4 w-50'>
+                            <form onSubmit={formik.handleSubmit}>
                                 <div className="d-flex align-items-center justify-content-center mt-3">
                                     <input
+                                        onBlur={formik.handleBlur}
+                                        onChange={formik.handleChange}
+                                        value={formik.values.feedback}
                                         type='text'
+                                        name='feedback' // Add the name attribute
                                         placeholder='Your Feedback'
-                                        className='w-100 border-0 rounded-4  ms-5 p-1  '
-                                        value={feedbackValue}
-                                        onChange={(e) => setFeedbackValue(e.target.value)}
+                                        className='w-100 border-0 rounded-4 ms-5 p-2  ps-2'
                                     />
-                                    <div className='bg-secondary bg-opacity-25 rounded-circle p-2'> 
-                                        <i onClick={saveRating} className="fa-solid fa-paper-plane cursor-pointer	 "></i>
+                                    <div className='bg-secondary bg-opacity-25 rounded-circle p-2'>
+                                        <button className='bg-transparent p-0 border-0' type="submit"><i className="  fa-solid arrow fa-paper-plane cursor-pointer"></i></button>
                                     </div>
                                 </div>
                                 <div className='d-flex align-items-center mb-3'>
                                     <p className='ms-5 mb-0'>Your Rate :</p>
-                                    <ReactStars count={5} onChange={ratingChanged} size={40} color2={'#ffd700'} />
+                                    <ReactStars
+                                        count={5}
+                                        value={parseInt(formik.values.rating)} // Ensure rating is parsed as a number
+                                        onChange={(newRating) => {
+                                            formik.setFieldValue('rating', newRating);
+                                        }}
+                                        size={40}
+                                        color2={formik.values.rating >= 4 ? '#00FF00' : formik.values.rating >= 3 ? '#FFD700' : formik.values.rating >= 2 ? '#FFA500' : formik.values.rating >= 1 ? '#FF6347' : '#FFA500'} // Change color based on rating
+                                    />
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>
