@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {  useNavigate, useParams } from "react-router-dom";
-import ReactStars from 'react-stars'
+import {   useParams } from "react-router-dom";
+// import ReactStars from 'react-stars'
 import style from './EditProfile.module.css';
 import Navbar from '../MainNavbar/Navbar';
 import Footer from '../MainFooter/Footer';
@@ -39,7 +39,7 @@ export default function AddHotel() {
    
 
 
-  let navigate=useNavigate();
+  // let navigate=useNavigate();
   function gethoteldata(e) {
     let myhotel = {...editData};
     myhotel[e.target.name] = e.target.value;
@@ -47,7 +47,7 @@ export default function AddHotel() {
     console.log( myhotel);
     
   }
-  const [rating, setRating] = useState(0); // State to hold the selected rating
+  // const [rating, setRating] = useState(0); // State to hold the selected rating
   
   
   const [editData, setEditData] = useState({
@@ -61,14 +61,13 @@ export default function AddHotel() {
 
   });
   
-  const [selectedImage, setSelectedImage] = useState([]);
+  // const [selectedImage, setSelectedImage] = useState([]);
 
   // Function to handle file input change
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setEditData({ ...editData, profile: files });
-    setSelectedImage(files.map(file => URL.createObjectURL(file)));
-    console.log(editData);
+    
     
   };
 

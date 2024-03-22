@@ -1,10 +1,10 @@
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
-import RegionHotels from './Components/RegionHotels/RegionHotels';
+// import RegionHotels from './Components/RegionHotels/RegionHotels';
 import Layout from './Components/AdminLayout/Layout';
 // Import other necessary components
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Profile from './Components/Profile/Profile';
 import Register from './Components/Register/Register';
@@ -19,16 +19,16 @@ import NotFound from './Components/NotFound/NotFound';
 import HotelRooms from './Components/HotelRooms/HotelRooms';
 import RoomDesc from './Components/RoomDesc/RoomDesc';
 import Login from './Components/Login/Login';
-import UserContextProvider, { UserContext } from './Context/UserContext';
+import  { UserContext } from './Context/UserContext';
 import { useContext, useEffect } from 'react';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import ProtectedAdminRoute from './Components/ProtectedAdminRoute/ProtectedAdminRoute';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 
 import EditHotel from './Components/EditHotel/EditHotel';
-import EditTest from './Components/EditTest/EditTest';
+// import EditTest from './Components/EditTest/EditTest';
 
 function App() {
 
