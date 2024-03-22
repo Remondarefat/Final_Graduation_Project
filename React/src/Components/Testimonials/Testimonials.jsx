@@ -51,7 +51,7 @@ const TestimonialCard = ({ name, review, rating, image }) => {
 const Testimonials = () => {
   return (
     <div className="testimonials p-3  align-items-center text-center ">
-      <h2 className='mb-3'>Testimonials</h2>
+      <h2 className='mb-3 title '>Testimonials</h2>
       <div className="testimonials-container">
         {testimonials.map((testimonial, index) => (
           <TestimonialCard key={index} {...testimonial} />

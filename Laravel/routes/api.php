@@ -28,6 +28,8 @@ Route::put('/editprofile/{id}', [UserController::class, 'update']);
 //checkout api
 Route::get('hotels/{hotelId}/details/{roomId}', [HotelController::class, 'show']);
 Route::post('/checkout', [BookController::class, 'create']);
+// admin request
+Route::get('/request' , [BookController::class, 'index']);
 // !------ HotelDesc & Login -Logout---------
 Route::get('/hoteldesc/{id}', [ApiHotelDescController::class, 'show']);
 Route::get('/room/{roomId}', [ApiHotelRoomController::class, 'show']);
@@ -40,3 +42,6 @@ Route::group(['middleware' => ['api-auth']], function () {
 });
 
 Route::post('/login', [ApiAuthController::class, 'login']);
+
+Route::get('hotels/{id}', [ApiHotelController::class, "show"]);
+Route::put('hotels/{id}', [ApiHotelController::class, "update"]);

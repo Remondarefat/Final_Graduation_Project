@@ -1,5 +1,6 @@
 import React, { useState , useEffect } from 'react';
 import axios from 'axios';
+import { Params } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import style from './EditProfile.module.css';
 import Navbar from '../MainNavbar/Navbar';

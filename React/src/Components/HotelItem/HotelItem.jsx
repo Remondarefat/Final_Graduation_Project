@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 export default function HotelItem({ item }) {
     
     console.log(item.room.length);
@@ -24,7 +25,7 @@ export default function HotelItem({ item }) {
                         <button className='btn btn-upload btn-back me-2'>
                         <Link to={`/addroom/${item.id}/${item.name}`} style={{textDecoration:'none' , color:'black'}}>Add Room</Link>
                         </button>
-                        <button className='btn btn-upload btn-back'>Edit Room</button>
+                        <Link to={`/edithotel/${item.id}`} className='btn btn-upload btn-back'>Edit Hotel</Link>
                 </div>
                 </div>
                 <h4 className='hotel-name-height mt-1'>{item.name}</h4>

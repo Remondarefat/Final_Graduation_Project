@@ -43,5 +43,24 @@ class ApiHotelController extends Controller
 
             return response()->json(['success' => 'hotel created successfully']);
     }
+    public function show(string $id)
+    {
+        $category=Hotel::findOrFail($id);
+
+        return new HotelResource($category);
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $data=$request->validate([
+            'name' => 'string|required',
+            'location' => 'string|required',
+            'description' => 'string|required',
+            'stars' => 'integer|required',
+        ]);
+        $hotel=Hotel::findOrFail($id);
+        $hotel->update($data);
+        return response()->json(['success' => 'hotel updated successfully']);
+    }
 
 }

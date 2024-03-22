@@ -17,8 +17,9 @@
     overflow: hidden; 
     margin-right: 20px; 
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    background-color: #D9D9D9;
   }
   
   .profile-picture img {
@@ -104,3 +105,14 @@
     margin-bottom: 10px;
   }
   
+  .twoletters-name{
+    font-size: 30px;
+    color: #47BCC2;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .profile-na{
+    color: #000C00;;
+  }

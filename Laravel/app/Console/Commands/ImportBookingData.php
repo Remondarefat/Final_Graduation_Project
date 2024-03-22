@@ -15,7 +15,7 @@ class ImportBookingData extends Command
 
     public function handle()
     {
-        $jsonData = file_get_contents(storage_path('jsondata/sinaiData.json'));
+        $jsonData = file_get_contents(storage_path('jsondata/nylaData.json'));
         $data = json_decode($jsonData, true);
 
         foreach ($data as $item) {
@@ -24,7 +24,7 @@ class ImportBookingData extends Command
                 'name' => $item['name'],
                 'location' => $item['location'],
                 'stars' => $item['stars'],
-                'rate' => $item['rate'],
+                'region' => $item['region'],
                 'description' => $item['description'],
             ]);
         //     foreach ($item['images'] as $imageUrl) {
