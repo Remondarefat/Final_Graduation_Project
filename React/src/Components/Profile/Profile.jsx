@@ -51,11 +51,11 @@ async function getprofiledata(){
     }
 }
 
-const avatars = (firstName, lastName) => {
-    const firstLetter = firstName.charAt(0).toUpperCase();
-    const lastLetter = lastName.charAt(0).toUpperCase();
-    return firstLetter + lastLetter;
-  };
+// const avatars = (firstName, lastName) => {
+//     const firstLetter = firstName.charAt(0).toUpperCase();
+//     const lastLetter = lastName.charAt(0).toUpperCase();
+//     return firstLetter + lastLetter;
+//   };
   
     return (
         <div>
@@ -63,8 +63,8 @@ const avatars = (firstName, lastName) => {
             <div className="profile-container">
                 <div className="profile-card">
                     <div className="profile-picture  d-flex align-items-center justify-content-center">
-                            
-                        <h1 className='profile-na'>{avatars(profileData.fname, profileData.lname)}</h1>
+                        <img src={profileData.image} alt="profile" />  
+                        {/* <h1 className='profile-na'>{avatars(profileData.fname, profileData.lname)}</h1> */}
                     </div>
                     <div className="user-info">
                         <h4>{profileData.name}</h4>

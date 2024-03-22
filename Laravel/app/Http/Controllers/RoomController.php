@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Hotel;
 use App\Models\RoomImage;
+
 class RoomController extends Controller
 {
     /**
@@ -30,27 +31,28 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         try {
-           $data= $request->validate([
+            $data = $request->validate([
                 'price' => 'required|numeric',
                 'view' => 'required|string',
                 'type' => 'required|string',
+                'description' => 'required|string',
                 'image' => 'required',
                 'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'hotel_id' => 'required',
             ]);
-    
+
             Room::create($data);
 
 
             foreach ($request->file('image') as $image) {
-                $filename= $image->getClientOriginalName();
+                $filename = $image->getClientOriginalName();
                 $image->move('storage/room_images', $filename);
                 RoomImage::create([
                     'image' => $filename,
                     'room_id' => 1,
                 ]);
-             }
-    
+            }
+
             return response()->json(['message' => 'Room added successfully'], 201);
         } catch (\Exception $e) {
             \Log::error('Exception occurred: ' . $e->getMessage());
@@ -59,10 +61,10 @@ class RoomController extends Controller
     }
     /**
      * Display the specified resource.
-    */
-    public function show(string $hotel_id , string $room_id)
+     */
+    public function show(string $hotel_id, string $room_id)
     {
-        $room=Room::where('hotel_id' , $hotel_id)->where('id' , $room_id)->first();
+        $room = Room::where('hotel_id', $hotel_id)->where('id', $room_id)->first();
         // $room->images = RoomImage::where('room_id' , $room_id)->get();
         return response()->json($room);
     }
