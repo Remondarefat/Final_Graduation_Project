@@ -104,8 +104,8 @@ export default function HotelRooms() {
                         <div className="row">
                             <div className="col-md-6  ">
                             <div className='d-flex align-items-center'>
-                                <h4 className='fw-bold me-5'>{hotelDetails.data.name}</h4>
-                                <div className="rate">
+                                <h4 className='fw-bold me-5 '>{hotelDetails.data.name}</h4>
+                                <div className=" ">
                                     {[...Array(hotelDetails.data.stars)].map((_, index) => (
                                     <i key={index} className="fa-solid fa-star text-warning"></i>
                                     ))}
@@ -120,17 +120,19 @@ export default function HotelRooms() {
                             <div className="col-md-6">
                                 <h5 className='my-3'>Hotel Location</h5>
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6907.256408721736!2d31.25580242229004!3d30.0475226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840bc3ef7ee61%3A0x8681f2f8b817d03f!2z2KfZhNio2YbZgyDYp9mE2LnYsdio2Ykg2KfZhNin2YHYsdmK2YLZiSDYp9mE2K_ZiNmE2YkgLSDYp9mK2Ycg2KfZitmHINin2Ykg2KjZiQ!5e0!3m2!1sar!2seg!4v1707238353263!5m2!1sar!2seg" className='{Style.location}'></iframe>
-                                <p className='text-muted w-75'>{hotelDetails.data.location}</p>
+                                <p className='text-muted w-50'>{hotelDetails.data.location}</p>
                             </div>
                         </div>
                         <div className="row my-5">
                             {hotelDetails.data.room.map((room) => (
                                 <div key={room.id} className="col-md-4">
-                                <div className="card" style={{ width: '18rem' }}>
+                                <div className="card" style={{ width: '22rem' }}>
                                     <div className={Style.roomImg}>
-                                    <img src={room.images[0].image} className="card-img-top" alt="Room" />
-                                    <div className={Style.layer}>
-                                        <img src={room.images[0].image} className={Style.hotelImg} alt="Room" />
+                                        <div>
+                                            <img src={room.images[0].image} className="card-img-top" alt="Room" />
+                                        </div>
+                                    <div className={`${Style.layer} ps-3` }>
+                                        <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} alt="Room" />
                                         <div className='ms-3'> 
                                         <span>Listed by :</span>
                                         <p className='fw-bold m-0'>{hotelDetails.data.name}</p>
@@ -165,10 +167,10 @@ export default function HotelRooms() {
         <div key={rowIndex} className={`carousel-item ${rowIndex === 0 ? 'active' : ''}`}>
             <div className="row d-flex justify-content-center gx-3 ">
                 {row.map((review, colIndex) => (
-                    <div key={colIndex} className="col-md-4 bg-secondary ms-3 bg-opacity-25 border rounded-2">
-                        <div className="d-flex align-items-center justify-content-between p-2">
-                            <p className="card-title fw-bold m-0">{review.user.name}</p>
-                            <div className="rate">
+                    <div key={colIndex} className="col-md-4 bg-secondary ms-3 bg-opacity-25 border p-2 rounded-2">
+                        <div className="d-flex align-items-center justify-content-between ">
+                            <p className="card-title fw-bold ">{review.user.name}</p>
+                            <div className="">
                                 {[...Array(review.rating)].map((_, index) => (
                                     <i key={index} className="fa-solid fa-star text-warning"></i>
                                 ))}
