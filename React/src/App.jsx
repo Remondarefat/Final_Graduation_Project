@@ -40,13 +40,13 @@ function App() {
   };
   let routers = createBrowserRouter([
     {
-      path: '/', element: <ProtectedAdminRoute><Layout /></ProtectedAdminRoute>, children: [
+      path: '/', element:<Layout />, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
         { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom/:hotelId/:hotelName', element: <ProtectedAdminRoute><AddRoom /></ProtectedAdminRoute> },
+        { path: '/addroom/:hotelId/:hotelName', element:<AddRoom />},
 
-        { path: '/allhotel', element: <ProtectedAdminRoute><AllHotels /></ProtectedAdminRoute> },
-        { path: '/adminrequest', element: <ProtectedAdminRoute><AdminRequest /> </ProtectedAdminRoute> },
+        { path: '/allhotel', element:<AllHotels /> },
+        { path: '/adminrequest', element:<AdminRequest /> },
         { path: '/edithotel/:id', element: <EditHotel /> },
       ]
     },

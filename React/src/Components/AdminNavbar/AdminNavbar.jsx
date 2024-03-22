@@ -40,9 +40,9 @@ export default function AdminNavbar() {
   return (
     <>
       <div className=" nav-background">
-        <div className=" container-fluid">
+        <div className="container-fluid">
           <div className="d-flex justify-content-between w-100  align-items-center">
-            <img src="Nyla-Logo.png" className="logo-width" alt="" />
+            <img src="Logo.svg" className="logo-width" alt="" />
             <div className="admin-side p-2 d-flex bg-white align-items-center justify-content-between  rounded-pill" style={{ cursor: 'pointer' , width: 'max-content' }}>
             <div className="nav-side p-2 d-flex bg-white align-items-center justify-content-between rounded-pill position-relative" style={{ cursor: 'pointer' , width: 'max-content'}} >
               <FontAwesomeIcon icon={faBars} className="clickable pe-2" onClick={handleDropdownClick} />
