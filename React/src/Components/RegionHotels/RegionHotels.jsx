@@ -8,12 +8,12 @@ import './RegionHotels.css';
 import HotelsDisplay from '../HotelsDisplay/HotelsDisplay';
 
 const backgrounds = {
-  northcoast: 'NorthCoastPattern.png',
+  northCoast: 'NorthCoastPattern.png',
   cairo: 'CairoPattern.png',
-  upperegypt: 'UperEgyptPattern.png',
+  upperEgypt: 'UperEgyptPattern.png',
   sinai: 'SinaiPattern.png',
   oasis: 'OasisPattern.png',
-  redsea: 'RedSeaPattern.png',
+  redSea: 'RedSeaPattern.png',
 };
 
 export default function RegionHotels() {

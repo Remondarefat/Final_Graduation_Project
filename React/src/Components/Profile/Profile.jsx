@@ -6,6 +6,7 @@ import Footer from '../MainFooter/Footer';
 import axios from 'axios';
 
 export default function Profile() {
+    const [reviews , setReviews] = useState([]);
     const { id } = useParams();
     const [profileData, setProfileData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -13,6 +14,17 @@ export default function Profile() {
 
     useEffect(() => {
         getprofiledata();
+        const fetchReviews = async () => {
+            try {
+              const response = await axios.get(`http://localhost:8000/api/reviews`);
+              setReviews(response.data.reviews); 
+              console.log(response.data.reviews);
+            } catch (error) {
+              console.error('Error fetching testimonials:', error);
+            }
+          };
+          console.log(reviews);
+          fetchReviews();
         console.log(profileData);
     }, []);
 
@@ -39,11 +51,11 @@ async function getprofiledata(){
     }
 }
 
-const avatars = (firstName, lastName) => {
-    const firstLetter = firstName.charAt(0).toUpperCase();
-    const lastLetter = lastName.charAt(0).toUpperCase();
-    return firstLetter + lastLetter;
-  };
+// const avatars = (firstName, lastName) => {
+//     const firstLetter = firstName.charAt(0).toUpperCase();
+//     const lastLetter = lastName.charAt(0).toUpperCase();
+//     return firstLetter + lastLetter;
+//   };
   
     return (
         <div>
@@ -51,8 +63,8 @@ const avatars = (firstName, lastName) => {
             <div className="profile-container">
                 <div className="profile-card">
                     <div className="profile-picture  d-flex align-items-center justify-content-center">
-                            
-                        <h1 className='profile-na'>{avatars(profileData.fname, profileData.lname)}</h1>
+                        <img src={profileData.image} alt="profile" />  
+                        {/* <h1 className='profile-na'>{avatars(profileData.fname, profileData.lname)}</h1> */}
                     </div>
                     <div className="user-info">
                         <h4>{profileData.name}</h4>
@@ -66,12 +78,17 @@ const avatars = (firstName, lastName) => {
                 <hr className="horizontal-line" />
             </div>
             <div className="review">
-                {profileData && profileData.name && (
+                {profileData && profileData.name && reviews && reviews.length > 0 && (
                     <React.Fragment>
                         <p className="reviewer-name">{profileData.name}</p>
                         <p className="hotel-name">{profileData.hotel_name}</p>
-                        <p className="review-text">it was pretty good</p>
-                    </React.Fragment>
+                        {reviews.map(review => {
+                            if (review.user_id === parseInt(id)) {
+                                return <p key={review.created_at} className="review-text">{review.feedback}</p>;
+                            }
+                            return null;
+                        })}                    
+                        </React.Fragment>
                 )}
             </div>
             <Footer />

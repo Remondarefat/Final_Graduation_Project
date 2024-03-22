@@ -53,13 +53,12 @@ export default function Navbar() {
               <span className="nav-side-text clickable">Hi, {userFullName}</span>
               {isOpen && (
                 <ul className="dropdown-menu show">
-                  <li onClick={() => logOut() }>
-                    Logout
-                  </li>
-                 
-                    <li>
-                      <Link to={`/profile/:id`} className='text-decoration-none text-dark' >Profile</Link>
-                      </li>           
+                     <li>
+                      <Link  to={`/profile/${localStorage.getItem('user_id')}`} className='text-decoration-none text-dark'>Profile</Link>
+                      </li> 
+                      <li onClick={() => logOut() }>
+                         Logout
+                      </li>          
                   </ul>
               )}
             </div>
