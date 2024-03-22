@@ -89,3 +89,8 @@ code {
 .btn-update{
   background-color: var(--logo-background);
 }
+
+
+.arrow{
+  cursor: pointer;
+}

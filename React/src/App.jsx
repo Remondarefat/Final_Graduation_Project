@@ -34,20 +34,20 @@ function App() {
 
   let routers = createBrowserRouter([
     {
-      path: '/', element: <Layout />, children: [
+      path: '/', element: <ProtectedAdminRoute><Layout /></ProtectedAdminRoute>, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
         { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom/:hotelId/:hotelName', element: <AddRoom /> },
+        { path: '/addroom/:hotelId/:hotelName', element:<ProtectedAdminRoute><AddRoom /></ProtectedAdminRoute>  },
 
-        { path: '/allhotel', element: <AllHotels /> },
-          { path: '/adminrequest', element: <AdminRequest /> },
+        { path: '/allhotel', element:<ProtectedAdminRoute><AllHotels /></ProtectedAdminRoute>  },
+          { path: '/adminrequest', element:<ProtectedAdminRoute><AdminRequest /> </ProtectedAdminRoute> },
       { path: '/edithotel/:id', element: <EditHotel /> },
     ]
   },
   { path: '/home', element:<ProtectedRoute><HomePage /> </ProtectedRoute>},
   { path: '/profile/:id', element:<Profile /> },
     { path: '/checkout/:hotelId/:roomId', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
-    { path: '/editprofile/:id', element: <ProtectedRoute><EditProfile /></ProtectedRoute> },
+    { path: '/editprofile/:id', element: <EditProfile /> },
     { path: '/register', element: <Register /> },
     { path: '*', element: <NotFound/> },
     { path: '/payment', element: <ProtectedRoute><Payment /></ProtectedRoute> },

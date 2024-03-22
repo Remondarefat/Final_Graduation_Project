@@ -25,7 +25,7 @@ class ApiAuthController extends Controller
         // Fetch additional user data like first name and last name
         $fname = $user->fname; 
         $lname = $user->lname; 
-    
+        $userId = $user->id;
         // Check if the email and password match the fixed admin credentials
         if ($data['email'] === 'Admin@1234.com' && $data['password'] === 'Admin@1234') {
             return response()->json([
@@ -41,6 +41,7 @@ class ApiAuthController extends Controller
                 'is_admin' => false,
                 'fname' => $fname,
                 'lname' => $lname,
+                'user_id' => $userId,
             ]);
         }
     }

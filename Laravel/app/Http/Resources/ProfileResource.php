@@ -10,6 +10,8 @@ class ProfileResource extends JsonResource
     {
         return [
             'name' => $this->fname . ' ' . $this->lname,
+            'fname' => $this->fname,
+            'lname' => $this->lname,
             'email' => $this->email,
             'hotel_name' => $this->reviews->isNotEmpty() ? $this->reviews->first()->hotel->name : null,
             'feedback' => $this->reviews->isNotEmpty() ? $this->reviews->pluck('feedback') : [],

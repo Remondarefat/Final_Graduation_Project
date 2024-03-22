@@ -95,10 +95,12 @@ class UserController extends Controller
                 'dob' => 'date',
                 'profile' => 'nullable',
             ]);
-            foreach ($request->file( 'profile') as $profile) {
-                $filename= $profile->getClientOriginalName();
-                $profile->move('images', $filename);
-                $data['profile']= $filename;
+            if ($request->profile) {
+                foreach ($request->file( 'profile') as $profile) {
+                    $filename= $profile->getClientOriginalName();
+                    $profile->move('images', $filename);
+                    $data['profile']= $filename;
+                }
             }
             if ($request->password) {
                 $hashedPassword = Hash::make($request->password);
