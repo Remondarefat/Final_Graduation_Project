@@ -56,6 +56,7 @@ export default function Navbar() {
                   <li onClick={() => logOut() }>
                     Logout
                   </li>
+                  <li>Profile</li>
                 </ul>
               )}
             </div>

@@ -5,6 +5,8 @@ import HotelItem from '../HotelItem/HotelItem';
 
 
 export default function AllHotels() {
+
+    
     let [hotel,setHotel] = useState([]);
     async function getHotel() {
         let { data } = await axios.get("http://localhost:8000/api/hotels");
@@ -22,7 +24,7 @@ export default function AllHotels() {
             </div>
             <div className="w-100 d-flex mb-5 justify-content-end">
 
-                <Link to={''} className='btn btn-dark rounded-3 me-5'>Go To Requests</Link>
+                <Link to={'/adminrequest'} className='btn btn-dark rounded-3 me-5'>Go To Reserved Rooms</Link>
             </div>
 
         </div>

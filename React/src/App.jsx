@@ -28,6 +28,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 import EditHotel from './Components/EditHotel/EditHotel';
+import EditTest from './Components/EditTest/EditTest';
 
 function App() {
 
@@ -41,8 +42,8 @@ function App() {
         { path: '/allhotel', element: <AllHotels /> },
           { path: '/adminrequest', element: <AdminRequest /> },
       { path: '/edithotel/:id', element: <EditHotel /> },
-  ]
-    },
+    ]
+  },
   { path: '/home', element:<ProtectedRoute><HomePage /> </ProtectedRoute>},
   { path: '/profile/:id', element:<Profile /> },
     { path: '/checkout/:hotelId/:roomId', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
@@ -53,6 +54,7 @@ function App() {
     { path: '/login', element: <Login /> },
     { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
     { path: '/roomdesc/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
+  
  
   ]);
   let{setUserToken}=useContext(UserContext);

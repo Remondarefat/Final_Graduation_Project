@@ -85,18 +85,36 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $user = User::findOrFail($id);
+        try {
+            $data = $request->validate([
+                'fname' => 'string|required',
+                'lname' => 'string|required',
+                'email' => 'email|required',
+                'phone' => 'string|required',
+                'password' => 'nullable',
+                'dob' => 'date',
+                'profile' => 'nullable',
+            ]);
+            foreach ($request->file( 'profile') as $profile) {
+                $filename= $profile->getClientOriginalName();
+                $profile->move('images', $filename);
+                $data['profile']= $filename;
+            }
+            if ($request->password) {
+                $hashedPassword = Hash::make($request->password);
+                $data['password'] = $hashedPassword;
 
-        $user->fname = $request->fname;
-        $user->lname = $request->lname;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->password = Hash::make($request->password);
-        $user->dob = $request->dob;
-        $user->save();
-       
+            }
+            User::where('id', $id)->update($data);
+
+
 
         return response()->json(['message' => 'Profile updated successfully'], 200);
+
+        } catch (QueryException $e) {
+            // Return error response if an exception occurs during user creation
+            return response()->json(['message' => 'Failed to ubdate user', 'error' => $e->getMessage()], 500);
+        }
     }
 
 
