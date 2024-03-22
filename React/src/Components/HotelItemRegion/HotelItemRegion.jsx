@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function HotelItem({ item }) {
     
@@ -21,8 +22,9 @@ export default function HotelItem({ item }) {
                 <img src={item.image[currentImageIndex].image} className='w-100 hotel-img' alt="" />
 
                 <div className='position-absolute justify-content-center align-items-center  w-100 btn-addroom'>
-                        <button className='btn btn-upload btn-back me-2'>Book Room</button>
+                        <Link to={'/hotelrooms/2'}><button className='btn btn-upload btn-back me-2'>Book Room</button> </Link>
                 </div>
+
                 </div>
                 <h4 className='hotel-name-height mt-1'>{item.name}</h4>
                 <p className='available-title'>{item.location}</p>
