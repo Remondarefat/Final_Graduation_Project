@@ -36,6 +36,7 @@ Route::get('/room/{roomId}', [ApiHotelRoomController::class, 'show']);
 // !----- Get & post Review ----------------
 Route::post('/reviews', [ApiReviewController::class, 'store']);
 Route::get('/reviews/{hotelId}', [ApiReviewController::class, 'getReviewsByHotelId']);
+Route::get('/reviews', [ApiReviewController::class, 'index']);
 //----------------------- Login &logout-------------------
 Route::group(['middleware' => ['api-auth']], function () {
     Route::post('/logout', [ApiAuthController::class, 'logout']);
@@ -45,3 +46,5 @@ Route::post('/login', [ApiAuthController::class, 'login']);
 
 Route::get('hotels/{id}', [ApiHotelController::class, "show"]);
 Route::put('hotels/{id}', [ApiHotelController::class, "update"]);
+
+Route::get('/showhotels', [HotelController::class, 'index']);

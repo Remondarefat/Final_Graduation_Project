@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ApiReviewController extends Controller
 {
+    public function index()
+    {
+        $reviews = Review::with('user')->get();
+        return response()->json(['reviews' => $reviews], 200);
+    }
     public function store(Request $request)
     {
         $request->validate([
@@ -23,7 +28,7 @@ class ApiReviewController extends Controller
         try {
             $user = JWTAuth::parseToken()->authenticate();
         } catch (\Exception $e) {
-            return response()->json(['status' => 401, 'message' => 'Unauthorized'], 401);
+            return response()->json(['status' => 401, 'message' => 'Unauthorized'],401);
         }
     
         $review = Review::create([
@@ -46,6 +51,7 @@ class ApiReviewController extends Controller
 
         return response()->json($reviews);
     }
+  
 
 }
 
