@@ -50,10 +50,10 @@ function App() {
     { path: '/register', element: <Register /> },
     { path: '*', element: <NotFound/> },
     { path: '/payment', element: <ProtectedRoute><Payment /></ProtectedRoute> },
-    { path: '/login', element: <Login /> },
-    { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
+    { index: '/login', element: <Login /> },
+    { path: '/hotelrooms/:hotelISd', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
     { path: '/roomdesc/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
- 
+    { path: '/region/:regionName', element:<ProtectedRoute><RegionHotels /></ProtectedRoute>}, 
   ]);
   let{setUserToken}=useContext(UserContext);
   useEffect(()=>{

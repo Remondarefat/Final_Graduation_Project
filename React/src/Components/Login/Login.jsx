@@ -31,6 +31,7 @@ export default function Login() {
                     localStorage.setItem('userToken', data.access_token);
                     localStorage.setItem('fname', data.fname);
                     localStorage.setItem('lname', data.lname);
+                    localStorage.setItem('id' , data.id);
                     setUserToken(data.access_token);
                     navigate('/home'); // Redirect regular user to home
                 }

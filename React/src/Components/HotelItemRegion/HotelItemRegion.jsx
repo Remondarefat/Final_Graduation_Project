@@ -21,7 +21,7 @@ export default function HotelItem({ item }) {
                 <img src={item.image[currentImageIndex].image} className='w-100 hotel-img' alt="" />
 
                 <div className='position-absolute justify-content-center align-items-center  w-100 btn-addroom'>
-                        <button className='btn btn-upload btn-back me-2'>Book Room</button>
+                        <button className='btn btn-upload btn-back me-2'>More Details</button>
                 </div>
                 </div>
                 <h4 className='hotel-name-height mt-1'>{item.name}</h4>

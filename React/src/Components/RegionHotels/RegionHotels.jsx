@@ -29,11 +29,6 @@ export default function RegionHotels() {
           <HotelSlider />
           <SearchBar />
           <HotelsDisplay />
-
-          <h1>content</h1>
-          <h1>content</h1>
-          <h1>content</h1>
-          <h1>content</h1>
           <Footer />
         </div>
         </>

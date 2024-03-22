@@ -3,7 +3,7 @@ import Picture from '../../assets/registerImage.jpeg';
 import axios from 'axios';
 import { ReactComponent as Logo } from '../../assets/Nyla_Logo.svg';
 import Style from './Register.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 import Joi from 'joi';
 
 export default function Register() {
@@ -51,7 +51,7 @@ export default function Register() {
         const { data } = await axios.post('http://127.0.0.1:8000/register', user);
         console.log(data);
         if (data.message === 'User created successfully') {
-            navigate('/login'); // Using the navigate function to navigate
+            navigate('/'); // Using the navigate function to navigate
         } else {
             alert('Failed to create user');
         }
@@ -159,6 +159,7 @@ export default function Register() {
                         </div>
                     </div>
                     <button type="submit" className={Style.signUpBtn}>Sign Up</button>
+                    <p className='text-center mt-3'>Already have an account? <Link to='/'>Login</Link></p>
                 </form>
             </div>
         </div>
