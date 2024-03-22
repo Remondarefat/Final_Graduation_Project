@@ -22,26 +22,15 @@ export default function RegionHotels() {
   const backgroundImg = backgrounds[regionName] || 'defaultBackground.png';
 
   return (
-    <>
-      <div className='position-relative'>
-
-        <div className="backgroundStyledDiv" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${backgroundImg})` }}>
-
+        <>
+        <div className="backgroundStyledDiv" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${backgroundImg})` }}
+>
+          <Navbar />
+          <HotelSlider />
+          <SearchBar />
+          <HotelsDisplay />
+          <Footer />
         </div>
-          <div 
-  >
-            <Navbar />
-            <HotelSlider />
-            <SearchBar />
-            <HotelsDisplay />
-
-            <h1>content</h1>
-            <h1>content</h1>
-            <h1>content</h1>
-            <h1>content</h1>
-            <Footer />
-          </div>
-      </div>
-      </>
+        </>
   );
 }

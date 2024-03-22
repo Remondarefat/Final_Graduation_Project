@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.3",
     "formik": "^2.4.5",
     "joi": "^17.12.2",
+    "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-awesome": "^0.0.2",
     "react-awesome-slider": "^4.1.0",
