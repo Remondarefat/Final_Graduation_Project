@@ -41,11 +41,11 @@ export default function HotelsDisplay({ searchQuery }) {
     }, [searchQuery]);
 
     return <>
-        <div className=" container mt-5 background-opacity">
-            <h2 className='available-title'>Available Hotels in {savedRegion ? savedRegion : 'all regions'} </h2>
-            {<div className="row mt-4">
-                {hotel.map((item, index) => <HotelItem key={index} item={item} />)}
-            </div>
+        <div className=" container mt-5 background-opacity rounded-2 shadow">
+                <h2>Available Hotels in {savedRegion ? savedRegion : 'all regions'} </h2>
+            { <div className="row mt-4">
+               {hotel.map((item , index) => <HotelItem key={index} item={item}/>) }
+                </div>
             }
         </div>
     </>

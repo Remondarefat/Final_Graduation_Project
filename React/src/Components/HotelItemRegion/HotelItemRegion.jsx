@@ -26,7 +26,7 @@ export default function HotelItem({ item }) {
                 </div>
                 </div>
                 <h4 className='hotel-name-height mt-1'>{item.name}</h4>
-                <p className='available-title'>{item.location}</p>
+                <p>{item.location}</p>
             </div>
         </div>
     </>
