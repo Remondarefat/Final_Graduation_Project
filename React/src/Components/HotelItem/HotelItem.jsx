@@ -16,10 +16,14 @@ export default function HotelItem({ item }) {
         return () => clearInterval(intervalId);
     }, [item.image.length]);
     return <>
+        
         <div className="col-md-3 mb-5  ">
             <div className=' position-relative '>
                 <div className=' position-relative '>
-                <img src={item.image[currentImageIndex].image} className='w-100 hotel-img' alt="" />
+
+                    {item.image[currentImageIndex].image.startsWith("http")?<img src={item.image[currentImageIndex].image} className='w-100 hotel-img' alt="" />:<img src={`http://localhost:8000/images/${item.image[currentImageIndex].image}`} className='w-100 hotel-img' alt="" />}
+                    
+                
 
                 <div className='position-absolute justify-content-center align-items-center  w-100 btn-addroom'>
                         <button className='btn btn-upload btn-back me-2'>

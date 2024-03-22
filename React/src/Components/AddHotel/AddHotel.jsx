@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import ReactStars from 'react-stars'
 
 
 export default function AddHotel() {
+
+  let navigate=useNavigate();
   function gethoteldata(e) {
     let myhotel = {...hotel};
     myhotel[e.target.name] = e.target.value;
@@ -23,6 +26,7 @@ export default function AddHotel() {
     name: "",
     location: "",
     description: "",
+    region: "",
     stars: rating,
     // numberofrooms: "",
     'image[]':[]
@@ -36,6 +40,7 @@ export default function AddHotel() {
     const files = Array.from(e.target.files);
     setHotel({ ...hotel, image: files });
     setSelectedImage(files.map(file => URL.createObjectURL(file)));
+    console.log(hotel);
     
   };
 
@@ -49,6 +54,7 @@ export default function AddHotel() {
       formData.append('name', hotel.name);
       formData.append('location', hotel.location);
       formData.append('description', hotel.description);
+      formData.append('region', hotel.region);
       formData.append('stars', hotel.stars);
       hotel.image.forEach(file => {
         formData.append('image[]', file);
@@ -58,6 +64,7 @@ export default function AddHotel() {
       try {
         let { data } = await axios.post("http://localhost:8000/api/hotels", formData);
         console.log(data.image);
+        navigate("/allhotel");
       } catch (error) {
         console.error(error);
       }
@@ -91,8 +98,8 @@ export default function AddHotel() {
                 </div>
                 <div className="dic col-md-4">
                 <div className="mb-3 ">
-                        <label htmlFor="HotelDesc" className="form-label">Hotel Location</label>
-                        <select defaultValue="" onChange={gethoteldata}  name="location" className="form-select">
+                        <label htmlFor="HotelRegion" className="form-label">Hotel Region</label>
+                        <select defaultValue="" onChange={gethoteldata}  name="region" className="form-select">
                           <option value="">Not Selected</option>
                           <option value="North Cost">North Cost</option>
                           <option value="Upper Egypt" >Upper Egypt</option>
@@ -122,6 +129,10 @@ export default function AddHotel() {
                         <label htmlFor="" name="rating" className="d-none">{ rating}</label>
 
                       </div>
+                      <div className="mb-3">
+                      <label htmlFor="HotelLocation" className="form-label">Hotel Location</label>
+                      <input type="text" className="form-control" onChange={gethoteldata} name="location" id="HotelLocation" placeholder="Hotel Location"/>
+                  </div>
                     </div>
                   </div>
                 <div className={selectedImage!==null &&  selectedImage.length > 4 ?"w-100 nav-background mt-2 d-flex flex-wrap align-items-center p-2":"w-100 nav-background images-dev mt-2 d-flex flex-wrap align-items-center p-2"}>

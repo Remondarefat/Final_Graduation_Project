@@ -1,34 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
+import axios from 'axios';
 import './Testimonials.css';
 
-const testimonials = [
-  {
-    name: 'Marwan Salem',
-    review: 'Review on Hilton Alexandria',
-    rating: 5,
-    image: '/logo512.png',
-  },
-  {
-    name: 'Marwan Salem',
-    review: 'Review on Hilton Alexandria',
-    rating: 5,
-    image: '/logo512.png',
-  },
-  {
-    name: 'Marwan Salem',
-    review: 'Review on Hilton Alexandria',
-    rating: 3,
-    image: '/logo512.png',
-  },
-  {
-    name: 'Marwan Salem',
-    review: 'Review on Hilton Alexandria',
-    rating: 2.5,
-    image: '/logo512.png',
-  },
+const Testimonials = ({ hotelId }) => {
+  const [testimonials, setTestimonials] = useState([]);
 
-  // Add other testimonials as needed
-];
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/reviews/${hotelId}`);
+        setTestimonials(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+
+    fetchTestimonials();
+  }, [hotelId]);
+
 
 const TestimonialCard = ({ name, review, rating, image }) => {
   return (
@@ -60,5 +50,6 @@ const Testimonials = () => {
     </div>
   );
 };
+}
 
 export default Testimonials;
