@@ -69,7 +69,7 @@ export default function RoomDesc() {
                     </div>
                 </div>
                 <div className="text-center">
-                    <Link to="/checkout" className="m-5 w-25 btn bg-dark text-white rounded-5 p-2">Reserve Now</Link>
+                    <Link to={`/checkout/1/2`}  className="m-5 w-25 btn bg-dark text-white rounded-5 p-2">Reserve Now</Link>
                 </div>
             </div>
         </div>

@@ -65,14 +65,14 @@ export default function Login() {
                 <form className={Style.loginForm} onSubmit={formik.handleSubmit} >
                     <div className="row mb-3">
 
-                        <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
+                        <label htmlFor="email" className="col-sm-2 col-form-label">Email:</label>
                         <div className="col-sm-9">
                             <input onBlur={formik.handleBlur} id='email' onChange={formik.handleChange} type="email" value={formik.values.email} className="form-control" name='email' />
                             {formik.errors.email && formik.touched.email ? <div className="alert alert-danger p-2 mt-2">{formik.errors.email}</div> : ''}
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <label htmlFor="pass" className="col-sm-3 col-form-label">Password:</label>
+                        <label htmlFor="pass" className="col-sm-2 col-form-label">Password:</label>
                         <div className="col-sm-9">
                             <input onBlur={formik.handleBlur} id='pass' onChange={formik.handleChange} type='password' value={formik.values.password} className="form-control" name='password' />
                             {formik.errors.password && formik.touched.password ? <div className="alert alert-danger p-2 mt-2">{formik.errors.password}</div> : ''}

@@ -223,6 +223,7 @@ export default function HotelRooms() {
                                     <p className='ms-5 mb-0'>Your Rate :</p>
                                     <ReactStars
                                         count={5}
+                                        half={false}
                                         value={parseInt(formik.values.rating)} // Ensure rating is parsed as a number
                                         onChange={(newRating) => {
                                             formik.setFieldValue('rating', newRating);

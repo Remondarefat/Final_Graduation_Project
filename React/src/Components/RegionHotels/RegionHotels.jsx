@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../MainNavbar/Navbar';
 import Footer from '../MainFooter/Footer';
@@ -7,41 +7,38 @@ import SearchBar from '../SearchBar/SearchBar';
 import './RegionHotels.css';
 import HotelsDisplay from '../HotelsDisplay/HotelsDisplay';
 
-// Define your backgrounds somewhere
 const backgrounds = {
-  northcoast: 'NorthCoastPattern.png',
+  northCoast: 'NorthCoastPattern.png',
   cairo: 'CairoPattern.png',
-  upperegypt: 'UperEgyptPattern.png',
+  upperEgypt: 'UperEgyptPattern.png',
   sinai: 'SinaiPattern.png',
   oasis: 'OasisPattern.png',
-  redsea: 'RedSeaPattern.png',
+  redSea: 'RedSeaPattern.png',
 };
 
 export default function RegionHotels() {
   const { regionName } = useParams();
   const backgroundImg = backgrounds[regionName] || 'defaultBackground.png';
+  const [searchQuery, setSearchQuery] = useState(null);
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
 
   return (
     <>
-      <div className='position-relative'>
 
-        <div className="backgroundStyledDiv" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${backgroundImg})` }}>
+        <div className="backgroundStyledDiv" >
+        <Navbar />
+        <div className=' position-relative'>
+          <div className='position-absolute pattern-background' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${backgroundImg})` }}></div>
+          <HotelSlider />
+          <SearchBar onSearch={handleSearch} />
 
+          <HotelsDisplay searchQuery={searchQuery} />
         </div>
-          <div 
-  >
-            <Navbar />
-            <HotelSlider />
-            <SearchBar />
-            <HotelsDisplay />
-
-            <h1>content</h1>
-            <h1>content</h1>
-            <h1>content</h1>
-            <h1>content</h1>
-            <Footer />
-          </div>
-      </div>
-      </>
+        <Footer />
+        </div>
+    </>
   );
 }

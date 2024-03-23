@@ -3,7 +3,7 @@ import Picture from '../../assets/registerImage.jpeg';
 import axios from 'axios';
 import { ReactComponent as Logo } from '../../assets/Nyla_Logo.svg';
 import Style from './Register.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 import Joi from 'joi';
 
 export default function Register() {
@@ -51,7 +51,7 @@ export default function Register() {
         const { data } = await axios.post('http://127.0.0.1:8000/register', user);
         console.log(data);
         if (data.message === 'User created successfully') {
-            navigate('/login'); // Using the navigate function to navigate
+            navigate('/'); // Using the navigate function to navigate
         } else {
             alert('Failed to create user');
         }
@@ -98,42 +98,42 @@ export default function Register() {
             <div className='text-center p-5 mx-auto w-50 '>
                 <h2 className={Style.registerTitle}>Register</h2>
                 <form className={Style.registerForm} onSubmit={handleSubmit}>
-                    <div className="row mb-3">
+                    <div className="row mb-2">
                         <label htmlFor="fname" className="col-sm-3 col-form-label">First Name:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="text" className="form-control" id="fname" name='fname' />
                             {errors.fname && <div className='text-danger'>{errors.fname}</div>}
                         </div>
                     </div>
-                    <div className="row mb-3">
+                    <div className="row mb-2">
                         <label htmlFor="lname" className="col-sm-3 col-form-label">Last Name:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="text" className="form-control" id="lname" name='lname' />
                             {errors.lname && <div className='text-danger'>{errors.lname}</div>}
                         </div>
                     </div>
-                    <div className="row mb-3">
+                    <div className="row mb-2">
                         <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="email" className="form-control" id="email" name='email' />
                             {errors.email && <div className='text-danger'>{errors.email}</div>}
                         </div>
                     </div>
-                    <div className="row mb-3">
+                    <div className="row mb-2">
                         <label htmlFor="pass" className="col-sm-3 col-form-label">Password:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="password" className="form-control" id="pass" name='password' />
                             {errors.password && <div className='text-danger'>Password must be at least 8 characters long and containa at least one special character.</div>}
                         </div>
                     </div>
-                    <div className="row mb-3">
+                    <div className="row mb-2">
                         <label htmlFor="passenter" className="col-sm-3 col-form-label">Retype Password:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="password" className="form-control" id="passenter" name='confirmPassword' />
                             {errors.confirmPassword && <div className='text-danger'>Passwords do not match</div>}
                         </div>
                     </div>
-                    <div className="row mb-3 align-items-center">
+                    <div className="row mb-2 align-items-center">
                         <label className="col-sm-3 col-form-label">Gender:</label>
                         <div className="col-sm-9">
                             <select className="form-select form-select-sm" aria-label="Small select example" name='gender' onChange={handleChange}>
@@ -144,14 +144,14 @@ export default function Register() {
                             {errors.gender && <div className='text-danger'>{errors.gender}</div>}
                         </div>
                     </div>
-                    <div className="row mb-3">
+                    <div className="row mb-2">
                         <label htmlFor="phone" className="col-sm-3 col-form-label" maxLength={11}>Phone:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="tel" className="form-control" id="phone" name='phone' maxLength={11} />
                             {errors.phone && <div className='text-danger'>{errors.phone}</div>}
                         </div>
                     </div>
-                    <div className="row mb-3">
+                    <div className="row mb-2">
                         <label htmlFor="birth" className="col-sm-3 col-form-label">Date of Birth:</label>
                         <div className="col-sm-9">
                             <input onChange={handleChange} type="date" className="form-control" id="birth" name='dob' />
@@ -159,6 +159,7 @@ export default function Register() {
                         </div>
                     </div>
                     <button type="submit" className={Style.signUpBtn}>Sign Up</button>
+                    <p className='text-center mt-1'>Already have an account? <Link to='/'>Login</Link></p>
                 </form>
             </div>
         </div>

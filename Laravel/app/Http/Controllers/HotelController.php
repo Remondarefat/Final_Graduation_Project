@@ -14,6 +14,8 @@ class HotelController extends Controller
      */
     public function index()
     {
+        $hotels = Hotel::with('images', 'rooms', 'rooms.images')->get();
+        return response()->json(['data' => $hotels], 200);
 
     }
 

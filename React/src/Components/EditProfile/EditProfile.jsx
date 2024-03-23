@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {   useParams } from "react-router-dom";
+import {    useNavigate, useParams } from "react-router-dom";
 // import ReactStars from 'react-stars'
 import style from './EditProfile.module.css';
 import Navbar from '../MainNavbar/Navbar';
@@ -8,10 +8,12 @@ import Footer from '../MainFooter/Footer';
 
 
 export default function AddHotel() {
+  let navigate=useNavigate();
 
     const [passwordMismatch, setPasswordMismatch] = useState(false);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
+  const [imageSrc, setImageSrc] = useState('');
   useEffect(() => {
     if (id) {
       fetchUserData(id);
@@ -28,7 +30,7 @@ export default function AddHotel() {
         email: userData.email,
         phone : userData.phone,
         dob: userData.dob,
-        'profile': [],
+        'profile': userData.profile,
         password: '', 
         confirmPassword: ''
       });
@@ -67,13 +69,18 @@ export default function AddHotel() {
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setEditData({ ...editData, profile: files });
+    const imageUrl = URL.createObjectURL(e.target.files[0]);
+    setImageSrc(imageUrl);
     
     
   };
 
+  
+
   function addHotelData(e) {
     e.preventDefault();
     sendData();
+    navigate('/profile/'+id);
     
   }
     async function sendData() {
@@ -85,6 +92,7 @@ export default function AddHotel() {
       formData.append('password', editData.password);
       formData.append('phone', editData.phone);
         formData.append('dob', editData.dob);
+        
         
         editData.profile.forEach(file => {
             formData.append('profile[]', file);
@@ -105,24 +113,31 @@ export default function AddHotel() {
         console.error(error);
       }
     }
-    const avatars = (firstName, lastName) => {
+    const avatars = (firstName, lastName, profileImage) => {
+      if (profileImage && profileImage.length > 0) {
+        return <img src={profileImage[0]} alt="Profile" className={style.profileImage} />;
+      } else {
         const firstLetter = firstName.charAt(0).toUpperCase();
         const lastLetter = lastName.charAt(0).toUpperCase();
-        return firstLetter + lastLetter;
-      };
-  
+        return <div className={`rounded-circle fw-bold fs-1 text-muted ${style.avatar}`}>{firstLetter + lastLetter}</div>;
+      }
+    };
+    
   return (
     <>
     <Navbar />
       <div className="container-fluid mt-5 pt-5 d-flex flex-wrap justify-content-center">
         <div className="row">
           <div className={`col col-3 d-flex flex-column justify-content-center align-items-center rounded-3 me-4 ${style.leftContainer} `}>
-            <div className='d-flex justify-content-center align-items-center rounded-circle fw-bold fs-1 text-muted' style={{ width: '150px', height: '150px', backgroundColor: '#D9D9D9' }} >{avatars(editData.fname, editData.lname)}</div>
-            <label htmlFor='profile' className='mt-5 mb-5 pb-5 text-center fw-bold text-muted'>{editData.fname + ' ' + editData.lname + ''}</label>
+            <div className='d-flex justify-content-center align-items-center rounded-circle fw-bold fs-1 text-muted' style={{ width: '150px', height: '150px', backgroundColor: '#D9D9D9' }} >
+              <img src={imageSrc} className="w-100 rounded-circle" alt="" />
+            </div>
+            <label htmlFor='' className='mt-5 mb-5 pb-5 text-center fw-bold text-muted'>{editData.fname + ' ' + editData.lname + ''}</label>
+            <label htmlFor='profile' className='btn w-75 ' style={{ backgroundColor: '#47BCC2', color: '#fff' }}>Upload Profile</label>
           </div>
           <div className="col col-8 d-flex align-items-center ms-5">
             <form onSubmit={addHotelData} enctype="multipart/form-data">
-              <input type='file' multiple name='profile' accept="image/*" id='profile' onChange={handleImageChange}/>
+              <input type='file' multiple name='profile'  accept="image/*" id='profile' onChange={handleImageChange} style={{ display: 'none' }}/>
               <div className='d-flex mb-3'>
                 <label htmlFor="fname">First Name:</label>
                 <input type="text" className='form-control w-100' name="fname" id="fname" value={editData.fname} onChange={gethoteldata} />
