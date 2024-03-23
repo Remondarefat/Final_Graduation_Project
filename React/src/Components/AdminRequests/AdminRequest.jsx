@@ -26,15 +26,17 @@ useEffect(() => {
                     <div className="col-md-10">
                         <div className="card">
                             <div className="card-header text-white  bg-info">
-                                <h1 className='text-center'>Requests</h1>
+                                <h1 className='text-center'>Reserved Rooms</h1>
                             </div>
                             <div className="card-body">
                                 <table className="table table-hover">
                                     <thead>
                                         <tr className="">
-                                            <th scope="col">Details</th>
+                                            <th scope="col">User Name</th>
+                                            <th scope="col">Hotel Name</th>
+                                            <th scope="col">Room ID</th>
+                                            <th scope="col">Hotel Type</th>
                                             <th scope="col">Duration</th>
-                                            <th className='text-center' scope="col ">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -42,15 +44,20 @@ useEffect(() => {
                                         <tr>
                                             <td>
                                                 <div className="font-weight-bold">{request.user.fname} {request.user.lname}</div>
+                                                
+                                               
+                                            </td>
+                                            <td>
                                                 <div>{request.hotel.name}</div>
+                                            </td>
+                                            <td>
+                                                <div>{request.room.id}</div>
+                                            </td>
+                                            <td>
                                                 <div>{request.room.type}</div>
                                             </td>
                                             <td>
                                                {request.checkin} - {request.checkout}
-                                            </td>
-                                            <td className="text-center">
-                                                <FontAwesomeIcon icon={faCheckCircle} style={{ color: 'green' }} className="mr-2 cursor-pointer me-3" />
-                                                <FontAwesomeIcon icon={faTimesCircle} style={{ color: 'red' }} className="cursor-pointer" />
                                             </td>
                                         </tr>
                                     ))}     

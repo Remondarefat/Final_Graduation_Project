@@ -6,18 +6,21 @@ import logo from '../NylaLogo/Nyla_Logo.svg';
 const RegionInHome = () => {
   const navigate = useNavigate(); // Hook for navigation
   const destinations = [
-    { name: 'North Coast', imagePath: 'northcoast.png', bottomImage: 'North_Coast_Div.png', path: 'northcoast' },
+    { name: 'NorthCoast', imagePath: 'northcoast.png', bottomImage: 'North_Coast_Div.png', path: 'northCoast' },
     { name: 'Cairo', imagePath: 'cairo.png', bottomImage: 'CairoDiv.png', path: 'cairo' },
     { name: 'Sinai', imagePath: 'sinai.png', bottomImage: 'SinaiDiv.png', path: 'sinai' },
     { name: 'Oasis', imagePath: 'oasis.png', bottomImage: 'oasisDiv.png', path: 'oasis' },
-    { name: 'Upper Egypt', imagePath: 'upper.png', bottomImage: 'UEgyDiv.png', path: 'upperegypt' },
-    { name: 'Red Sea', imagePath: 'redsea.png', bottomImage: 'Red_Sea_Div.png', path: 'redsea' },
+    { name: 'UpperEgypt', imagePath: 'upper.png', bottomImage: 'UEgyDiv.png', path: 'upperEgypt' },
+    { name: 'RedSea', imagePath: 'redsea.png', bottomImage: 'Red_Sea_Div.png', path: 'redSea' },
   ];
 
   const [selectedDestination, setSelectedDestination] = useState(null);
+  const [regionData, setRegionData] = useState(null);
 
   const handleDestinationClick = (destination) => {
     setSelectedDestination(destination);
+    console.log('Region:', destination.name);
+    localStorage.setItem('region', destination.name);
     document.querySelector(".bottom-div").scrollIntoView({ behavior: "smooth" });
   };
 

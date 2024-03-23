@@ -20,10 +20,11 @@ class ApiHotelController extends Controller
         // dd($request->all());
 
         $data=$request->validate([
-            'name' => 'string',
-            'location' => 'string',
-            'description' => 'string',
-            'stars' => 'integer',
+            'name' => 'string|required',
+            'location' => 'string|required',
+            'description' => 'string|required',
+            'region' => 'string|required',
+            'stars' => 'integer|required',
             'image' => 'required',
             'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
 
@@ -32,7 +33,7 @@ class ApiHotelController extends Controller
 
         foreach ($request->file( 'image') as $image) {
            $filename= $image->getClientOriginalName();
-           $image->move('storage/images', $filename);
+           $image->move('images', $filename);
            HotelImage::create([
                'image' => $filename,
                'hotel_id' => $hotel->id,

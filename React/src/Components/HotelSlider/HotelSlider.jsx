@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css'; 
+import 'react-awesome-slider/dist/styles.css';
 import './HotelSlider.css';
 
 const images = [
-  'hs1.png',
-  'hs2.png',
-  'hs3.png',
-  'hs4.png',
-  'hs5.png',
-  'hs6.png',
-  'hs7.png',
-  'hs8.png',
-  'hs9.png',
-  'hs10.png',
+  '/hs1.png',
+  '/hs2.png',
+  '/hs3.png',
+  '/hs4.png',
+  '/hs5.png',
+  '/hs6.png',
+  '/hs7.png',
+  '/hs8.png',
+  '/hs9.png',
+  '/hs10.png',
 ];
+
 
 export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);

@@ -34,15 +34,15 @@ export default function AdminNavbar() {
   function logOut(){
     localStorage.removeItem('userToken' );
     setUserToken(null);
-    navigate('/login');
+    navigate('/');
   }
 
   return (
     <>
       <div className=" nav-background">
-        <div className=" container-fluid">
+        <div className="container-fluid">
           <div className="d-flex justify-content-between w-100  align-items-center">
-            <img src="Nyla-Logo.png" className="logo-width" alt="" />
+            <img src="Logo.svg" className="logo-width" alt="" />
             <div className="admin-side p-2 d-flex bg-white align-items-center justify-content-between  rounded-pill" style={{ cursor: 'pointer' , width: 'max-content' }}>
             <div className="nav-side p-2 d-flex bg-white align-items-center justify-content-between rounded-pill position-relative" style={{ cursor: 'pointer' , width: 'max-content'}} >
               <FontAwesomeIcon icon={faBars} className="clickable pe-2" onClick={handleDropdownClick} />
@@ -62,7 +62,7 @@ export default function AdminNavbar() {
           </div>
           <div className="w-100 ">
           <div className="d-flex w-50 mx-auto pt-3 pb-3 justify-content-center tab-color text-white rounded-2">
-                  <Link to="/adminrequest" className="me-5 text-white text-decoration-none py-3 fw-bold">Request</Link>
+                  <Link to="/adminrequest" className="me-5 text-white text-decoration-none py-3 fw-bold">Reserved Rooms</Link>
                   <Link to="/allhotel" className="me-5 text-white text-decoration-none py-3 fw-bold">All Hotels</Link>
                   <Link to='/addhotel' className="me-5 text-white text-decoration-none py-3 fw-bold">Add Hotel</Link>
              </div>

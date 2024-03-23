@@ -5,13 +5,14 @@ import Singleroom from '../../assets/singleroom.jpg';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export default function RoomDesc() {
+    const { hotelId, roomId } = useParams();
     const [room, setRoom] = useState(null);
-
     async function fetchRoomDetails() {
         try {
-            const { data } = await axios.get(`http://127.0.0.1:8000/api/hotels/1/details/3`);
+            const { data } = await axios.get(`http://127.0.0.1:8000/api/hotels/${hotelId}/details/${roomId}`);
             setRoom(data);
             console.log(data);
         } catch (error) {
@@ -21,12 +22,11 @@ export default function RoomDesc() {
 
     useEffect(() => {
         fetchRoomDetails();
-    }, []);
+    }, [hotelId , roomId]);
 
     if (!room) {
         return <div>Loading...</div>;
     }
-
     return (
         <div className="container">
             <div className="row mt-5  justify-content-center ">
@@ -69,8 +69,11 @@ export default function RoomDesc() {
                     </div>
                 </div>
                 <div className="text-center">
-                    <Link to="/checkout" className="m-5 w-25 btn bg-dark text-white rounded-5 p-2">Reserve Now</Link>
-                </div>
+            
+    <Link to={`/checkout/${hotelId}/${roomId}`} className="m-5 w-25 btn bg-dark text-white rounded-5 p-2">
+   Reserve Now
+    </Link>
+                </div> 
             </div>
         </div>
     );

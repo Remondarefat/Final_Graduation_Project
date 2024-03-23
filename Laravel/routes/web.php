@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/register', [UserController::class, 'store']);
+
+
+
+
+Route::get('/images/{filename}', function ($filename) {
+    $path = storage_path('storage/images/' . $filename);
+
+    if (!Storage::exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+})->where('filename', '.*');

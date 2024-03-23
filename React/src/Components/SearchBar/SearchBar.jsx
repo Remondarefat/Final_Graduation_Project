@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [location, setLocation] = useState('');
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
@@ -18,6 +18,10 @@ const SearchBar = () => {
 
   const handleCheckOutDateChange = (event) => {
     setCheckOutDate(event.target.value);
+  };
+
+  const handleSearch = () => {
+    onSearch({ location, checkInDate, checkOutDate });
   };
 
   return (
@@ -52,7 +56,7 @@ const SearchBar = () => {
           }}
           placeholder="Check-out"
         />
-        <button className="circularButton ms-2" type="button">
+        <button className="circularButton ms-2" type="button" onClick={handleSearch}>
           <i className="fas fa-search"></i>
         </button>
       </div>

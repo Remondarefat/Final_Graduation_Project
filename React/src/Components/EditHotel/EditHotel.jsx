@@ -19,6 +19,8 @@ export default function EditHotel() {
     console.log( myhotel);
   
   }
+
+  
   
   
   const handleRatingChange = (newRating) => {
