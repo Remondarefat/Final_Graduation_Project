@@ -10,21 +10,21 @@ import { Formik, useFormik } from 'formik';
 
 
 export default function HotelRooms() {
-    const params = useParams(2);
+    const { hotelId } = useParams();
     const [hotelDetails, setHotelDetails] = useState(null);
     const [feedbackValue, setFeedbackValue] = useState('');
     const [rating, setRating] = useState(0);
     const [reviews, setReviews] = useState([]);
     // ToDo: ------Fetch HotelDesc Data
     async function fetchHotelDetails() {
-        let { data } = await axios.get(`http://127.0.0.1:8000/api/hoteldesc/2`);
+        let { data } = await axios.get(`http://127.0.0.1:8000/api/hoteldesc/${hotelId}`);
         setHotelDetails(data);
         console.log(data);
     }
 
     useEffect(() => {
         fetchHotelDetails();
-    }, []);
+    }, [hotelId]);
     
 
     // TODO:------------Fetch ReviewData-----------------
@@ -124,32 +124,33 @@ export default function HotelRooms() {
                             </div>
                         </div>
                         <div className="row my-5">
-                            {hotelDetails.data.room.map((room) => (
-                                <div key={room.id} className="col-md-4">
-                                <div className="card" style={{ width: '22rem' }}>
-                                    <div className={Style.roomImg}>
-                                        <div>
-                                            <img src={room.images[0].image} className="card-img-top" alt="Room" />
-                                        </div>
-                                    <div className={`${Style.layer} ps-3` }>
-                                        <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} alt="Room" />
-                                        <div className='ms-3'> 
-                                        <span>Listed by :</span>
-                                        <p className='fw-bold m-0'>{hotelDetails.data.name}</p>
-                                        <span>For: ${room.price}/night</span>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div className="card-body">
-                                    <p className="card-title fw-bold m-0">{room.type}</p>
-                                    <p className="card-text">{room.view}</p>
-                                    <div className='text-center'>
-                                        <Link to="/roomdesc/${id}" className="btn bg-dark text-white rounded-5 px-4 ">More Details</Link>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            ))}
+                        {hotelDetails.data.room.map((room) => (
+    <div key={room.id} className="col-md-4">
+        <div className="card" style={{ width: '22rem' }}>
+            <div className={Style.roomImg}>
+                <div>
+                    <img src={room.images[0].image} className="card-img-top" alt="Room" />
+                </div>
+                <div className={`${Style.layer} ps-3` }>
+                    <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} alt="Room" />
+                    <div className='ms-3'> 
+                        <span>Listed by :</span>
+                        <p className='fw-bold m-0'>{hotelDetails.data.name}</p>
+                        <span>For: ${room.price}/night</span>
+                    </div>
+                </div>
+            </div>
+            <div className="card-body">
+                <p className="card-title fw-bold m-0">{room.type}</p>
+                <p className="card-text">{room.view}</p>
+                <div className='text-center'>
+                    <Link to={`/roomdesc/${hotelId}/${room.id}`} className="btn bg-dark text-white rounded-5 px-4 ">More Details</Link>
+                </div>
+            </div>
+        </div>
+    </div>
+))}
+
                             </div>
 
 
@@ -223,6 +224,7 @@ export default function HotelRooms() {
                                     <p className='ms-5 mb-0'>Your Rate :</p>
                                     <ReactStars
                                         count={5}
+                                        half={false}
                                         value={parseInt(formik.values.rating)} // Ensure rating is parsed as a number
                                         onChange={(newRating) => {
                                             formik.setFieldValue('rating', newRating);

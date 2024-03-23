@@ -27,7 +27,7 @@ export default function Checkout({ onCheckoutData }) {
     checkout: '',
     total_due: 0,
     meals: '',
-    user_id: 1,
+    user_id: localStorage.getItem('user_id'),
     hotel_id: hotelId,
     room_id: roomId,
   });

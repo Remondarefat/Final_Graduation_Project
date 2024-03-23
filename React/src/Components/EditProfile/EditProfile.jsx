@@ -1,17 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {  useNavigate, useParams } from "react-router-dom";
-import ReactStars from 'react-stars'
+import {    useNavigate, useParams } from "react-router-dom";
+// import ReactStars from 'react-stars'
 import style from './EditProfile.module.css';
 import Navbar from '../MainNavbar/Navbar';
 import Footer from '../MainFooter/Footer';
 
 
 export default function AddHotel() {
+  let navigate=useNavigate();
 
     const [passwordMismatch, setPasswordMismatch] = useState(false);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
+  const [imageSrc, setImageSrc] = useState('');
   useEffect(() => {
     if (id) {
       fetchUserData(id);
@@ -39,7 +41,7 @@ export default function AddHotel() {
    
 
 
-  let navigate=useNavigate();
+  // let navigate=useNavigate();
   function gethoteldata(e) {
     let myhotel = {...editData};
     myhotel[e.target.name] = e.target.value;
@@ -47,7 +49,7 @@ export default function AddHotel() {
     console.log( myhotel);
     
   }
-  const [rating, setRating] = useState(0); // State to hold the selected rating
+  // const [rating, setRating] = useState(0); // State to hold the selected rating
   
   
   const [editData, setEditData] = useState({
@@ -61,20 +63,24 @@ export default function AddHotel() {
 
   });
   
-  const [selectedImage, setSelectedImage] = useState([]);
+  // const [selectedImage, setSelectedImage] = useState([]);
 
   // Function to handle file input change
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setEditData({ ...editData, profile: files });
-    setSelectedImage(files.map(file => URL.createObjectURL(file)));
-    console.log(editData);
+    const imageUrl = URL.createObjectURL(e.target.files[0]);
+    setImageSrc(imageUrl);
+    
     
   };
+
+  
 
   function addHotelData(e) {
     e.preventDefault();
     sendData();
+    navigate('/profile/'+id);
     
   }
     async function sendData() {
@@ -123,8 +129,9 @@ export default function AddHotel() {
       <div className="container-fluid mt-5 pt-5 d-flex flex-wrap justify-content-center">
         <div className="row">
           <div className={`col col-3 d-flex flex-column justify-content-center align-items-center rounded-3 me-4 ${style.leftContainer} `}>
-            <div className='d-flex justify-content-center align-items-center rounded-circle fw-bold fs-1 text-muted' style={{ width: '150px', height: '150px', backgroundColor: '#D9D9D9' }} >    {avatars(editData.fname, editData.lname, editData.profile)}
-</div>
+            <div className='d-flex justify-content-center align-items-center rounded-circle fw-bold fs-1 text-muted' style={{ width: '150px', height: '150px', backgroundColor: '#D9D9D9' }} >
+              <img src={imageSrc} className="w-100 rounded-circle" alt="" />
+            </div>
             <label htmlFor='' className='mt-5 mb-5 pb-5 text-center fw-bold text-muted'>{editData.fname + ' ' + editData.lname + ''}</label>
             <label htmlFor='profile' className='btn w-75 ' style={{ backgroundColor: '#47BCC2', color: '#fff' }}>Upload Profile</label>
           </div>

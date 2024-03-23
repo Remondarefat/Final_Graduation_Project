@@ -1,10 +1,10 @@
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
-import RegionHotels from './Components/RegionHotels/RegionHotels';
+// import RegionHotels from './Components/RegionHotels/RegionHotels';
 import Layout from './Components/AdminLayout/Layout';
 // Import other necessary components
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Profile from './Components/Profile/Profile';
 import Register from './Components/Register/Register';
@@ -19,18 +19,17 @@ import NotFound from './Components/NotFound/NotFound';
 import HotelRooms from './Components/HotelRooms/HotelRooms';
 import RoomDesc from './Components/RoomDesc/RoomDesc';
 import Login from './Components/Login/Login';
-import UserContextProvider, { UserContext } from './Context/UserContext';
-import { useContext, useEffect } from 'react';
+import RegionHotels from './Components/RegionHotels/RegionHotels';
+import  { UserContext } from './Context/UserContext';
+import { useContext, useEffect, useState } from 'react';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import ProtectedAdminRoute from './Components/ProtectedAdminRoute/ProtectedAdminRoute';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useState } from 'react';
-
 
 
 
 import EditHotel from './Components/EditHotel/EditHotel';
-import EditTest from './Components/EditTest/EditTest';
+// import EditTest from './Components/EditTest/EditTest';
 
 function App() {
   // Function to handle checkout data
@@ -40,26 +39,26 @@ function App() {
   };
   let routers = createBrowserRouter([
     {
-      path: '/', element: <ProtectedAdminRoute><Layout /></ProtectedAdminRoute>, children: [
+      path: '/', element:<Layout />, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
         { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom/:hotelId/:hotelName', element: <ProtectedAdminRoute><AddRoom /></ProtectedAdminRoute> },
+        { path: '/addroom/:hotelId/:hotelName', element:<AddRoom />},
 
-        { path: '/allhotel', element: <ProtectedAdminRoute><AllHotels /></ProtectedAdminRoute> },
-        { path: '/adminrequest', element: <ProtectedAdminRoute><AdminRequest /> </ProtectedAdminRoute> },
+        { path: '/allhotel', element:<AllHotels /> },
+        { path: '/adminrequest', element:<AdminRequest /> },
         { path: '/edithotel/:id', element: <EditHotel /> },
       ]
     },
-    { path: '/home', element: <ProtectedRoute><HomePage /> </ProtectedRoute> },
+    { path: '/home', element: <HomePage /> },
     { path: '/profile/:id', element: <Profile /> },
     { path: '/checkout/:hotelId/:roomId', element: <ProtectedRoute><Checkout onCheckoutData={handleCheckoutData} /></ProtectedRoute> },
-    { path: '/editprofile/:id', element: <EditProfile /> },
+    { path: '/editprofile/:id', element: <ProtectedRoute><EditProfile /></ProtectedRoute> },
     { path: '/register', element: <Register /> },
     { path: '*', element: <NotFound /> },
     { path: '/payment', element: <ProtectedRoute><Payment  {...checkoutData} /></ProtectedRoute> },
     { index: '/login', element: <Login /> },
-    { path: '/hotelrooms/:hotelISd', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
-    { path: '/roomdesc/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
+    { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
+    { path: '/roomdesc/:hotelId/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
     { path: '/region/:regionName', element: <ProtectedRoute><RegionHotels /></ProtectedRoute> },
   ]);
   let { setUserToken } = useContext(UserContext);
