@@ -14,8 +14,8 @@ class ProfileResource extends JsonResource
             'lname' => $this->lname,
             'email' => $this->email,
             'image' => $this->profile,
-            'hotel_name' => $this->reviews->isNotEmpty() ? $this->reviews->first()->hotel->name : null,
-            'feedback' => $this->reviews->isNotEmpty() ? $this->reviews->pluck('feedback') : [],
+            // 'hotel_name' => $this->reviews->isNotEmpty() ? $this->reviews->first()->hotel->name : null,
+            'feedback' => ReviewResource::collection($this->reviews),
 
         ];
     }
