@@ -101,3 +101,12 @@ code {
   opacity: .15;
 
 }
+.img-review{
+  height: 250px;
+}
+.review-span{
+  color: var(--logo-background);
+}
+.pro-con{
+  margin-top: 100px;
+}

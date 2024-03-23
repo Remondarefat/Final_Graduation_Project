@@ -16,6 +16,7 @@ class ProfileResource extends JsonResource
             'image' => $this->profile,
             // 'hotel_name' => $this->reviews->isNotEmpty() ? $this->reviews->first()->hotel->name : null,
             'feedback' => ReviewResource::collection($this->reviews),
+            'book' => BookResource::collection($this->books),
 
         ];
     }

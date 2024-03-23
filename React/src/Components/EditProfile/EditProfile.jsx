@@ -80,35 +80,34 @@ export default function AddHotel() {
   function addHotelData(e) {
     e.preventDefault();
     sendData();
-    navigate('/profile/'+id);
     
   }
-    async function sendData() {
+  async function sendData() {
       
     let formData = new FormData();
-        formData.append('fname', editData.fname);
-        formData.append('lname', editData.lname);
+    formData.append('fname', editData.fname);
+    formData.append('lname', editData.lname);
       formData.append('email', editData.email);
       formData.append('password', editData.password);
       formData.append('phone', editData.phone);
-        formData.append('dob', editData.dob);
+      formData.append('dob', editData.dob);
         
-        
-        editData.profile.forEach(file => {
-            formData.append('profile[]', file);
-        })      
-    
+      
+      editData.profile.forEach(file => {
+        formData.append('profile[]', file);
+      })      
+      
       console.log(formData);
       console.log(id);
-        try {
-            
+      try {
+        
         let response = await axios.post(`http://localhost:8000/api/editprofile/${id}`, formData, {
-            headers: {
-              'X-HTTP-Method-Override': 'PUT' // Method override header
-            }
-          });
+          headers: {
+            'X-HTTP-Method-Override': 'PUT' // Method override header
+          }
+        });
         console.log(response.data);
-        // navigate("/allhotel");
+        navigate('/profile/'+id);
       } catch (error) {
         console.error(error);
       }

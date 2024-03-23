@@ -58,9 +58,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->reviews()->where('hotel_id', $hotel->id)->exists();
     }
-    public function payments()
+    public function books()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Book::class);
     }
 // ------------- Jwt----------
     public function getJWTIdentifier()
