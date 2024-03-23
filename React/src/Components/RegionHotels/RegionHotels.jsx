@@ -28,15 +28,14 @@ export default function RegionHotels() {
   return (
     <>
 
-        <div className="backgroundStyledDiv" >
+        <div className="backgroundStyledDiv" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${backgroundImg})` }}>
         <Navbar />
-        <div className=' position-relative'>
-          <div className='position-absolute pattern-background' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${backgroundImg})` }}></div>
+          <div className=' pattern-background' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${backgroundImg})` }}></div>
           <HotelSlider />
           <SearchBar onSearch={handleSearch} />
 
           <HotelsDisplay searchQuery={searchQuery} />
-        </div>
+      
         <Footer />
         </div>
     </>

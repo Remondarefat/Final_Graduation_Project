@@ -20,6 +20,7 @@ import HotelRooms from './Components/HotelRooms/HotelRooms';
 import RoomDesc from './Components/RoomDesc/RoomDesc';
 import Login from './Components/Login/Login';
 import RegionHotels from './Components/RegionHotels/RegionHotels';
+import ContactUs from './Components/ContactUs/ContactUs';
 import  { UserContext } from './Context/UserContext';
 import { useContext, useEffect, useState } from 'react';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
@@ -57,20 +58,10 @@ function App() {
     { path: '*', element: <NotFound /> },
     { path: '/payment', element: <Payment  {...checkoutData} /> },
     { index: '/login', element: <Login /> },
-    { path: '/hotelrooms/:hotelId', element: <HotelRooms /> },
-    { path: '/roomdesc/:hotelId/:roomId', element: <RoomDesc /> },
-    { path: '/region/:regionName', element: <RegionHotels /> },
-    // { path: '/home', element: <HomePage /> },
-    // { path: '/profile/:id', element: <Profile /> },
-    // { path: '/checkout/:hotelId/:roomId', element: <ProtectedRoute><Checkout onCheckoutData={handleCheckoutData} /></ProtectedRoute> },
-    // { path: '/editprofile/:id', element: <ProtectedRoute><EditProfile /></ProtectedRoute> },
-    // { path: '/register', element: <Register /> },
-    // { path: '*', element: <NotFound /> },
-    // { path: '/payment', element: <ProtectedRoute><Payment  {...checkoutData} /></ProtectedRoute> },
-    // { index: '/login', element: <Login /> },
-    // { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
-    // { path: '/roomdesc/:hotelId/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
-    // { path: '/region/:regionName', element: <ProtectedRoute><RegionHotels /></ProtectedRoute> },
+    { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
+    { path: '/roomdesc/:hotelId/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
+    { path: '/region/:regionName', element: <ProtectedRoute><RegionHotels /></ProtectedRoute> },
+    { path: '/contactus', element: <ContactUs /> },
   ]);
   let { setUserToken } = useContext(UserContext);
   useEffect(() => {
