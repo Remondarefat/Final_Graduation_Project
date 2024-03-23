@@ -20,6 +20,7 @@ import HotelRooms from './Components/HotelRooms/HotelRooms';
 import RoomDesc from './Components/RoomDesc/RoomDesc';
 import Login from './Components/Login/Login';
 import RegionHotels from './Components/RegionHotels/RegionHotels';
+import ContactUs from './Components/ContactUs/ContactUs';
 import  { UserContext } from './Context/UserContext';
 import { useContext, useEffect, useState } from 'react';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
@@ -60,6 +61,7 @@ function App() {
     { path: '/hotelrooms/:hotelId', element: <ProtectedRoute><HotelRooms /></ProtectedRoute> },
     { path: '/roomdesc/:hotelId/:roomId', element: <ProtectedRoute><RoomDesc /></ProtectedRoute> },
     { path: '/region/:regionName', element: <ProtectedRoute><RegionHotels /></ProtectedRoute> },
+    { path: '/contactus', element: <ContactUs /> },
   ]);
   let { setUserToken } = useContext(UserContext);
   useEffect(() => {
