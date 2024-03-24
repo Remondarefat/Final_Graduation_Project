@@ -10,7 +10,7 @@ const Testimonials = () => {
       try {
         const response = await axios.get(`http://localhost:8000/api/reviews`);
         setTestimonials(response.data.reviews); 
-        console.log(response.data.reviews);
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -24,7 +24,8 @@ const Testimonials = () => {
     return (
       <div className="testimonial-card">
         <div className="user-image-container">
-          {/* <img src={testimonial.user.image} alt="User" className="user-image" /> */}
+        {testimonial.user.profile !=null && !testimonial.user.profile.startsWith("http") ? <img src={`http://localhost:8000/images/${testimonial.user.profile}`  } style={{height: '168px'}} className='rounded-circle' alt="" /> : <img className='rounded-circle' style={{height: '168px'}} src='default.jpg'/>}
+                                
         </div>
         <div className="testimonial-content">
           <p className="testimonial-name">{testimonial.user.fname} {testimonial.user.lname}</p>
