@@ -42,11 +42,10 @@ export default function AdminNavbar() {
       <div className=" nav-background">
         <div className="container-fluid">
           <div className="d-flex justify-content-between w-100  align-items-center">
-            <img src="Logo.svg" className="logo-width" alt="" />
+            <img src="Logo.svg" className="logo-width p-2" alt="" />
             <div className="admin-side p-2 d-flex bg-white align-items-center justify-content-between  rounded-pill" style={{ cursor: 'pointer' , width: 'max-content' }}>
             <div className="nav-side p-2 d-flex bg-white align-items-center justify-content-between rounded-pill position-relative" style={{ cursor: 'pointer' , width: 'max-content'}} >
               <FontAwesomeIcon icon={faBars} className="clickable pe-2" onClick={handleDropdownClick} />
-              <img src="default.jpg" className=" rounded-circle me-2 ms-2" style={{ width: '35px', height: '35px' }} alt="" />
               <span className="nav-side-text clickable">Hi, Admin</span>
               {isOpen && (
                 <ul className="dropdown-menu show">

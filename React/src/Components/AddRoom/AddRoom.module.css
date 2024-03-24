@@ -4,8 +4,9 @@
 
 }
 .adminImg {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+    align-items: center;
 }
 .addingRoom {
     color: #47BCC2;
@@ -16,7 +17,6 @@
     width: 100%;
     background-color: #D9D9D9;
   }
-  
   .uploadedImage {
    width: 150px;
    height: 150px;

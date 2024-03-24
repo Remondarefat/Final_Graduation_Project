@@ -21,6 +21,7 @@ useEffect(() => {
             console.log(dataofprofile.image);
             setFeedback(dataofprofile.feedback);
             setBook(dataofprofile.book);
+            localStorage.setItem("user_profile",dataofprofile.image);
             
             setProfileData(dataofprofile);
             // console.log(dataofprofile.);
@@ -49,7 +50,7 @@ useEffect(() => {
                                 
                                 </div>
                                 <div className="user-info">
-                                    <h4>{profileData.name}</h4>
+                                    <h5>{profileData.name}</h5>
                                 </div>
                                 <Link to={`/editprofile/${id}`} className="edit-button">
                                     Edit Profile

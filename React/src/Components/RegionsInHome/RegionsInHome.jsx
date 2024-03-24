@@ -4,6 +4,7 @@ import './RegionInHome.css';
 import logo from '../NylaLogo/Nyla_Logo.svg';
 
 const RegionInHome = () => {
+  const [selectedRegion, setSelectedRegion] = useState(null);
   const navigate = useNavigate(); // Hook for navigation
   const destinations = [
     { name: 'NorthCoast', imagePath: 'northcoast.png', bottomImage: 'North_Coast_Div.png', path: 'northCoast' },
@@ -16,7 +17,9 @@ const RegionInHome = () => {
 
   const [selectedDestination, setSelectedDestination] = useState(null);
   const [regionData, setRegionData] = useState(null);
-
+  const handleRegionSelect = (region) => {
+    setSelectedRegion(region);
+  };
   const handleDestinationClick = (destination) => {
     setSelectedDestination(destination);
     console.log('Region:', destination.name);

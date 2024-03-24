@@ -35,7 +35,7 @@ code {
 }
 
 .logo-width{
-  width: 150px;
+  width: 115px;
 }
 .img-slid{
   height: 100px;
@@ -118,7 +118,7 @@ code {
 .loading-page{
   background-image: url('../public/back.png');
   width: 100%;
-  height: 200px;
+  height: 100vh;
   background-size: cover;
   background-position: center;
 }

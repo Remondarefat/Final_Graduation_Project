@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css'; 
 import './slider.css';
-import 'react-awesome-slider/dist/styles.css'; 
-import './slider.css';
 
 const images = [
   'hs1.png',
@@ -32,7 +30,7 @@ export default function Slider() {
   };
 
   return (
-    <div className='slider'>
+    <div className='slider' style={{paddingTop: '80px'}}>
       <div className="slider-container mb-5">
         <AwesomeSlider
           fillParent={false}

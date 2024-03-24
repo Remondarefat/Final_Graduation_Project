@@ -47,6 +47,7 @@ export default function Checkout({ onCheckoutData }) {
           price: hotelResponse.data.room.price,
           status: hotelResponse.data.room.status,
         });
+        setLoading(true);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -75,7 +76,7 @@ export default function Checkout({ onCheckoutData }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
+    
     try {
       if (!formData.checkin || !formData.checkout || !formData.meals) {
         console.log('Form validation failed. Missing required fields.');
@@ -89,14 +90,13 @@ export default function Checkout({ onCheckoutData }) {
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
-      setLoading(false);
     }
   };
 
   const isRoomBooked = hotelDetails.status === 'booked'; // Check if room is booked
 
-  return (
-    <>
+  return <>
+    {loading? <>
       <Navbar />
       <div className="container pt-5 mt-5">
         <div className="row">
@@ -162,10 +162,9 @@ export default function Checkout({ onCheckoutData }) {
                 </div>
                 <div className="btns d-flex justify-content-end mt-5">
                   <button type='button' className='btn btn-link text-decoration-none text-dark'><i className="fa-solid fa-x me-2"></i>Cancel</button>
-                  {loading ? (<span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>)
-                    : (<button type='submit' className={`btn rounded-pill ps-4 pe-4 pb-2 pt-2`} style={{ backgroundColor: '#47BCC2', color: 'white' }} disabled={isRoomBooked}>
+                  <button type='submit' className={`btn rounded-pill ps-4 pe-4 pb-2 pt-2`} style={{ backgroundColor: '#47BCC2', color: 'white' }} disabled={isRoomBooked}>
                       {isRoomBooked ? 'Room Booked' : 'Pay Now'}
-                    </button>)}
+                    </button>
                 </div>
               </form>
             </div>
@@ -173,6 +172,8 @@ export default function Checkout({ onCheckoutData }) {
         </div>
       </div>
       <Footer />
-    </>
-  );
+    </>:<div className='loading-page'>
+                
+                </div>}
+  </>
 }

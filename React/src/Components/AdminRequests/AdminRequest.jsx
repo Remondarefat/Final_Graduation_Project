@@ -6,12 +6,14 @@ import axios from 'axios';
 
 export default function Layout() {
     const [requests, setRequests] = useState([]);
+    const [isloading, setIsloading] = useState(false);
 
 useEffect(() => {
     const fetchdata = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/request');
-        setRequests(response.data);
+          setRequests(response.data);
+          setIsloading(true);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -19,8 +21,8 @@ useEffect(() => {
     fetchdata();
   }, []);
   console.log(requests);
-    return (
-        <>
+    return <>
+        {isloading? <>
             <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-10">
@@ -68,6 +70,8 @@ useEffect(() => {
                     </div>
                 </div>
             </div>
-        </>
-    );
+        </>:<div className='loading-page'>
+                
+                </div>}
+    </>
 }
