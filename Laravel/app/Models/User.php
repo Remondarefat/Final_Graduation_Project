@@ -51,16 +51,16 @@ class User extends Authenticatable implements JWTSubject
 
     public function reviews()
     {
-        return $this->belongsToMany(Hotel::class, 'reviews')->withPivot('rating', 'feedback');
+        return $this->hasMany(Review::class);
     }
 
     public function hasReviewed(Hotel $hotel)
     {
         return $this->reviews()->where('hotel_id', $hotel->id)->exists();
     }
-    public function payments()
+    public function books()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Book::class);
     }
 // ------------- Jwt----------
     public function getJWTIdentifier()

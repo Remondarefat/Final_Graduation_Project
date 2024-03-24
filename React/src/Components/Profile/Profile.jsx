@@ -6,94 +6,101 @@ import Footer from '../MainFooter/Footer';
 import axios from 'axios';
 
 export default function Profile() {
-    const [reviews , setReviews] = useState([]);
     const { id } = useParams();
-    const [profileData, setProfileData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [profileData, setProfileData] = useState({});
+    const [feedback,setFeedback]=useState([]);
+    const [book,setBook]=useState([]);
+    
 
-    useEffect(() => {
-        getprofiledata();
-        const fetchReviews = async () => {
-            try {
-              const response = await axios.get(`http://localhost:8000/api/reviews`);
-              setReviews(response.data.reviews); 
-              console.log(response.data.reviews);
-            } catch (error) {
-              console.error('Error fetching testimonials:', error);
-            }
-          };
-          console.log(reviews);
-          fetchReviews();
-        console.log(profileData);
-    }, []);
 
-    if (loading) {
-        return <div>Loading...</div>;
+useEffect(() => {
+    async function getprofiledata(){
+        try {
+            const response = await axios.get(`http://localhost:8000/api/profile/${id}`);
+            let dataofprofile = (response.data.data);
+            console.log(dataofprofile.image);
+            setFeedback(dataofprofile.feedback);
+            setBook(dataofprofile.book);
+            
+            setProfileData(dataofprofile);
+            // console.log(dataofprofile.);
+        } catch (error) {
+            console.error('Error fetching profile data:', error);
+            // setError('An error occurred while fetching profile data. Please try again later.'); // Set error message
+            // setLoading(false);
+        }
     }
-
-    if (error) {
-        // return <div>Error: {error}</div>; //to display error message 
-    }
-
-async function getprofiledata(){
-    try {
-        const response = await axios.get(`http://localhost:8000/api/profile/${id}`);
-        let dataofprofile = (response.data.data);
-        console.log(dataofprofile );
-        setProfileData(dataofprofile);
-        setLoading(false);
-        console.log(profileData);
-    } catch (error) {
-        console.error('Error fetching profile data:', error);
-        setError('An error occurred while fetching profile data. Please try again later.'); // Set error message
-        setLoading(false);
-    }
-}
-
-// const avatars = (firstName, lastName) => {
-//     const firstLetter = firstName.charAt(0).toUpperCase();
-//     const lastLetter = lastName.charAt(0).toUpperCase();
-//     return firstLetter + lastLetter;
-//   };
+    getprofiledata();
+    
+}, []);
   
-    return (
-        <div>
+    return <>
+         <div>
             <Navbar />
-            <div className="profile-container">
-                <div className="profile-card">
-                    <div className="profile-picture  d-flex align-items-center justify-content-center">
+            <div className="container pro-con">
+                <div className="row">
+                    <div className="col-md-3 ">
+
+                        <div className="profile-container shadow">
+                            <div className="profile-card">
+                                <div className="profile-picture  d-flex align-items-center justify-content-center">
+
+                                {profileData.image !=null && !profileData.image.startsWith("http") ? <img src={`http://localhost:8000/images/${profileData.image}`} alt="" /> : null}
+                                
+                                </div>
+                                <div className="user-info">
+                                    <h4>{profileData.name}</h4>
+                                </div>
+                                <Link to={`/editprofile/${id}`} className="edit-button">
+                                    Edit Profile
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-9">
+                    <h2 className='review-span'>History : </h2>
+                        <div className="row">
+                        {book.map((item, index) => {
                         
-                    {/* {profileData.image.startsWith("http")?<img src={profileData.image} className='w-100 hotel-img' alt="" />:<img src={`http://localhost:8000/images/${profileData.image}`} className='w-100 hotel-img' alt="" />} */}
-                    
-                        {/* <h1 className='profile-na'>{avatars(profileData.fname, profileData.lname)}</h1> */}
+                        return <div key={index} className="col-md-4">
+                            <div className='p-2'>
+                                <img src={item.hotel_image} className='w-100 img-review rounded-2' alt="" />
+                                <h6 className='mt-2 fw-lighter'><span className='review-span fw-bolder'>Hotel Name :</span> {item.hotel_name}</h6>
+                                <h6 className='mt-2 fw-lighter'><span className='review-span fw-bolder'>CheckIn :</span> {item.checkin}</h6>
+                                <h6 className='mt-2 fw-lighter'><span className='review-span fw-bolder'>CheckOut :</span> {item.checkout}</h6>
+                                <h6 className='mt-2 fw-lighter'><span className='review-span fw-bolder'>Total Due :</span> {item.total_due} $</h6>
+
+                            </div>
+                            </div> 
+                    })}
+                        </div>
                     </div>
-                    <div className="user-info">
-                        <h4>{profileData.name}</h4>
-                    </div>
-                    <Link to={`/editprofile/${id}`} className="edit-button">
-                        Edit Profile
-                    </Link>
                 </div>
             </div>
-            <div className="horizontal-line-container">
-                <hr className="horizontal-line" />
+             <div className="horizontal-line-container">
+                 <hr className="horizontal-line" />
+             </div>
+             <div className="container">
+                <div className="row ">
+                    <h2 className='text-white p-3 btn-update rounded-3'>Feedback : </h2>
+                    {feedback.map((item, index) => {
+                        
+                        return <div key={index} className="col-md-3">
+                            <div className='p-2 '>
+                                <img src={item.hotel_image} className='w-100 img-review rounded-2' alt="" />
+                                <h6 className='mt-2 fw-lighter'><span className='review-span fw-bolder'>Hotel Name :</span> {item.hotel_name}</h6>
+                                <h6 className='mt-2 fw-lighter'><span className='review-span fw-bolder'>Review :</span> {item.feedback}</h6>
+                                <h6 className='mt-2 fw-lighter'><span className='review-span fw-bolder'>Rate :</span> {item.rating}</h6>
+
+                            </div>
+                            </div> 
+                    })}
+                   
+                    
+                </div>             
             </div>
-            <div className="review">
-                {profileData && profileData.name && reviews && reviews.length > 0 && (
-                    <React.Fragment>
-                        <p className="reviewer-name">{profileData.name}</p>
-                        <p className="hotel-name">{profileData.hotel_name}</p>
-                        {reviews.map(review => {
-                            if (review.user_id === parseInt(id)) {
-                                return <p key={review.created_at} className="review-text">{review.feedback}</p>;
-                            }
-                            return null;
-                        })}                    
-                        </React.Fragment>
-                )}
-            </div>
-            <Footer />
-        </div>
-    );
+             <Footer />
+         </div>
+        </>
+    
 }   

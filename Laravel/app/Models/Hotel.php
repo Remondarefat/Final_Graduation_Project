@@ -19,14 +19,14 @@ class Hotel extends Model
     public function rooms(){
         return $this->hasMany(Room::class);
     }
-    public function reviews()
-    {
-        return $this->belongsToMany(User::class, 'reviews')->withPivot('rating', 'feedback');
-    }
-    public function hasReviewed(User $user)
-    {
-        return $this->reviews()->where('user_id', $user->id)->exists();
-    }
+    // public function reviews()
+    // {
+    //     return $this->hasMany(Review::class);
+    // }
+    // public function hasReviewed(User $user)
+    // {
+    //     return $this->reviews()->where('user_id', $user->id)->exists();
+    // }
 
     public function books()
     {

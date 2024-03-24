@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function show($id)
     {
-        $user = User::with('reviews.hotel')->findOrFail($id);
+        $user = User::findOrFail($id);
 
         return new ProfileResource($user);
     }
