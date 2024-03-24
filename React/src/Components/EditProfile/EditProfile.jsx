@@ -80,6 +80,7 @@ export default function AddHotel() {
   function addHotelData(e) {
     e.preventDefault();
     sendData();
+    navigate('/profile/'+id);
     
   }
   async function sendData() {

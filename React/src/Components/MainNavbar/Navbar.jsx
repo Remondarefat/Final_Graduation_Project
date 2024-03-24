@@ -41,7 +41,7 @@ export default function Navbar() {
     setUserToken(null);
     navigate('/');
   }
-
+const profileData = JSON.parse(localStorage.getItem('user_profile'));
   return (
     <>
       <div className="mainnav">
@@ -50,6 +50,9 @@ export default function Navbar() {
           <Link to={'/home'} className="logo">  <img src={logo} alt='nyla logo' className="footer-logo h-50"/> </Link>
             <div className="nav-side p-2 me-4 d-flex bg-white align-items-center justify-content-between rounded-pill position-relative" style={{ cursor: 'pointer' , width: 'max-content'}} >
               <FontAwesomeIcon icon={faBars} className="clickable pe-2" onClick={handleDropdownClick} />
+              {/* <img src={localStorage.getItem('profile')} alt="profile" className="profile-img" /> */}
+              {profileData !=null && !profileData.startsWith("http") ? <img src={`http://localhost:8000/images/${profileData.image}`} alt="" /> : null}
+
               <span className="nav-side-text clickable pe-2">Hi, {userFullName}</span>
               {isOpen && (
                 <ul className="dropdown-menu show">
