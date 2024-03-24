@@ -7,7 +7,9 @@ import axios from 'axios';
 export default function HotelsDisplay({ searchQuery }) {
     const [savedRegion, setSavedRegion] = useState('');
     const [hotel, setHotel] = useState([]);
+    const [isloading, setIsloading] = useState(false);
     const { region } = useParams();
+
 
     async function getHotel() {
         try {
@@ -17,6 +19,7 @@ export default function HotelsDisplay({ searchQuery }) {
             // Check if there is a region saved in local storage
             const savedRegion = localStorage.getItem('region');
             setSavedRegion(savedRegion);
+            setIsloading(true);
             if (searchQuery && searchQuery.location) {
                 const filteredHotels = allHotels.filter(hotel =>
                     hotel.location.toLowerCase().includes(searchQuery.location.toLowerCase()));
@@ -41,12 +44,15 @@ export default function HotelsDisplay({ searchQuery }) {
     }, [searchQuery]);
 
     return <>
-        <div className=" container mt-5 background-opacity rounded-2 shadow">
+        {isloading?<div className=" container mt-5 background-opacity rounded-2 shadow">
             <h2>Available Hotels in {savedRegion ? savedRegion : 'all regions'} </h2>
             {<div className="row mt-4">
                 {hotel.map((item, index) => <HotelItem key={index} item={item} />)}
             </div>
             }
-        </div>
+        </div> : <div className='loading-page'>
+                
+        </div>}
+        
     </>
 }

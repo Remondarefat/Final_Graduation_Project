@@ -45,7 +45,7 @@ export default function Login() {
     }
     let validationSchema =Yup.object({
         email:Yup.string().email('email is invalid').required('email is rquired'),
-        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/, 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character').required('password is required'),
+        password: Yup.string().required('password is required'),
         
     })
     let formik = useFormik({
@@ -93,7 +93,7 @@ export default function Login() {
                             visible={true}
                         />
                     </button> : <>
-                    <button type="submit" disabled={!(formik.isValid && formik.dirty)} className={Style.loginBtn}>Login</button> <Link className='d-block mt-5' to={'/register'}>You Dont have accont ?</Link>
+                    <button type="submit" disabled={!(formik.isValid && formik.dirty)} className={`${Style.loginBtn} btn-logpage`}>Login</button> <Link className='d-block mt-5' to={'/register'}>You Dont have accont ?</Link>
                     </>}
                 </form>
             </div>

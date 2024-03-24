@@ -110,3 +110,15 @@ code {
 .pro-con{
   margin-top: 100px;
 }
+
+.btn-logpage:hover{
+  background-color: #176064;
+}
+
+.loading-page{
+  background-image: url('../public/back.png');
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
