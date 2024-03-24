@@ -47,6 +47,7 @@ export default function AddHotel() {
   function addHotelData(e) {
     e.preventDefault();
     sendData();
+    navigate("/allhotel");
     
   }
   async function sendData() {
@@ -75,14 +76,14 @@ export default function AddHotel() {
       <div className="container mt-4">
         <div className="row  ">
           <div className="col-md-3 nav-background py-4 side-nav text-center">
-            <img src="default.jpg" className="w-75 rounded-circle" alt="" />
-            <h2>moataz gamal</h2>
+            <img src="admin.png" className="w-50 rounded-circle mb-2" alt="" />
+            <h3 className="text-muted">Admin</h3>
           </div>
 
           <div className="col-md-8 ms-4  side-nav">
           <form onSubmit={addHotelData} enctype="multipart/form-data">
 
-              <h2>Adding Hotel</h2>
+              <h2 style={{ color: "#47BCC2" }}>Adding Hotel</h2>
               <div className="row">
                 <div className="dic col-md-4">
                   <div className="mb-3">
@@ -158,7 +159,7 @@ export default function AddHotel() {
             </div>
             <div className="w-100 text-center mt-2">
 
-              <button type="submit" className="btn btn-dark w-50">Add Hotel</button>
+              <button type="submit" className="btn btn-dark w-50 mb-5">Add Hotel</button>
             </div>
           </form>
             </div>

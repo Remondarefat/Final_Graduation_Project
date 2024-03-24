@@ -7,7 +7,8 @@ import ReactStars from 'react-stars'
 import {React, useEffect, useState} from 'react'
 import axios from 'axios';
 import { Formik, useFormik } from 'formik';
-
+import Navbar from '../MainNavbar/Navbar';
+import Footer from '../MainFooter/Footer';
 
 export default function HotelRooms() {
     const { hotelId } = useParams();
@@ -76,6 +77,7 @@ export default function HotelRooms() {
     
     // ToDo-----------------------------------------------------------------------------------------------------------------------
     return <>
+                     <Navbar/>
                     {hotelDetails?
                     <>
                     <div id="carouselExampleInterval" className="carousel slide w-100 "  data-bs-ride="carousel">
@@ -126,10 +128,10 @@ export default function HotelRooms() {
                         <div className="row my-5">
                         {hotelDetails.data.room.map((room) => (
     <div key={room.id} className="col-md-4">
-        <div className="card" style={{ width: '22rem' }}>
+        <div className="card" style={{ width: '22rem' , height: '25rem' }}>
             <div className={Style.roomImg}>
                 <div>
-                    <img src={room.images[0].image} className="card-img-top" alt="Room" />
+                    <img src={room.images[0].image} className="card-img-top" style={{height: '16rem'}} alt="Room" />
                 </div>
                 <div className={`${Style.layer} ps-3` }>
                     <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} alt="Room" />
@@ -140,11 +142,11 @@ export default function HotelRooms() {
                     </div>
                 </div>
             </div>
-            <div className="card-body">
+            <div className="card-body" >
                 <p className="card-title fw-bold m-0">{room.type}</p>
                 <p className="card-text">{room.view}</p>
                 <div className='text-center'>
-                    <Link to={`/roomdesc/${hotelId}/${room.id}`} className="btn bg-dark text-white rounded-5 px-4 ">More Details</Link>
+                    <Link to={`/roomdesc/${hotelId}/${room.id}`} className="btn text-white rounded-5 px-4" style={{backgroundColor: '#47BCC2'}}>More Details</Link>
                 </div>
             </div>
         </div>
@@ -168,7 +170,7 @@ export default function HotelRooms() {
         <div key={rowIndex} className={`carousel-item ${rowIndex === 0 ? 'active' : ''}`}>
             <div className="row d-flex justify-content-center gx-3 ">
                 {row.map((review, colIndex) => (
-                    <div key={colIndex} className="col-md-4 bg-secondary ms-3 bg-opacity-25 border p-2 rounded-2">
+                    <div key={colIndex} className="col-md-4 ms-3 border p-2 rounded-2" style={{backgroundColor:'#E0E2E6'}}>
                         <div className="d-flex align-items-center justify-content-between ">
                             <p className="card-title fw-bold ">{review.user.name}</p>
                             <div className="">
@@ -214,7 +216,7 @@ export default function HotelRooms() {
                                         type='text'
                                         name='feedback' // Add the name attribute
                                         placeholder='Your Feedback'
-                                        className='w-100 border-0 rounded-4 ms-5 p-2  ps-2'
+                                        className='w-100 border-0 rounded-4 ms-5 p-2  ps-2 me-2'
                                     />
                                     <div className='bg-secondary bg-opacity-25 rounded-circle p-2'>
                                         <button className='bg-transparent p-0 border-0' type="submit"><i className="  fa-solid arrow fa-paper-plane cursor-pointer"></i></button>
@@ -240,5 +242,6 @@ export default function HotelRooms() {
                     </>
                     
                     :''}
+                    <Footer/>
     </>
 }

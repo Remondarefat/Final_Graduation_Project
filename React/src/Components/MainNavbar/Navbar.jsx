@@ -48,9 +48,9 @@ export default function Navbar() {
         <div className="container-fluid">
           <div className="d-flex justify-content-between w-100 align-items-center">
           <Link to={'/home'} className="logo">  <img src={logo} alt='nyla logo' className="footer-logo h-50"/> </Link>
-            <div className="nav-side p-2 d-flex bg-white align-items-center justify-content-between rounded-pill position-relative" style={{ cursor: 'pointer' , width: 'max-content'}} >
+            <div className="nav-side p-2 me-4 d-flex bg-white align-items-center justify-content-between rounded-pill position-relative" style={{ cursor: 'pointer' , width: 'max-content'}} >
               <FontAwesomeIcon icon={faBars} className="clickable pe-2" onClick={handleDropdownClick} />
-              <span className="nav-side-text clickable">Hi, {userFullName}</span>
+              <span className="nav-side-text clickable pe-2">Hi, {userFullName}</span>
               {isOpen && (
                 <ul className="dropdown-menu show">
                      <li>

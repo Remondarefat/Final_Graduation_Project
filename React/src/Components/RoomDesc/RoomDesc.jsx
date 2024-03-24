@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import Navbar from '../MainNavbar/Navbar';
+import Footer from '../MainFooter/Footer';
 export default function RoomDesc() {
     const { hotelId, roomId } = useParams();
     const [room, setRoom] = useState(null);
@@ -28,8 +29,10 @@ export default function RoomDesc() {
         return <div>Loading...</div>;
     }
     return (
+        <>
+        <Navbar/>
         <div className="container">
-            <div className="row mt-5  justify-content-center ">
+            <div className="row mt-5 pt-5 justify-content-center ">
                 {room.room.images.map((item) => (
                     <div key={item.id} className="col-md-4 ">
                         <div className={Style.roomImg}>
@@ -70,11 +73,14 @@ export default function RoomDesc() {
                 </div>
                 <div className="text-center">
             
-    <Link to={`/checkout/${hotelId}/${roomId}`} className="m-5 w-25 btn bg-dark text-white rounded-5 p-2">
+    <Link to={`/checkout/${hotelId}/${roomId}`}  className={`m-5 w-25 btn text-white rounded-5 p-2`} style={{backgroundColor: '#47BCC2'}} >
    Reserve Now
     </Link>
-                </div> 
+                </div>
             </div>
         </div>
-    );
+   
+    <Footer/>
+    </>
+     );
 }

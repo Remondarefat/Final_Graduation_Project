@@ -41,12 +41,12 @@ function App() {
     {
       path: '/', element:<Layout />, children: [
         // <ProtectedAdminRoute></ProtectedAdminRoute>
-        { path: '/addhotel', element: <AddHotel /> },
-        { path: '/addroom/:hotelId/:hotelName', element:<AddRoom />},
+        { path: '/addhotel', element: <ProtectedAdminRoute><AddHotel/></ProtectedAdminRoute> },
+        { path: '/addroom/:hotelId/:hotelName', element:<ProtectedAdminRoute><AddRoom /></ProtectedAdminRoute>},
 
-        { path: '/allhotel', element:<AllHotels /> },
-        { path: '/adminrequest', element:<AdminRequest /> },
-        { path: '/edithotel/:id', element: <EditHotel /> },
+        { path: '/allhotel', element:<ProtectedAdminRoute><AllHotels /></ProtectedAdminRoute> },
+        { path: '/adminrequest', element:<ProtectedAdminRoute><AdminRequest /></ProtectedAdminRoute> },
+        { path: '/edithotel/:id', element: <ProtectedAdminRoute><EditHotel /></ProtectedAdminRoute> },
       ]
     },
     { path: '/home', element: <HomePage /> },
