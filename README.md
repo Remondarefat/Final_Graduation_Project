@@ -32,7 +32,7 @@ Here are screenshots that show Nyla in use.
 ---
 
 **Edit Hotel**
-![Edit Hotel](/images/edithotel.jpg?raw=true "Edit Hotel")
+![Edit Hotel](/images/edithotel.png?raw=true "Edit Hotel")
 
 
 ---
@@ -136,7 +136,7 @@ Here are screenshots that show Nyla in use.
 ---
 
 **Edit Profile**
-![Edit Profile](/images/editProfile.png?raw=true "Edit Profile")
+![Edit Profile](/images/editprofile.png?raw=true "Edit Profile")
 
 ---
 
