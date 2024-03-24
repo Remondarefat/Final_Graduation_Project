@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reviews', function (Blueprint $table) {
+            $table->increments('id'); // Auto-incrementing primary key
             $table->string('feedback');
             $table->integer('rating');
             $table->unsignedBigInteger('hotel_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
-            $table->primary(['user_id', 'hotel_id']);
             $table->timestamps();
         });
     }

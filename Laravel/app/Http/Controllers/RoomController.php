@@ -41,15 +41,14 @@ class RoomController extends Controller
                 'hotel_id' => 'required',
             ]);
 
-            Room::create($data);
-
+            $room=Room::create($data);
 
             foreach ($request->file('image') as $image) {
                 $filename = $image->getClientOriginalName();
                 $image->move('storage/room_images', $filename);
                 RoomImage::create([
                     'image' => $filename,
-                    'room_id' => 1,
+                    'room_id' => $room->id,
                 ]);
             }
 
