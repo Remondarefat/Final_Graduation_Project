@@ -44,8 +44,8 @@ const RegionInHome = () => {
       <div className="row">
         {destinations.map((destination, index) => (
           <div key={index} className="col-md-4">
-            <div className="card shadow" onClick={() => handleDestinationClick(destination)} style={{ cursor: 'pointer' }}>
-              <img src={`${process.env.PUBLIC_URL}/${destination.imagePath}`} alt={destination.name} className="card-img-top" />
+            <div className="cardd shadow" onClick={() => handleDestinationClick(destination)} style={{ cursor: 'pointer' }}>
+              <img src={`${process.env.PUBLIC_URL}/${destination.imagePath}`} alt={destination.name} className="cardd-img-top" />
               <div className="overlay">
                 <h3>{destination.name}</h3>
               </div>

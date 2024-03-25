@@ -37,10 +37,13 @@ export default function RoomDesc() {
                     <div key={item.id} className="col-md-4 ">
                         <div className={Style.roomImg}>
                             <div className="">
-                                <img src={item.image} className="w-100 rounded-3" alt="Room" />
+                            {item.image.startsWith("http")?<img src={item.image} className='w-100 hotel-img' alt="" />:<img src={`http://localhost:8000/images/${item.image}`} className='w-100 hotel-img' alt="" />}
+                    
+                                {/* <img src={item.image} className="w-100 rounded-3" alt="Room" /> */}
                             </div>
                             <div className={Style.layer}>
-                                <img src={room.images[0].image} className={Style.hotelImg} alt="Hotel" />
+                            {room.images[0].image.startsWith("http")?<img src={room.images[0].image} className={Style.hotelImg} />:<img src={`http://localhost:8000/images/${room.images[0].image}`} className={Style.hotelImg} alt="" />}
+                                {/* <img src={room.images[0].image} className={Style.hotelImg} alt="Hotel" /> */}
                                 <div className="ms-3">
                                     <span>Listed by :</span>
                                     <p className="fw-bold m-0">{room.name}</p>

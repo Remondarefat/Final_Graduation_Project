@@ -20,7 +20,9 @@ export default function HotelItem({ item }) {
         <div className="col-md-3 mb-5  ">
             <div className=' position-relative '>
                 <div className=' position-relative '>
-                <img src={item.images[currentImageIndex].image} className='w-100 hotel-img' alt="" />
+                    {/* <img src={item.images[currentImageIndex].image} className='w-100 hotel-img' alt="" /> */}
+                    {item.images[currentImageIndex].image.startsWith("http")?<img src={item.images[currentImageIndex].image} className='w-100 hotel-img' alt="" />:<img src={`http://localhost:8000/images/${item.images[currentImageIndex].image}`} className='w-100 hotel-img' alt="" />}
+                    
 
                 <div className='position-absolute justify-content-center align-items-center  w-100 btn-addroom'>
                     <Link to={`/hotelrooms/${item.id}`}><button  className='btn btn-upload btn-back me-2'>More Details</button> </Link> 

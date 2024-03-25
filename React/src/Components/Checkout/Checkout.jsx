@@ -101,8 +101,9 @@ export default function Checkout({ onCheckoutData }) {
       <div className="container pt-5 mt-5">
         <div className="row">
           <div className={`col col-3 d-flex flex-column justify-content-center align-items-center rounded-3 me-4 ${style.leftContainer}`}>
-            {hotelDetails.hotelImages && hotelDetails.hotelImages.length > 0 && (
-              <img className={`${style.hotelImg} mt-4 rounded-circle`} src={hotelDetails.hotelImages[0].image} alt='Hotel image' />)}
+            
+            
+            {hotelDetails.hotelImages[0].image.startsWith("http") ? <img src={hotelDetails.hotelImages[0].image} className={`${style.hotelImg} mt-4 rounded-circle`} /> : <img src={`http://localhost:8000/images/${hotelDetails.hotelImages[0].image}`} className={`${style.hotelImg} mt-4 rounded-circle`} alt="" />}
             <h5 className='mt-3'>{hotelDetails.name}</h5>
             <div className="stars">
               <ReactStars value={hotelDetails.stars} count={5} edit={false} size={40} color2={'#ffd700'} />
@@ -148,7 +149,9 @@ export default function Checkout({ onCheckoutData }) {
                     <Carousel style={{ width: '400px' }}>
                       {hotelDetails.roomImages.map((imageObj, index) => (
                         <Carousel.Item key={index}>
-                          <img style={{ height: '250px', width: '400px' }} src={imageObj.image} alt={`Room ${index + 1}`} />
+                          {imageObj.image.startsWith("http") ? <img src={imageObj.image } className='w-100 im-room'/>:<img src={`http://localhost:8000/images/${imageObj.image}`} className='w-100 im-room'/> }
+                          
+                          {/* <img style={{ height: '250px', width: '400px' }} src={imageObj.image} alt={`Room ${index + 1}`} /> */}
                         </Carousel.Item>
                       ))}
                     </Carousel>

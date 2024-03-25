@@ -11,7 +11,8 @@ export default function AddRoom() {
   const [formData, setFormData] = useState({
     type:'',
     price:0,
-    view:'',
+    view: '',
+    description:'',
     image:[],
   });
   const handleImageUpload = (e) => {
@@ -27,8 +28,7 @@ export default function AddRoom() {
   function addRoomData(e) {
     e.preventDefault();
     sendData();
-   Navigate(`/allhotel`);
-
+    
     
   }
   async function sendData() {
@@ -36,16 +36,18 @@ export default function AddRoom() {
     formDataToSend.append('type', formData.type);
     formDataToSend.append('price', formData.price);
     formDataToSend.append('view', formData.view);  
+    formDataToSend.append('description', formData.description);  
     formDataToSend.append('hotel_id', hotelId);
     formData.image.forEach(file => {
       formDataToSend.append('image[]', file);
     });
     console.log(formDataToSend);
-
+    
     try {
      
       let { data } = await axios.post("http://localhost:8000/api/addroom", formDataToSend);
       console.log(data);
+      Navigate(`/allhotel`);
     } catch (error) {
       console.error(error);
     }
@@ -72,9 +74,13 @@ export default function AddRoom() {
                 <label htmlFor="price/night" className="mb-3 fw-bold text-muted">Price/Night :</label>
                 <input type="text" className="form-control w-75  d-flex align-self-start" onChange={handleInputChange} name="price" id="price/night" />
               </div>
-              <div className="d-flex flex-column">
+              <div className="d-flex flex-column me-5">
                 <label htmlFor="room-view" className="mb-3 fw-bold text-muted">Room View :</label>
                 <input type="text" className="form-control w-75  d-flex align-self-start" onChange={handleInputChange} name="view" id="room-view" />
+              </div>
+              <div className="d-flex flex-column ">
+                <label htmlFor="room-description" className="mb-3 fw-bold text-muted">Room Discription :</label>
+                <input type="text" className="form-control w-75  d-flex align-self-start" onChange={handleInputChange} name="description" id="room-description" />
               </div>
             </div>
             <div className="mt-3 d-flex flex-column align-items-center ">

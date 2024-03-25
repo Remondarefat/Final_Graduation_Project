@@ -47,26 +47,25 @@ export default function AddHotel() {
   function addHotelData(e) {
     e.preventDefault();
     sendData();
-    navigate("/allhotel");
     
   }
   async function sendData() {
     let formData = new FormData();
-      formData.append('name', hotel.name);
-      formData.append('location', hotel.location);
-      formData.append('description', hotel.description);
-      formData.append('region', hotel.region);
-      formData.append('stars', hotel.stars);
-      hotel.image.forEach(file => {
-        formData.append('image[]', file);
-      });
+    formData.append('name', hotel.name);
+    formData.append('location', hotel.location);
+    formData.append('description', hotel.description);
+    formData.append('region', hotel.region);
+    formData.append('stars', hotel.stars);
+    hotel.image.forEach(file => {
+      formData.append('image[]', file);
+    });
     
     console.log(formData);
-      try {
-        let { data } = await axios.post("http://localhost:8000/api/hotels", formData);
-        console.log(data.image);
-        navigate("/allhotel");
-      } catch (error) {
+    try {
+      let { data } = await axios.post("http://localhost:8000/api/hotels", formData);
+      console.log(data.image);
+      navigate("/allhotel");
+    } catch (error) {
         console.error(error);
       }
   }
@@ -102,11 +101,12 @@ export default function AddHotel() {
                         <label htmlFor="HotelRegion" className="form-label">Hotel Region</label>
                         <select defaultValue="" onChange={gethoteldata}  name="region" className="form-select">
                           <option value="">Not Selected</option>
-                          <option value="North Cost">North Cost</option>
-                          <option value="Upper Egypt" >Upper Egypt</option>
-                          <option value="Sinai">Sinai</option>
-                          <option value="Red Sea" >Red Sea</option>
-                          <option value="Cairo" >Cairo</option>
+                          <option value="northCoast">northCoast</option>
+                          <option value="upperEgypt" >upperEgypt</option>
+                          <option value="sinai">sinai</option>
+                          <option value="redSea" >redSea</option>
+                          <option value="cairo" >cairo</option>
+                          <option value="oasis" >oasis</option>
                         </select>
                       </div>
                 </div>

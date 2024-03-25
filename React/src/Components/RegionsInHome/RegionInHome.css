@@ -1,13 +1,13 @@
 .title-color{
     color: #47BCC2;
 }
-.card {
+.cardd {
     position: relative;
     text-align: center;
     margin-bottom: 20px; /* Add some space between the cards */
   }
   
-  .card img {
+  .cardd img {
     width: 100%; /* Make sure the image covers the card */
     height: auto; /* Keep the image's aspect ratio */
   }

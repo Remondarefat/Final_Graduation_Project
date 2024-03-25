@@ -11,17 +11,19 @@ import Navbar from '../MainNavbar/Navbar';
 import Footer from '../MainFooter/Footer';
 
 export default function HotelRooms() {
+    // 
+
     const { hotelId } = useParams();
     const [hotelDetails, setHotelDetails] = useState(null);
     const [feedbackValue, setFeedbackValue] = useState('');
     const [rating, setRating] = useState(0);
     const [reviews, setReviews] = useState([]);
     const [isloading, setIsloading] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     // ToDo: ------Fetch HotelDesc Data
     async function fetchHotelDetails() {
         let { data } = await axios.get(`http://127.0.0.1:8000/api/hoteldesc/${hotelId}`);
         setHotelDetails(data);
-        console.log(data);
     }
 
     useEffect(() => {
@@ -31,7 +33,7 @@ export default function HotelRooms() {
 
     // TODO:------------Fetch ReviewData-----------------
     async function fetchReviews() {
-        let { data } = await axios.get(`http://127.0.0.1:8000/api/reviews/2`);
+        let { data } = await axios.get(`http://127.0.0.1:8000/api/reviews/${hotelId}`);
         setReviews(data);
         console.log(data);
         setIsloading(true);
@@ -39,7 +41,7 @@ export default function HotelRooms() {
 
     useEffect(() => {
         fetchReviews();
-    }, []);
+    }, [hotelId]);
 
 
 
@@ -72,7 +74,7 @@ export default function HotelRooms() {
         initialValues:{
             feedback:'',
             rating:'',
-            hotel_id:2,
+            hotel_id:hotelId,
         },
         onSubmit:saveRating
     })
@@ -91,7 +93,9 @@ export default function HotelRooms() {
                                         className={`carousel-item ${index === 0 ? 'active' : ''}`}
                                         data-bs-interval="10000"
                                         >
-                                        <img src={item.image} className={`d-block w-100   ${Style.Slider}` }alt="..." />
+                                            {/* <img src={item.image} className={`d-block w-100   ${Style.Slider}` }alt="..." /> */}
+                                            {item.image.startsWith("http")?<img src={item.image} className='w-100 hotel-img' alt="" />:<img src={`http://localhost:8000/images/${item.image}`} className='w-100 hotel-img' alt="" />}
+                    
                                         </div>
                                     ))}
                                     </div>
@@ -128,16 +132,24 @@ export default function HotelRooms() {
                                 <p className='text-muted w-50'>{hotelDetails.data.location}</p>
                             </div>
                         </div>
-                        <div className="row my-5">
+                        {hotelDetails.data.room.length >0 ?<div className="row my-5">
                         {hotelDetails.data.room.map((room) => (
     <div key={room.id} className="col-md-4">
         <div className="card" style={{ width: '22rem' , height: '25rem' }}>
             <div className={Style.roomImg}>
-                <div>
-                    <img src={room.images[0].image} className="card-img-top" style={{height: '16rem'}} alt="Room" />
+                                        <div>
+                                            {/* console.log(data.data.room[0].images[0].image); */}
+                                            {/* data.data.room[1].images[0].image */}
+                                            {/* <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} alt="Room" /> */}
+                {/* {room.images[0].image.startsWith("http")?<h1 className='bg-danger'>true</h1>:<h1 className='bg-danger'>false</h1> }
+                {room.images[0].image.startsWith("http")?<h1 className='bg-danger'>true</h1>:<h1 className='bg-danger'>false</h1> } */}
+                                            {/* {room.images[0].image.startsWith("http") ? <img src={room.images[0].image } />:<img src={`http://localhost:8000/images/${room.images[0].image}`} className="w-100"/> } */}
+                                            {room.images[1].image.startsWith("http") ? <img src={room.images[1].image } className='w-100 im-room'/>:<img src={`http://localhost:8000/images/${room.images[1].image}`} className='w-100 im-room'/> }
+                    
+                    {/* <img src={room.images[0].image} className="card-img-top" style={{height: '16rem'}} alt="Room" /> */}
                 </div>
                 <div className={`${Style.layer} ps-3` }>
-                    <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} alt="Room" />
+                    {/* <img src={hotelDetails.data.image[0].image} className={Style.hotelImg} alt="Room" /> */}
                     <div className='ms-3'> 
                         <span>Listed by :</span>
                         <p className='fw-bold m-0'>{hotelDetails.data.name}</p>
@@ -156,52 +168,49 @@ export default function HotelRooms() {
     </div>
 ))}
 
-                            </div>
+                            </div>:null}
+                        
 
 
                         {/* ----------------- Display Customer Feedback------------------------------ */}
                         <div className="my-5 py-5">
-            <div id="carouselExample" className="carousel slide">
-            <div className="carousel-inner">
-    {reviews.reduce((rows, review, index) => {
-        if (index % 2 === 0) {
-            rows.push([]);
-        }
-        rows[rows.length - 1].push(review);
-        return rows;
-    }, []).map((row, rowIndex) => (
-        <div key={rowIndex} className={`carousel-item ${rowIndex === 0 ? 'active' : ''}`}>
-            <div className="row d-flex justify-content-center gx-3 ">
-                {row.map((review, colIndex) => (
-                    <div key={colIndex} className="col-md-4 ms-3 border p-2 rounded-2" style={{backgroundColor:'#E0E2E6'}}>
-                        <div className="d-flex align-items-center justify-content-between ">
-                            <p className="card-title fw-bold ">{review.user.name}</p>
-                            <div className="">
-                                {[...Array(review.rating)].map((_, index) => (
-                                    <i key={index} className="fa-solid fa-star text-warning"></i>
-                                ))}
-                                {[...Array(5 - review.rating)].map((_, index) => (
-                                    <i key={index + review.rating} className="fa-solid fa-star"></i>
-                                ))}
+    <div id="carouselExample" className="carousel slide">
+        <div className="carousel-inner">
+            {reviews.map((review, index) => (
+                <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                    <div className="row d-flex justify-content-center gx-3">
+                        <div className="col-md-4 ms-3 border p-2 rounded-2" style={{ backgroundColor: '#E0E2E6' }}>
+                            <div className="d-flex align-items-center justify-content-between">
+                                <p className="card-title fw-bold">{review.user.name}</p>
+                                <div className="">
+                                    {[...Array(review.rating)].map((_, starIndex) => (
+                                        <i key={starIndex} className="fa-solid fa-star text-warning"></i>
+                                    ))}
+                                    {[...Array(5 - review.rating)].map((_, starIndex) => (
+                                        <i key={starIndex + review.rating} className="fa-solid fa-star"></i>
+                                    ))}
+                                </div>
                             </div>
+                            <p>{review.feedback}</p>
                         </div>
-                        <p>{review.feedback}</p>
                     </div>
-                ))}
-            </div>
-        </div>
-    ))}
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon bg-dark bg-opacity-25" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span className="carousel-control-next-icon bg-dark bg-opacity-25" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
+            ))}
         </div>
+        {reviews.length > 0 && ( 
+            <>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon bg-dark bg-opacity-25" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span className="carousel-control-next-icon bg-dark bg-opacity-25" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+        </button>
+        </>
+        )}
+    </div>
+                        </div>
         
                     </section>
                     {/* -----------------------------Send Feedback------------------ */}

@@ -49,7 +49,6 @@ export default function EditHotel() {
   function addHotelData(e) {
     e.preventDefault();
     sendData();
-    Navigate(`/allhotel`);
     
   }
   async function sendData() {
@@ -64,7 +63,8 @@ export default function EditHotel() {
     console.log(hotel);
     let id=allparams.id;
     try {
-        let { data } = await axios.put(`http://localhost:8000/api/hotels/${id}`, formData);
+      let { data } = await axios.put(`http://localhost:8000/api/hotels/${id}`, formData);
+      Navigate(`/allhotel`);
         console.log(data);
       } catch (error) {
         console.error(error);
